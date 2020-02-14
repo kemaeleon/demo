@@ -1,0 +1,5 @@
+sphinx-apidoc -o source/ ../regulatome
+cd source
+rm *migrations* 
+# manually add command module to abundances  
+make html

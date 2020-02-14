@@ -1,0 +1,158 @@
+abundances.migrations package
+=============================
+
+Submodules
+----------
+
+abundances.migrations.0001\_initial module
+------------------------------------------
+
+.. automodule:: abundances.migrations.0001_initial
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0002\_auto\_20191031\_1151 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0002_auto_20191031_1151
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0003\_auto\_20191102\_1933 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0003_auto_20191102_1933
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0004\_singletimepoint module
+--------------------------------------------------
+
+.. automodule:: abundances.migrations.0004_singletimepoint
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0005\_indexabundance module
+-------------------------------------------------
+
+.. automodule:: abundances.migrations.0005_indexabundance
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0006\_indexabundance\_time\_course module
+---------------------------------------------------------------
+
+.. automodule:: abundances.migrations.0006_indexabundance_time_course
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0007\_auto\_20191108\_1038 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0007_auto_20191108_1038
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0008\_auto\_20191108\_1221 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0008_auto_20191108_1221
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0009\_timecourse\_exp module
+--------------------------------------------------
+
+.. automodule:: abundances.migrations.0009_timecourse_exp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0010\_auto\_20191108\_1533 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0010_auto_20191108_1533
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0011\_remove\_timecourse\_exp module
+----------------------------------------------------------
+
+.. automodule:: abundances.migrations.0011_remove_timecourse_exp
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0012\_auto\_20191112\_0956 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0012_auto_20191112_0956
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0013\_auto\_20191112\_1004 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0013_auto_20191112_1004
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0014\_auto\_20191112\_1244 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0014_auto_20191112_1244
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0015\_auto\_20191120\_1518 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0015_auto_20191120_1518
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0016\_auto\_20191121\_0915 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0016_auto_20191121_0915
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0017\_auto\_20191121\_0946 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0017_auto_20191121_0946
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.migrations.0018\_auto\_20191121\_1129 module
+-------------------------------------------------------
+
+.. automodule:: abundances.migrations.0018_auto_20191121_1129
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: abundances.migrations
+   :members:
+   :undoc-members:
+   :show-inheritance:

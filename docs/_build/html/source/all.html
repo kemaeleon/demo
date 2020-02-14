@@ -1,0 +1,1302 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>abundances package &#8212; regulatome  documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">regulatome  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">abundances package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-abundances.admin">abundances.admin module</a></li>
+<li><a class="reference internal" href="#module-abundances.apps">abundances.apps module</a></li>
+<li><a class="reference internal" href="#module-abundances.filter">abundances.filter module</a></li>
+<li><a class="reference internal" href="#module-abundances.models">abundances.models module</a></li>
+<li><a class="reference internal" href="#module-abundances.tables">abundances.tables module</a></li>
+<li><a class="reference internal" href="#module-abundances.tests">abundances.tests module</a></li>
+<li><a class="reference internal" href="#module-abundances.urls">abundances.urls module</a></li>
+<li><a class="reference internal" href="#module-abundances.views">abundances.views module</a></li>
+<li><a class="reference internal" href="#module-abundances">Module contents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-manage">manage module</a></li>
+<li><a class="reference internal" href="#regulatome">regulatome</a></li>
+<li><a class="reference internal" href="#regulatome-package">regulatome package</a><ul>
+<li><a class="reference internal" href="#id1">Submodules</a></li>
+<li><a class="reference internal" href="#module-regulatome.settings">regulatome.settings module</a></li>
+<li><a class="reference internal" href="#module-regulatome.urls">regulatome.urls module</a></li>
+<li><a class="reference internal" href="#module-regulatome.wsgi">regulatome.wsgi module</a></li>
+<li><a class="reference internal" href="#id2">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/source/all.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="abundances-package">
+<h1>abundances package<a class="headerlink" href="#abundances-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-abundances.admin">
+<span id="abundances-admin-module"></span><h2>abundances.admin module<a class="headerlink" href="#module-abundances.admin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="abundances.admin.PeakAdmin">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.admin.</code><code class="sig-name descname">PeakAdmin</code><span class="sig-paren">(</span><em class="sig-param">model</em>, <em class="sig-param">admin_site</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.admin.PeakAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.admin.options.ModelAdmin</span></code></p>
+<dl class="attribute">
+<dt id="abundances.admin.PeakAdmin.list_display">
+<code class="sig-name descname">list_display</code><em class="property"> = ('gene_id', 'description', 'pos24')</em><a class="headerlink" href="#abundances.admin.PeakAdmin.list_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.admin.PeakAdmin.list_per_page">
+<code class="sig-name descname">list_per_page</code><em class="property"> = 15</em><a class="headerlink" href="#abundances.admin.PeakAdmin.list_per_page" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="abundances.admin.PeakAdmin.media">
+<em class="property">property </em><code class="sig-name descname">media</code><a class="headerlink" href="#abundances.admin.PeakAdmin.media" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.admin.PeakAdmin.save_on_top">
+<code class="sig-name descname">save_on_top</code><em class="property"> = True</em><a class="headerlink" href="#abundances.admin.PeakAdmin.save_on_top" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.admin.PeakAdmin.search_fields">
+<code class="sig-name descname">search_fields</code><em class="property"> = ('gene_id', 'description', 'pos24')</em><a class="headerlink" href="#abundances.admin.PeakAdmin.search_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-abundances.apps">
+<span id="abundances-apps-module"></span><h2>abundances.apps module<a class="headerlink" href="#module-abundances.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="abundances.apps.AssaysConfig">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.apps.</code><code class="sig-name descname">AssaysConfig</code><span class="sig-paren">(</span><em class="sig-param">app_name</em>, <em class="sig-param">app_module</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.apps.AssaysConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="attribute">
+<dt id="abundances.apps.AssaysConfig.name">
+<code class="sig-name descname">name</code><em class="property"> = 'abundances'</em><a class="headerlink" href="#abundances.apps.AssaysConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-abundances.filter">
+<span id="abundances-filter-module"></span><h2>abundances.filter module<a class="headerlink" href="#module-abundances.filter" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="abundances.filter.IndexFilter">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.filter.</code><code class="sig-name descname">IndexFilter</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">queryset=None</em>, <em class="sig-param">*</em>, <em class="sig-param">request=None</em>, <em class="sig-param">prefix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.filter.IndexFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_filters.filterset.FilterSet</span></code></p>
+<dl class="class">
+<dt id="abundances.filter.IndexFilter.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#abundances.filter.IndexFilter.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="abundances.filter.IndexFilter.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = {'gene_id': ['exact']}</em><a class="headerlink" href="#abundances.filter.IndexFilter.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.filter.IndexFilter.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#abundances.filter.IndexFilter.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.models.IndexAbundance" title="abundances.models.IndexAbundance"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.models.IndexAbundance</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.filter.IndexFilter.base_filters">
+<code class="sig-name descname">base_filters</code><em class="property"> = {'gene_id': &lt;django_filters.filters.CharFilter object&gt;}</em><a class="headerlink" href="#abundances.filter.IndexFilter.base_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.filter.IndexFilter.declared_filters">
+<code class="sig-name descname">declared_filters</code><em class="property"> = {}</em><a class="headerlink" href="#abundances.filter.IndexFilter.declared_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="abundances.filter.SingleTimePointFilter">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.filter.</code><code class="sig-name descname">SingleTimePointFilter</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">queryset=None</em>, <em class="sig-param">*</em>, <em class="sig-param">request=None</em>, <em class="sig-param">prefix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.filter.SingleTimePointFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_filters.filterset.FilterSet</span></code></p>
+<dl class="class">
+<dt id="abundances.filter.SingleTimePointFilter.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#abundances.filter.SingleTimePointFilter.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="abundances.filter.SingleTimePointFilter.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = {'description': ['exact', 'contains'], 'gene_id': ['exact']}</em><a class="headerlink" href="#abundances.filter.SingleTimePointFilter.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.filter.SingleTimePointFilter.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#abundances.filter.SingleTimePointFilter.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.models.SingleTimePoint" title="abundances.models.SingleTimePoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.models.SingleTimePoint</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.filter.SingleTimePointFilter.base_filters">
+<code class="sig-name descname">base_filters</code><em class="property"> = {'description': &lt;django_filters.filters.CharFilter object&gt;, 'description__contains': &lt;django_filters.filters.CharFilter object&gt;, 'gene_id': &lt;django_filters.filters.CharFilter object&gt;}</em><a class="headerlink" href="#abundances.filter.SingleTimePointFilter.base_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.filter.SingleTimePointFilter.declared_filters">
+<code class="sig-name descname">declared_filters</code><em class="property"> = {}</em><a class="headerlink" href="#abundances.filter.SingleTimePointFilter.declared_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="abundances.filter.TimeCourseFilter">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.filter.</code><code class="sig-name descname">TimeCourseFilter</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">queryset=None</em>, <em class="sig-param">*</em>, <em class="sig-param">request=None</em>, <em class="sig-param">prefix=None</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.filter.TimeCourseFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_filters.filterset.FilterSet</span></code></p>
+<dl class="class">
+<dt id="abundances.filter.TimeCourseFilter.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#abundances.filter.TimeCourseFilter.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="abundances.filter.TimeCourseFilter.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = {'description': ['exact', 'contains'], 'gene_id': ['exact'], 'log2_n48a_by_m48a': ['gt'], 'log2_p48a_by_m48a': ['lt']}</em><a class="headerlink" href="#abundances.filter.TimeCourseFilter.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.filter.TimeCourseFilter.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#abundances.filter.TimeCourseFilter.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.models.TimeCourse" title="abundances.models.TimeCourse"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.models.TimeCourse</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.filter.TimeCourseFilter.base_filters">
+<code class="sig-name descname">base_filters</code><em class="property"> = {'description': &lt;django_filters.filters.CharFilter object&gt;, 'description__contains': &lt;django_filters.filters.CharFilter object&gt;, 'gene_id': &lt;django_filters.filters.CharFilter object&gt;, 'log2_n48a_by_m48a__gt': &lt;django_filters.filters.NumberFilter object&gt;, 'log2_p48a_by_m48a__lt': &lt;django_filters.filters.NumberFilter object&gt;}</em><a class="headerlink" href="#abundances.filter.TimeCourseFilter.base_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.filter.TimeCourseFilter.declared_filters">
+<code class="sig-name descname">declared_filters</code><em class="property"> = {}</em><a class="headerlink" href="#abundances.filter.TimeCourseFilter.declared_filters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-abundances.models">
+<span id="abundances-models-module"></span><h2>abundances.models module<a class="headerlink" href="#module-abundances.models" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="abundances.models.BaseAbundance">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.models.</code><code class="sig-name descname">BaseAbundance</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.models.BaseAbundance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="class">
+<dt id="abundances.models.BaseAbundance.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#abundances.models.BaseAbundance.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="abundances.models.BaseAbundance.Meta.abstract">
+<code class="sig-name descname">abstract</code><em class="property"> = False</em><a class="headerlink" href="#abundances.models.BaseAbundance.Meta.abstract" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.BaseAbundance.accession">
+<code class="sig-name descname">accession</code><a class="headerlink" href="#abundances.models.BaseAbundance.accession" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.BaseAbundance.description">
+<code class="sig-name descname">description</code><a class="headerlink" href="#abundances.models.BaseAbundance.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.BaseAbundance.gene_id">
+<code class="sig-name descname">gene_id</code><a class="headerlink" href="#abundances.models.BaseAbundance.gene_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.BaseAbundance.missing_values">
+<code class="sig-name descname">missing_values</code><a class="headerlink" href="#abundances.models.BaseAbundance.missing_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.BaseAbundance.protein_fdr_confidence_combined">
+<code class="sig-name descname">protein_fdr_confidence_combined</code><a class="headerlink" href="#abundances.models.BaseAbundance.protein_fdr_confidence_combined" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.BaseAbundance.s_by_n">
+<code class="sig-name descname">s_by_n</code><a class="headerlink" href="#abundances.models.BaseAbundance.s_by_n" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.BaseAbundance.taxonomy">
+<code class="sig-name descname">taxonomy</code><a class="headerlink" href="#abundances.models.BaseAbundance.taxonomy" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.BaseAbundance.uniq_gene_id">
+<code class="sig-name descname">uniq_gene_id</code><a class="headerlink" href="#abundances.models.BaseAbundance.uniq_gene_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.BaseAbundance.unique_peptides">
+<code class="sig-name descname">unique_peptides</code><a class="headerlink" href="#abundances.models.BaseAbundance.unique_peptides" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="abundances.models.IndexAbundance">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.models.</code><code class="sig-name descname">IndexAbundance</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">gene_id</em>, <em class="sig-param">time_course_tokens</em>, <em class="sig-param">single_time_tokens</em>, <em class="sig-param">time_course</em>, <em class="sig-param">single_time_point</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.models.IndexAbundance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="exception">
+<dt id="abundances.models.IndexAbundance.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#abundances.models.IndexAbundance.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="abundances.models.IndexAbundance.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#abundances.models.IndexAbundance.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.IndexAbundance.gene_id">
+<code class="sig-name descname">gene_id</code><a class="headerlink" href="#abundances.models.IndexAbundance.gene_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.IndexAbundance.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#abundances.models.IndexAbundance.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.IndexAbundance.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#abundances.models.IndexAbundance.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.IndexAbundance.single_time_point">
+<code class="sig-name descname">single_time_point</code><a class="headerlink" href="#abundances.models.IndexAbundance.single_time_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.IndexAbundance.single_time_tokens">
+<code class="sig-name descname">single_time_tokens</code><a class="headerlink" href="#abundances.models.IndexAbundance.single_time_tokens" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.IndexAbundance.time_course">
+<code class="sig-name descname">time_course</code><a class="headerlink" href="#abundances.models.IndexAbundance.time_course" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.IndexAbundance.time_course_tokens">
+<code class="sig-name descname">time_course_tokens</code><a class="headerlink" href="#abundances.models.IndexAbundance.time_course_tokens" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="abundances.models.SingleTimePoint">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.models.</code><code class="sig-name descname">SingleTimePoint</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">accession</em>, <em class="sig-param">gene_id</em>, <em class="sig-param">uniq_gene_id</em>, <em class="sig-param">description</em>, <em class="sig-param">taxonomy</em>, <em class="sig-param">protein_fdr_confidence_combined</em>, <em class="sig-param">missing_values</em>, <em class="sig-param">s_by_n</em>, <em class="sig-param">unique_peptides</em>, <em class="sig-param">log2_wt_by_mock</em>, <em class="sig-param">p_wt_by_mock</em>, <em class="sig-param">q_wt_by_mock</em>, <em class="sig-param">log2_delta_vif_by_mock</em>, <em class="sig-param">p_delta_vif_by_mock</em>, <em class="sig-param">q_delta_vif_by_mock</em>, <em class="sig-param">log2_wt_by_delta_vif</em>, <em class="sig-param">p_wt_by_delta_vif</em>, <em class="sig-param">q_wt_by_delta_vif</em>, <em class="sig-param">a_mock</em>, <em class="sig-param">b_mock</em>, <em class="sig-param">c_mock</em>, <em class="sig-param">a_wt</em>, <em class="sig-param">b_wt</em>, <em class="sig-param">c_wt</em>, <em class="sig-param">a_delta_vif</em>, <em class="sig-param">b_delta_vif</em>, <em class="sig-param">c_delta_vif</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.models.SingleTimePoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#abundances.models.BaseAbundance" title="abundances.models.BaseAbundance"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.models.BaseAbundance</span></code></a></p>
+<dl class="exception">
+<dt id="abundances.models.SingleTimePoint.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#abundances.models.SingleTimePoint.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="abundances.models.SingleTimePoint.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#abundances.models.SingleTimePoint.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.a_delta_vif">
+<code class="sig-name descname">a_delta_vif</code><a class="headerlink" href="#abundances.models.SingleTimePoint.a_delta_vif" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.a_mock">
+<code class="sig-name descname">a_mock</code><a class="headerlink" href="#abundances.models.SingleTimePoint.a_mock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.a_wt">
+<code class="sig-name descname">a_wt</code><a class="headerlink" href="#abundances.models.SingleTimePoint.a_wt" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.b_delta_vif">
+<code class="sig-name descname">b_delta_vif</code><a class="headerlink" href="#abundances.models.SingleTimePoint.b_delta_vif" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.b_mock">
+<code class="sig-name descname">b_mock</code><a class="headerlink" href="#abundances.models.SingleTimePoint.b_mock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.b_wt">
+<code class="sig-name descname">b_wt</code><a class="headerlink" href="#abundances.models.SingleTimePoint.b_wt" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.c_delta_vif">
+<code class="sig-name descname">c_delta_vif</code><a class="headerlink" href="#abundances.models.SingleTimePoint.c_delta_vif" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.c_mock">
+<code class="sig-name descname">c_mock</code><a class="headerlink" href="#abundances.models.SingleTimePoint.c_mock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.c_wt">
+<code class="sig-name descname">c_wt</code><a class="headerlink" href="#abundances.models.SingleTimePoint.c_wt" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="abundances.models.SingleTimePoint.get_absolute_url">
+<code class="sig-name descname">get_absolute_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.models.SingleTimePoint.get_absolute_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#abundances.models.SingleTimePoint.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.log2_delta_vif_by_mock">
+<code class="sig-name descname">log2_delta_vif_by_mock</code><a class="headerlink" href="#abundances.models.SingleTimePoint.log2_delta_vif_by_mock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.log2_wt_by_delta_vif">
+<code class="sig-name descname">log2_wt_by_delta_vif</code><a class="headerlink" href="#abundances.models.SingleTimePoint.log2_wt_by_delta_vif" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.log2_wt_by_mock">
+<code class="sig-name descname">log2_wt_by_mock</code><a class="headerlink" href="#abundances.models.SingleTimePoint.log2_wt_by_mock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#abundances.models.SingleTimePoint.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.p_delta_vif_by_mock">
+<code class="sig-name descname">p_delta_vif_by_mock</code><a class="headerlink" href="#abundances.models.SingleTimePoint.p_delta_vif_by_mock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.p_wt_by_delta_vif">
+<code class="sig-name descname">p_wt_by_delta_vif</code><a class="headerlink" href="#abundances.models.SingleTimePoint.p_wt_by_delta_vif" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.p_wt_by_mock">
+<code class="sig-name descname">p_wt_by_mock</code><a class="headerlink" href="#abundances.models.SingleTimePoint.p_wt_by_mock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.q_delta_vif_by_mock">
+<code class="sig-name descname">q_delta_vif_by_mock</code><a class="headerlink" href="#abundances.models.SingleTimePoint.q_delta_vif_by_mock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.q_wt_by_delta_vif">
+<code class="sig-name descname">q_wt_by_delta_vif</code><a class="headerlink" href="#abundances.models.SingleTimePoint.q_wt_by_delta_vif" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.SingleTimePoint.q_wt_by_mock">
+<code class="sig-name descname">q_wt_by_mock</code><a class="headerlink" href="#abundances.models.SingleTimePoint.q_wt_by_mock" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="abundances.models.TimeCourse">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.models.</code><code class="sig-name descname">TimeCourse</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">accession</em>, <em class="sig-param">gene_id</em>, <em class="sig-param">uniq_gene_id</em>, <em class="sig-param">description</em>, <em class="sig-param">taxonomy</em>, <em class="sig-param">protein_fdr_confidence_combined</em>, <em class="sig-param">missing_values</em>, <em class="sig-param">s_by_n</em>, <em class="sig-param">unique_peptides</em>, <em class="sig-param">r1_a</em>, <em class="sig-param">r2_a</em>, <em class="sig-param">a1_a</em>, <em class="sig-param">a2_a</em>, <em class="sig-param">m24_a</em>, <em class="sig-param">pos24_a</em>, <em class="sig-param">neg24_a</em>, <em class="sig-param">m48_a</em>, <em class="sig-param">pos48_a</em>, <em class="sig-param">neg48_a</em>, <em class="sig-param">log2_r1a_by_r2a</em>, <em class="sig-param">log2_a1a_by_a2a</em>, <em class="sig-param">log2_p24a_by_m24a</em>, <em class="sig-param">log2_n24a_by_m24a</em>, <em class="sig-param">log2_p48a_by_m48a</em>, <em class="sig-param">log2_n48a_by_m48a</em>, <em class="sig-param">r1</em>, <em class="sig-param">r2</em>, <em class="sig-param">a1</em>, <em class="sig-param">a2</em>, <em class="sig-param">m24</em>, <em class="sig-param">pos24</em>, <em class="sig-param">neg24</em>, <em class="sig-param">m48</em>, <em class="sig-param">pos48</em>, <em class="sig-param">neg48</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.models.TimeCourse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#abundances.models.BaseAbundance" title="abundances.models.BaseAbundance"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.models.BaseAbundance</span></code></a></p>
+<dl class="exception">
+<dt id="abundances.models.TimeCourse.DoesNotExist">
+<em class="property">exception </em><code class="sig-name descname">DoesNotExist</code><a class="headerlink" href="#abundances.models.TimeCourse.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="abundances.models.TimeCourse.MultipleObjectsReturned">
+<em class="property">exception </em><code class="sig-name descname">MultipleObjectsReturned</code><a class="headerlink" href="#abundances.models.TimeCourse.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.a1">
+<code class="sig-name descname">a1</code><a class="headerlink" href="#abundances.models.TimeCourse.a1" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.a1_a">
+<code class="sig-name descname">a1_a</code><a class="headerlink" href="#abundances.models.TimeCourse.a1_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.a2">
+<code class="sig-name descname">a2</code><a class="headerlink" href="#abundances.models.TimeCourse.a2" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.a2_a">
+<code class="sig-name descname">a2_a</code><a class="headerlink" href="#abundances.models.TimeCourse.a2_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="abundances.models.TimeCourse.get_absolute_url">
+<code class="sig-name descname">get_absolute_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.models.TimeCourse.get_absolute_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#abundances.models.TimeCourse.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.log2_a1a_by_a2a">
+<code class="sig-name descname">log2_a1a_by_a2a</code><a class="headerlink" href="#abundances.models.TimeCourse.log2_a1a_by_a2a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.log2_n24a_by_m24a">
+<code class="sig-name descname">log2_n24a_by_m24a</code><a class="headerlink" href="#abundances.models.TimeCourse.log2_n24a_by_m24a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.log2_n48a_by_m48a">
+<code class="sig-name descname">log2_n48a_by_m48a</code><a class="headerlink" href="#abundances.models.TimeCourse.log2_n48a_by_m48a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.log2_p24a_by_m24a">
+<code class="sig-name descname">log2_p24a_by_m24a</code><a class="headerlink" href="#abundances.models.TimeCourse.log2_p24a_by_m24a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.log2_p48a_by_m48a">
+<code class="sig-name descname">log2_p48a_by_m48a</code><a class="headerlink" href="#abundances.models.TimeCourse.log2_p48a_by_m48a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.log2_r1a_by_r2a">
+<code class="sig-name descname">log2_r1a_by_r2a</code><a class="headerlink" href="#abundances.models.TimeCourse.log2_r1a_by_r2a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.m24">
+<code class="sig-name descname">m24</code><a class="headerlink" href="#abundances.models.TimeCourse.m24" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.m24_a">
+<code class="sig-name descname">m24_a</code><a class="headerlink" href="#abundances.models.TimeCourse.m24_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.m48">
+<code class="sig-name descname">m48</code><a class="headerlink" href="#abundances.models.TimeCourse.m48" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.m48_a">
+<code class="sig-name descname">m48_a</code><a class="headerlink" href="#abundances.models.TimeCourse.m48_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.neg24">
+<code class="sig-name descname">neg24</code><a class="headerlink" href="#abundances.models.TimeCourse.neg24" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.neg24_a">
+<code class="sig-name descname">neg24_a</code><a class="headerlink" href="#abundances.models.TimeCourse.neg24_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.neg48">
+<code class="sig-name descname">neg48</code><a class="headerlink" href="#abundances.models.TimeCourse.neg48" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.neg48_a">
+<code class="sig-name descname">neg48_a</code><a class="headerlink" href="#abundances.models.TimeCourse.neg48_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.objects">
+<code class="sig-name descname">objects</code><em class="property"> = &lt;django.db.models.manager.Manager object&gt;</em><a class="headerlink" href="#abundances.models.TimeCourse.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.pos24">
+<code class="sig-name descname">pos24</code><a class="headerlink" href="#abundances.models.TimeCourse.pos24" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.pos24_a">
+<code class="sig-name descname">pos24_a</code><a class="headerlink" href="#abundances.models.TimeCourse.pos24_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.pos48">
+<code class="sig-name descname">pos48</code><a class="headerlink" href="#abundances.models.TimeCourse.pos48" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.pos48_a">
+<code class="sig-name descname">pos48_a</code><a class="headerlink" href="#abundances.models.TimeCourse.pos48_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.r1">
+<code class="sig-name descname">r1</code><a class="headerlink" href="#abundances.models.TimeCourse.r1" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.r1_a">
+<code class="sig-name descname">r1_a</code><a class="headerlink" href="#abundances.models.TimeCourse.r1_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.r2">
+<code class="sig-name descname">r2</code><a class="headerlink" href="#abundances.models.TimeCourse.r2" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.models.TimeCourse.r2_a">
+<code class="sig-name descname">r2_a</code><a class="headerlink" href="#abundances.models.TimeCourse.r2_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-abundances.tables">
+<span id="abundances-tables-module"></span><h2>abundances.tables module<a class="headerlink" href="#module-abundances.tables" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="abundances.tables.IndexTable">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.tables.</code><code class="sig-name descname">IndexTable</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">order_by=None</em>, <em class="sig-param">orderable=None</em>, <em class="sig-param">empty_text=None</em>, <em class="sig-param">exclude=None</em>, <em class="sig-param">attrs=None</em>, <em class="sig-param">row_attrs=None</em>, <em class="sig-param">pinned_row_attrs=None</em>, <em class="sig-param">sequence=None</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">order_by_field=None</em>, <em class="sig-param">page_field=None</em>, <em class="sig-param">per_page_field=None</em>, <em class="sig-param">template_name=None</em>, <em class="sig-param">default=None</em>, <em class="sig-param">request=None</em>, <em class="sig-param">show_header=None</em>, <em class="sig-param">show_footer=True</em>, <em class="sig-param">extra_columns=None</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.tables.IndexTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_tables2.tables.Table</span></code></p>
+<dl class="class">
+<dt id="abundances.tables.IndexTable.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#abundances.tables.IndexTable.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="abundances.tables.IndexTable.Meta.attrs">
+<code class="sig-name descname">attrs</code><em class="property"> = {'class': 'table table-striped table-hover table-responsive w-auto'}</em><a class="headerlink" href="#abundances.tables.IndexTable.Meta.attrs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.IndexTable.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('gene_id', 'time_course_tokens', 'single_time_tokens')</em><a class="headerlink" href="#abundances.tables.IndexTable.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.IndexTable.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#abundances.tables.IndexTable.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.models.IndexAbundance" title="abundances.models.IndexAbundance"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.models.IndexAbundance</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.IndexTable.Meta.sequence">
+<code class="sig-name descname">sequence</code><em class="property"> = ('selected', 'gene_id')</em><a class="headerlink" href="#abundances.tables.IndexTable.Meta.sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.IndexTable.base_columns">
+<code class="sig-name descname">base_columns</code><em class="property"> = {'gene_id': &lt;django_tables2.columns.base.Column object&gt;, 'selected': &lt;django_tables2.columns.checkboxcolumn.CheckBoxColumn object&gt;, 'single_time_tokens': &lt;django_tables2.columns.base.Column object&gt;, 'time_course_tokens': &lt;django_tables2.columns.base.Column object&gt;}</em><a class="headerlink" href="#abundances.tables.IndexTable.base_columns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="abundances.tables.IndexTable.render_edit">
+<code class="sig-name descname">render_edit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.tables.IndexTable.render_edit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="abundances.tables.PeakTable">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.tables.</code><code class="sig-name descname">PeakTable</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">order_by=None</em>, <em class="sig-param">orderable=None</em>, <em class="sig-param">empty_text=None</em>, <em class="sig-param">exclude=None</em>, <em class="sig-param">attrs=None</em>, <em class="sig-param">row_attrs=None</em>, <em class="sig-param">pinned_row_attrs=None</em>, <em class="sig-param">sequence=None</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">order_by_field=None</em>, <em class="sig-param">page_field=None</em>, <em class="sig-param">per_page_field=None</em>, <em class="sig-param">template_name=None</em>, <em class="sig-param">default=None</em>, <em class="sig-param">request=None</em>, <em class="sig-param">show_header=None</em>, <em class="sig-param">show_footer=True</em>, <em class="sig-param">extra_columns=None</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.tables.PeakTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_tables2.tables.Table</span></code></p>
+<dl class="class">
+<dt id="abundances.tables.PeakTable.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#abundances.tables.PeakTable.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="abundances.tables.PeakTable.Meta.attrs">
+<code class="sig-name descname">attrs</code><em class="property"> = {'class': 'table table-striped table-hover table-responsive w-auto'}</em><a class="headerlink" href="#abundances.tables.PeakTable.Meta.attrs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.PeakTable.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('gene_id', 'accession', 'description', 'log2_p24a_by_m24a', 'log2_n24a_by_m24a', 'log2_p48a_by_m48a', 'log2_n48a_by_m48a')</em><a class="headerlink" href="#abundances.tables.PeakTable.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.PeakTable.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#abundances.tables.PeakTable.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.models.TimeCourse" title="abundances.models.TimeCourse"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.models.TimeCourse</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.PeakTable.Meta.sequence">
+<code class="sig-name descname">sequence</code><em class="property"> = ('selected', 'gene_id')</em><a class="headerlink" href="#abundances.tables.PeakTable.Meta.sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.PeakTable.base_columns">
+<code class="sig-name descname">base_columns</code><em class="property"> = {'accession': &lt;django_tables2.columns.base.Column object&gt;, 'description': &lt;django_tables2.columns.base.Column object&gt;, 'gene_id': &lt;django_tables2.columns.base.Column object&gt;, 'log2_n24a_by_m24a': &lt;django_tables2.columns.base.Column object&gt;, 'log2_n48a_by_m48a': &lt;django_tables2.columns.base.Column object&gt;, 'log2_p24a_by_m24a': &lt;django_tables2.columns.base.Column object&gt;, 'log2_p48a_by_m48a': &lt;django_tables2.columns.base.Column object&gt;, 'selected': &lt;django_tables2.columns.checkboxcolumn.CheckBoxColumn object&gt;}</em><a class="headerlink" href="#abundances.tables.PeakTable.base_columns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="abundances.tables.PeakTable.render_edit">
+<code class="sig-name descname">render_edit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.tables.PeakTable.render_edit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.PeakTable.ttype">
+<code class="sig-name descname">ttype</code><em class="property"> = 'tc'</em><a class="headerlink" href="#abundances.tables.PeakTable.ttype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="abundances.tables.SingleTimePointTable">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.tables.</code><code class="sig-name descname">SingleTimePointTable</code><span class="sig-paren">(</span><em class="sig-param">data=None</em>, <em class="sig-param">order_by=None</em>, <em class="sig-param">orderable=None</em>, <em class="sig-param">empty_text=None</em>, <em class="sig-param">exclude=None</em>, <em class="sig-param">attrs=None</em>, <em class="sig-param">row_attrs=None</em>, <em class="sig-param">pinned_row_attrs=None</em>, <em class="sig-param">sequence=None</em>, <em class="sig-param">prefix=None</em>, <em class="sig-param">order_by_field=None</em>, <em class="sig-param">page_field=None</em>, <em class="sig-param">per_page_field=None</em>, <em class="sig-param">template_name=None</em>, <em class="sig-param">default=None</em>, <em class="sig-param">request=None</em>, <em class="sig-param">show_header=None</em>, <em class="sig-param">show_footer=True</em>, <em class="sig-param">extra_columns=None</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.tables.SingleTimePointTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_tables2.tables.Table</span></code></p>
+<dl class="class">
+<dt id="abundances.tables.SingleTimePointTable.Meta">
+<em class="property">class </em><code class="sig-name descname">Meta</code><a class="headerlink" href="#abundances.tables.SingleTimePointTable.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="attribute">
+<dt id="abundances.tables.SingleTimePointTable.Meta.attrs">
+<code class="sig-name descname">attrs</code><em class="property"> = {'class': 'table table-striped table-hover table-responsive w-auto'}</em><a class="headerlink" href="#abundances.tables.SingleTimePointTable.Meta.attrs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.SingleTimePointTable.Meta.fields">
+<code class="sig-name descname">fields</code><em class="property"> = ('gene_id', 'a_mock', 'b_mock', 'c_mock', 'a_wt', 'b_wt', 'c_wt', 'a_delta_vif', 'b_delta_vif', 'c_delta_vif')</em><a class="headerlink" href="#abundances.tables.SingleTimePointTable.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.SingleTimePointTable.Meta.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#abundances.tables.SingleTimePointTable.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.models.SingleTimePoint" title="abundances.models.SingleTimePoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.models.SingleTimePoint</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.SingleTimePointTable.Meta.sequence">
+<code class="sig-name descname">sequence</code><em class="property"> = ('selected', 'gene_id')</em><a class="headerlink" href="#abundances.tables.SingleTimePointTable.Meta.sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.SingleTimePointTable.base_columns">
+<code class="sig-name descname">base_columns</code><em class="property"> = {'a_delta_vif': &lt;django_tables2.columns.base.Column object&gt;, 'a_mock': &lt;django_tables2.columns.base.Column object&gt;, 'a_wt': &lt;django_tables2.columns.base.Column object&gt;, 'b_delta_vif': &lt;django_tables2.columns.base.Column object&gt;, 'b_mock': &lt;django_tables2.columns.base.Column object&gt;, 'b_wt': &lt;django_tables2.columns.base.Column object&gt;, 'c_delta_vif': &lt;django_tables2.columns.base.Column object&gt;, 'c_mock': &lt;django_tables2.columns.base.Column object&gt;, 'c_wt': &lt;django_tables2.columns.base.Column object&gt;, 'gene_id': &lt;django_tables2.columns.base.Column object&gt;, 'selected': &lt;django_tables2.columns.checkboxcolumn.CheckBoxColumn object&gt;}</em><a class="headerlink" href="#abundances.tables.SingleTimePointTable.base_columns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="abundances.tables.SingleTimePointTable.render_edit">
+<code class="sig-name descname">render_edit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.tables.SingleTimePointTable.render_edit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.tables.SingleTimePointTable.ttype">
+<code class="sig-name descname">ttype</code><em class="property"> = 'st'</em><a class="headerlink" href="#abundances.tables.SingleTimePointTable.ttype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-abundances.tests">
+<span id="abundances-tests-module"></span><h2>abundances.tests module<a class="headerlink" href="#module-abundances.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-abundances.urls">
+<span id="abundances-urls-module"></span><h2>abundances.urls module<a class="headerlink" href="#module-abundances.urls" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-abundances.views">
+<span id="abundances-views-module"></span><h2>abundances.views module<a class="headerlink" href="#module-abundances.views" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="abundances.views.DV">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.views.</code><code class="sig-name descname">DV</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.DV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rest_framework.views.APIView</span></code></p>
+<dl class="attribute">
+<dt id="abundances.views.DV.authentication_classes">
+<code class="sig-name descname">authentication_classes</code><em class="property"> = []</em><a class="headerlink" href="#abundances.views.DV.authentication_classes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="abundances.views.DV.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">request</em>, <em class="sig-param">format=None</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.DV.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.DV.permission_classes">
+<code class="sig-name descname">permission_classes</code><em class="property"> = []</em><a class="headerlink" href="#abundances.views.DV.permission_classes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="abundances.views.FilterListView">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.views.</code><code class="sig-name descname">FilterListView</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.FilterListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_tables2.export.views.ExportMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django_tables2.views.SingleTableMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django_filters.views.FilterView</span></code></p>
+<dl class="attribute">
+<dt id="abundances.views.FilterListView.export_formats">
+<code class="sig-name descname">export_formats</code><em class="property"> = ('csv', 'xls')</em><a class="headerlink" href="#abundances.views.FilterListView.export_formats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.FilterListView.filterset_class">
+<code class="sig-name descname">filterset_class</code><a class="headerlink" href="#abundances.views.FilterListView.filterset_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.filter.TimeCourseFilter" title="abundances.filter.TimeCourseFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.filter.TimeCourseFilter</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="abundances.views.FilterListView.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.FilterListView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of items for this view.</p>
+<p>The return value must be an iterable and may be an instance of
+<cite>QuerySet</cite> in which case <cite>QuerySet</cite> specific behavior will be enabled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="abundances.views.FilterListView.get_table_kwargs">
+<code class="sig-name descname">get_table_kwargs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.FilterListView.get_table_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the keyword arguments for instantiating the table.</p>
+<p>Allows passing customized arguments to the table constructor, for example,
+to remove the buttons column, you could define this method in your View:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_table_kwargs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;exclude&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="p">)</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.FilterListView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#abundances.views.FilterListView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.models.TimeCourse" title="abundances.models.TimeCourse"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.models.TimeCourse</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.FilterListView.table_class">
+<code class="sig-name descname">table_class</code><a class="headerlink" href="#abundances.views.FilterListView.table_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.tables.PeakTable" title="abundances.tables.PeakTable"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.tables.PeakTable</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.FilterListView.template_name">
+<code class="sig-name descname">template_name</code><em class="property"> = 'bootstrap_template.html'</em><a class="headerlink" href="#abundances.views.FilterListView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="abundances.views.OverView">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.views.</code><code class="sig-name descname">OverView</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.OverView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_tables2.export.views.ExportMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django_tables2.views.SingleTableMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django_filters.views.FilterView</span></code></p>
+<dl class="attribute">
+<dt id="abundances.views.OverView.filterset_class">
+<code class="sig-name descname">filterset_class</code><a class="headerlink" href="#abundances.views.OverView.filterset_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.filter.IndexFilter" title="abundances.filter.IndexFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.filter.IndexFilter</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="abundances.views.OverView.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.OverView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of items for this view.</p>
+<p>The return value must be an iterable and may be an instance of
+<cite>QuerySet</cite> in which case <cite>QuerySet</cite> specific behavior will be enabled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="abundances.views.OverView.get_table_kwargs">
+<code class="sig-name descname">get_table_kwargs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.OverView.get_table_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the keyword arguments for instantiating the table.</p>
+<p>Allows passing customized arguments to the table constructor, for example,
+to remove the buttons column, you could define this method in your View:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_table_kwargs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;exclude&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="p">)</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.OverView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#abundances.views.OverView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.models.IndexAbundance" title="abundances.models.IndexAbundance"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.models.IndexAbundance</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.OverView.table_class">
+<code class="sig-name descname">table_class</code><a class="headerlink" href="#abundances.views.OverView.table_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.tables.IndexTable" title="abundances.tables.IndexTable"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.tables.IndexTable</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.OverView.template_name">
+<code class="sig-name descname">template_name</code><em class="property"> = 'bootstrap_template2.html'</em><a class="headerlink" href="#abundances.views.OverView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="abundances.views.SingleTimePointListView">
+<em class="property">class </em><code class="sig-prename descclassname">abundances.views.</code><code class="sig-name descname">SingleTimePointListView</code><span class="sig-paren">(</span><em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.SingleTimePointListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_tables2.export.views.ExportMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django_tables2.views.SingleTableMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django_filters.views.FilterView</span></code></p>
+<dl class="attribute">
+<dt id="abundances.views.SingleTimePointListView.export_formats">
+<code class="sig-name descname">export_formats</code><em class="property"> = ('csv', 'xls')</em><a class="headerlink" href="#abundances.views.SingleTimePointListView.export_formats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.SingleTimePointListView.filterset_class">
+<code class="sig-name descname">filterset_class</code><a class="headerlink" href="#abundances.views.SingleTimePointListView.filterset_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.filter.SingleTimePointFilter" title="abundances.filter.SingleTimePointFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.filter.SingleTimePointFilter</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="abundances.views.SingleTimePointListView.get_queryset">
+<code class="sig-name descname">get_queryset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.SingleTimePointListView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of items for this view.</p>
+<p>The return value must be an iterable and may be an instance of
+<cite>QuerySet</cite> in which case <cite>QuerySet</cite> specific behavior will be enabled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="abundances.views.SingleTimePointListView.get_table_kwargs">
+<code class="sig-name descname">get_table_kwargs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.SingleTimePointListView.get_table_kwargs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the keyword arguments for instantiating the table.</p>
+<p>Allows passing customized arguments to the table constructor, for example,
+to remove the buttons column, you could define this method in your View:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_table_kwargs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;exclude&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;buttons&#39;</span><span class="p">,</span> <span class="p">)</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.SingleTimePointListView.model">
+<code class="sig-name descname">model</code><a class="headerlink" href="#abundances.views.SingleTimePointListView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.models.SingleTimePoint" title="abundances.models.SingleTimePoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.models.SingleTimePoint</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.SingleTimePointListView.table_class">
+<code class="sig-name descname">table_class</code><a class="headerlink" href="#abundances.views.SingleTimePointListView.table_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#abundances.tables.SingleTimePointTable" title="abundances.tables.SingleTimePointTable"><code class="xref py py-class docutils literal notranslate"><span class="pre">abundances.tables.SingleTimePointTable</span></code></a></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="abundances.views.SingleTimePointListView.template_name">
+<code class="sig-name descname">template_name</code><em class="property"> = 'bootstrap_template_sp.html'</em><a class="headerlink" href="#abundances.views.SingleTimePointListView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="abundances.views.announce">
+<code class="sig-prename descclassname">abundances.views.</code><code class="sig-name descname">announce</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.announce" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="abundances.views.dicegame">
+<code class="sig-prename descclassname">abundances.views.</code><code class="sig-name descname">dicegame</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.dicegame" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="abundances.views.indexview">
+<code class="sig-prename descclassname">abundances.views.</code><code class="sig-name descname">indexview</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.indexview" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="abundances.views.random_color">
+<code class="sig-prename descclassname">abundances.views.</code><code class="sig-name descname">random_color</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.random_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="abundances.views.redirectindex">
+<code class="sig-prename descclassname">abundances.views.</code><code class="sig-name descname">redirectindex</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.redirectindex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="abundances.views.singletimepointview">
+<code class="sig-prename descclassname">abundances.views.</code><code class="sig-name descname">singletimepointview</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.singletimepointview" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="abundances.views.someview">
+<code class="sig-prename descclassname">abundances.views.</code><code class="sig-name descname">someview</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#abundances.views.someview" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-abundances">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-abundances" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="module-manage">
+<span id="manage-module"></span><h1>manage module<a class="headerlink" href="#module-manage" title="Permalink to this headline">¶</a></h1>
+<p>Django’s command-line utility for administrative tasks.</p>
+<dl class="function">
+<dt id="manage.main">
+<code class="sig-prename descclassname">manage.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#manage.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="regulatome">
+<h1>regulatome<a class="headerlink" href="#regulatome" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abundances.html">abundances package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="abundances.html#subpackages">Subpackages</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="abundances.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abundances.html#module-abundances.admin">abundances.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abundances.html#module-abundances.apps">abundances.apps module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abundances.html#module-abundances.filter">abundances.filter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abundances.html#module-abundances.models">abundances.models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abundances.html#module-abundances.tables">abundances.tables module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abundances.html#module-abundances.tests">abundances.tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abundances.html#module-abundances.urls">abundances.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abundances.html#module-abundances.views">abundances.views module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="abundances.html#module-abundances">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regulatome.html">regulatome package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="regulatome.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulatome.html#module-regulatome.settings">regulatome.settings module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulatome.html#module-regulatome.urls">regulatome.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulatome.html#module-regulatome.wsgi">regulatome.wsgi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regulatome.html#module-regulatome">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="regulatome-package">
+<h1>regulatome package<a class="headerlink" href="#regulatome-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>Submodules<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-regulatome.settings">
+<span id="regulatome-settings-module"></span><h2>regulatome.settings module<a class="headerlink" href="#module-regulatome.settings" title="Permalink to this headline">¶</a></h2>
+<p>Django settings for regulatome project.</p>
+<p>Generated by ‘django-admin startproject’ using Django 2.2.4.</p>
+<p>For more information on this file, see
+<a class="reference external" href="https://docs.djangoproject.com/en/2.2/topics/settings/">https://docs.djangoproject.com/en/2.2/topics/settings/</a></p>
+<p>For the full list of settings and their values, see
+<a class="reference external" href="https://docs.djangoproject.com/en/2.2/ref/settings/">https://docs.djangoproject.com/en/2.2/ref/settings/</a></p>
+<dl class="data">
+<dt id="regulatome.settings.DATABASES">
+<code class="sig-prename descclassname">regulatome.settings.</code><code class="sig-name descname">DATABASES</code><em class="property"> = {'default': {'ATOMIC_REQUESTS': False, 'AUTOCOMMIT': True, 'CONN_MAX_AGE': 0, 'ENGINE': 'django.db.backends.mysql', 'HOST': 'localhost', 'NAME': 'regulatome', 'OPTIONS': {}, 'PASSWORD': 'peppermint', 'PORT': '', 'TEST': {'CHARSET': None, 'COLLATION': None, 'MIRROR': None, 'NAME': None}, 'TIME_ZONE': None, 'USER': 'mb2356'}}</em><a class="headerlink" href="#regulatome.settings.DATABASES" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>DATABASES = {</dt><dd><dl class="simple">
+<dt>‘default’: {</dt><dd><p>‘ENGINE’: ‘django.db.backends.postgresql_psycopg2’,
+‘NAME’: ‘citiid_0’,
+‘USER’: ‘maria’,
+‘PASSWORD’: ‘peppermint’,
+‘HOST’: ‘localhost’,
+‘PORT’: ‘’,</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="regulatome.settings.WSGI_APPLICATION">
+<code class="sig-prename descclassname">regulatome.settings.</code><code class="sig-name descname">WSGI_APPLICATION</code><em class="property"> = 'regulatome.wsgi.application'</em><a class="headerlink" href="#regulatome.settings.WSGI_APPLICATION" title="Permalink to this definition">¶</a></dt>
+<dd><dl>
+<dt>DATABASES = {</dt><dd><dl class="simple">
+<dt>‘default’: {</dt><dd><p>‘ENGINE’: ‘django.db.backends.sqlite3’,
+‘NAME’: os.path.join(BASE_DIR, ‘db.sqlite3’),</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-regulatome.urls">
+<span id="regulatome-urls-module"></span><h2>regulatome.urls module<a class="headerlink" href="#module-regulatome.urls" title="Permalink to this headline">¶</a></h2>
+<p>regulatome URL Configuration</p>
+<dl class="simple">
+<dt>The <cite>urlpatterns</cite> list routes URLs to views. For more information please see:</dt><dd><p><a class="reference external" href="https://docs.djangoproject.com/en/2.2/topics/http/urls/">https://docs.djangoproject.com/en/2.2/topics/http/urls/</a></p>
+</dd>
+</dl>
+<p>Examples:
+Function views</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Add an import:  from my_app import views</p></li>
+<li><p>Add a URL to urlpatterns:  path(‘’, views.home, name=’home’)</p></li>
+</ol>
+</div></blockquote>
+<dl class="simple">
+<dt>Class-based views</dt><dd><ol class="arabic simple">
+<li><p>Add an import:  from other_app.views import Home</p></li>
+<li><p>Add a URL to urlpatterns:  path(‘’, Home.as_view(), name=’home’)</p></li>
+</ol>
+</dd>
+<dt>Including another URLconf</dt><dd><ol class="arabic simple">
+<li><p>Import the include() function: from django.urls import include, path</p></li>
+<li><p>Add a URL to urlpatterns:  path(‘blog/’, include(‘blog.urls’))</p></li>
+</ol>
+</dd>
+</dl>
+<dl class="function">
+<dt id="regulatome.urls.path">
+<code class="sig-prename descclassname">regulatome.urls.</code><code class="sig-name descname">path</code><span class="sig-paren">(</span><em class="sig-param">route</em>, <em class="sig-param">view</em>, <em class="sig-param">kwargs=None</em>, <em class="sig-param">name=None</em>, <em class="sig-param">*</em>, <em class="sig-param">Pattern=&lt;class 'django.urls.resolvers.RoutePattern'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#regulatome.urls.path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-regulatome.wsgi">
+<span id="regulatome-wsgi-module"></span><h2>regulatome.wsgi module<a class="headerlink" href="#module-regulatome.wsgi" title="Permalink to this headline">¶</a></h2>
+<p>WSGI config for regulatome project.</p>
+<p>It exposes the WSGI callable as a module-level variable named <code class="docutils literal notranslate"><span class="pre">application</span></code>.</p>
+<p>For more information on this file, see
+<a class="reference external" href="https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/">https://docs.djangoproject.com/en/2.2/howto/deployment/wsgi/</a></p>
+</div>
+<div class="section" id="id2">
+<h2>Module contents<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-regulatome"></span></div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">regulatome  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Matheson Lab.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.1.
+    </div>
+  </body>
+</html>
