@@ -25,7 +25,7 @@ SECRET_KEY = '9s^=oq+n-m#b*swwjfu@ip6v+=5rwiz46w9j)sk!90b$jms7e!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1:8000', "131.111.58.16", 'regulatome.mathesonlab.org', "127.01.1.1"]
+ALLOWED_HOSTS = ["131.111.58.16", 'regulatome.mathesonlab.org', "127.01.1.1"]
 
 
 # Application definition
@@ -87,7 +87,7 @@ DATABASES = {
 }
 """
 
-"""
+
 DATABASES = {
             'default': {
                         'ENGINE': 'django.db.backends.mysql',
@@ -112,6 +112,7 @@ DATABASES = {
         'PORT': '',
     }
 }
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
