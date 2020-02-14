@@ -25,7 +25,7 @@ SECRET_KEY = '9s^=oq+n-m#b*swwjfu@ip6v+=5rwiz46w9j)sk!90b$jms7e!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["131.111.58.16", 'regulatome.mathesonlab.org', "127.01.1.1"]
+ALLOWED_HOSTS = ["127.0.0.1","131.111.58.16", 'regulatome.mathesonlab.org', "127.01.1.1"]
 
 
 # Application definition
@@ -86,13 +86,26 @@ DATABASES = {
     }
 }
 """
-
-
+"""
+settings within the MWS
 DATABASES = {
             'default': {
                         'ENGINE': 'django.db.backends.mysql',
                         'NAME': 'regulatome',
                         'USER': 'mb2356',
+                        'PASSWORD': 'peppermint',
+                        'HOST': 'localhost',
+                        'PORT': '',
+                         }
+                        }
+
+
+"""
+DATABASES = {
+            'default': {
+                        'ENGINE': 'django.db.backends.mysql',
+                        'NAME': 'regulatome',
+                        'USER': 'maria',
                         'PASSWORD': 'peppermint',
                         'HOST': 'localhost',
                         'PORT': '',

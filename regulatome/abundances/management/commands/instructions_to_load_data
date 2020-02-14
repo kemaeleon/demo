@@ -1,0 +1,4 @@
+ 1517  python manage.py new --type tc TimeCourse.csv 
+ 1601  python manage.py new --type sp SingleTimePoint.csv
+ 1960  python manage.py gene_id
+ 2032  python manage.py register_index

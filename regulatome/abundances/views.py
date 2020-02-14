@@ -120,7 +120,6 @@ def redirectindex(request):
         pks=request.POST.getlist("selected")
         label = ['resultindex']
         newurl = '/' + '_'.join(label+pks) + '/'
-        print(newurl)
         response = redirect(newurl)
         return response
 
