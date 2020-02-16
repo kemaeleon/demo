@@ -123,30 +123,27 @@ def redirectindex(request):
         response = redirect(newurl)
         return response
 
-
+def flatten(listoflists):
+    return [item for liste in listoflists for item in liste]
 
 def indexview(request):
     if request != "":
-
-        tmp = request.get_full_path().replace('/',' ')
-        tmp2 =  re.split('_',tmp)[1:]
-        pks =  list(map(int, tmp2))
-        # The next section is mapping the IndexAbundance indices to SingleTimePoint and Timecourse indices
-        #request list of gene_ids, each having a dictionary pointing to time courses associated with gene_id
-        selected_tc = list(IndexAbundance.objects.filter(pk__in=pks).values('time_course'))
-        test = IndexAbundance.objects.filter(pk__in=pks)
-        #for each gene, discard gene label, and reduce to a list of lists of time course measurements, this is possible as the gene label is already stored in the unique_gene_id field of the SingleTimePoint and TimeCourse models
-        l1 =  [i['time_course'] for i in selected_tc]
-        #convert list of lists to list to simple list
-        l2 = [item for sublist in l1 for item in sublist]
+        # obtain IndexAbundance primary keys from URL
+        pks = [int(i) for i in re.split('/|_', str(request.get_full_path())) if i.isdigit() ]
+        # obtain pks of TimeCourse and SingleTimePoint objects 
+        
+        # get time course data
+        tc = [i['time_course'] for i in list(IndexAbundance.objects.filter(pk__in=pks).values('time_course'))]
+        l2 = flatten(tc)
         sel_timecourse = TimeCourse.objects.filter(pk__in=l2).values() 
         selected_gene_tc = TimeCourse.objects.filter(pk__in=l2).values_list('uniq_gene_id', flat=True)
 
-        selected_sp = list(IndexAbundance.objects.filter(pk__in=pks).values('single_time_point'))
-        l1 =  [i['single_time_point'] for i in selected_sp]
-        l2 = [item for sublist in l1 for item in sublist]
+        # get single point data
+        selected_sp =[i['single_time_point'] for i in list(IndexAbundance.objects.filter(pk__in=pks).values('single_time_point'))]
+        l2 = flatten(selected_sp)
         sel_stp = SingleTimePoint.objects.filter(pk__in=l2).values() 
         selected_gene_spt = SingleTimePoint.objects.filter(pk__in=l2).values_list('uniq_gene_id', flat=True)
+
         selected_geneids = list(selected_gene_tc) + list(selected_gene_spt)
         selected_geneids.sort()
        
