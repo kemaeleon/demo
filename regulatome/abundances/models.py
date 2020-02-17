@@ -11,6 +11,9 @@ class SingleTime(models.Model):
 class MultiTime(models.Model):
     gene = models.ForeignKey(Gene, on_delete=models.CASCADE)
 
+class Gene_Info(models.Model):
+    gene = models.ForeignKey(Gene, on_delete=models.CASCADE)
+
 class BaseAbundance(models.Model):
     class Meta:
         abstract = True
