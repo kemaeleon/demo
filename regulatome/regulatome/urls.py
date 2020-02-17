@@ -18,6 +18,6 @@ from django.urls import include, path
 import abundances
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(r'admin', admin.site.urls),
     path('', include('abundances.urls')),
 ]
