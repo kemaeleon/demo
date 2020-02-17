@@ -2,6 +2,14 @@ from django.db import models
 from django.db.models import CharField, Model
 from django_mysql.models import ListCharField
 
+class Gene(models.Model):
+    gene = models.CharField("Gene ID", max_length=15, default="")
+
+class SingleTime(models.Model):
+    gene = models.ForeignKey(Gene, on_delete=models.CASCADE)
+
+class MultiTime(models.Model):
+    gene = models.ForeignKey(Gene, on_delete=models.CASCADE)
 
 class BaseAbundance(models.Model):
     class Meta:
