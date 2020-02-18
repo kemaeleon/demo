@@ -22,7 +22,7 @@ class Command(BaseCommand):
             all_fields = SingleTime._meta.get_fields()
         open_fields = [f for f in all_fields if not 
                 (re.match(f.name,'id') or re.match("^(Abundance)",  f.verbose_name) or 
-                    re.match(f.name, 'gene') or re.match(f.name, 'uniq_gene_id'))] 
+                    re.match(f.name, 'gene_id') or re.match(f.name, 'uniq_gene_id'))] 
         with open(os.path.join(os.getcwd(),kwargs['infile'])) as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
@@ -38,7 +38,7 @@ class Command(BaseCommand):
                     if input_type == 'tc':
                         print("HERE")
                         e = MultiTime()
-                        e.gene = g
+                        e.gene_id = g
                         print("THERE")
                         for i in open_fields:
                             print("STILL", i.name)
@@ -47,7 +47,7 @@ class Command(BaseCommand):
                                 if not math.isnan(v): 
                                     setattr(e,i.name,v)
                                 else:
-                                    setattr(e.i.name,'Null')
+                                    setattr(e,i.name,'Null')
                             else:
                                 setattr(e,i.name,row[i.verbose_name])  
                         pks = (e.r1, e.r2, e.a1, e.a2, e.m24, e.pos24, e.neg24,
@@ -60,7 +60,6 @@ class Command(BaseCommand):
                         def lnr(n,d):
                             return round(math.log2(n/d),2)
 
-                       # setattr(e,'uniq_gene_id', e.gene.gene)
                         e.r1_a = nr(e.r1)
                         e.r2_a = nr(e.r2)
                         e.a1_a = nr(e.a1)
@@ -83,7 +82,7 @@ class Command(BaseCommand):
                         print("PASSEDSAVE")
                     elif input_type == 'sp':
                         e = SingleTime()
-                        e.gene = g
+                        e.gene_id = g
                         for i in open_fields:
                             if re.match("FloatField", e._meta.get_field(i.name).get_internal_type()):
                                 v = float(row[i.verbose_name])
