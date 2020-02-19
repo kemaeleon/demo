@@ -4,17 +4,17 @@ from django_mysql.models import ListCharField
 
 class Gene(models.Model):
     gene_id = models.CharField("Gene ID", max_length=15, default="")
+    accession = models.CharField("Accession",max_length=10,default="")
+    description = models.CharField("Description",max_length=80, default="")
+    taxonomy = models.CharField("Taxonomy",max_length=20, default="")
     class Meta:
-        constraints = [models.UniqueConstraint(fields=['gene_id',], name='unique_entry'),]
+        constraints = [models.UniqueConstraint(fields=['gene_id','accession','description','taxonomy'], name='unique_entry'),]
 
 
 class SingleMultiAbundance(models.Model):
     class Meta:
         abstract = True
-    accession = models.CharField("Accession",max_length=10,default="")
     uniq_gene_id = models.CharField("uniq_gene_id", max_length=20, default="")
-    description = models.CharField("Description",max_length=80, default="")
-    taxonomy = models.CharField("Taxonomy",max_length=20, default="")
     protein_fdr_confidence_combined = models.CharField("Protein FDR Confidence: Combined", max_length=10, default="")
     missing_values = models.FloatField("Missing values",default=0)
     s_by_n = models.FloatField("Log10(S/N)",default=999)

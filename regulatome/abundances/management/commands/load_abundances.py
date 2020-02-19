@@ -30,10 +30,14 @@ class Command(BaseCommand):
                     g = Gene()
                     try:
                         setattr(g,"gene_id", row["Gene ID"])
+                        setattr(g,"accession", row["Accession"])
+                        setattr(g,"description", row["Description"])
+                        setattr(g,"taxonomy", row["Taxonomy"])
                         g.save()
                     except Exception as error_message:
                         print(error_message)
-                        g = Gene.objects.get(gene_id = row["Gene ID"])
+                        g = Gene.objects.get(gene_id = row["Gene ID"], accession=row["Accession"],
+                                             description = row["Description"],taxonomy=row["Taxonomy"])    
 
                     if input_type == 'tc':
                         print("HERE")
