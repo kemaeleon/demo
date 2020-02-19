@@ -5,7 +5,7 @@ from rest_framework.response import Response
 import pandas as pd
 import re
 import random as rd, string
-from abundances.models import TimeCourse,IndexAbundance,SingleTimePoint
+from abundances.models import TimeCourse,IndexAbundance,SingleTimePoint,Gene
 import json
 import matplotlib.pyplot as plt
 import numpy as np
@@ -23,10 +23,27 @@ from django_filters.views import FilterView
 from django_tables2 import MultiTableMixin, RequestConfig, SingleTableMixin, SingleTableView
 from django_tables2.export.views import ExportMixin
 from django_tables2.paginators import LazyPaginator
-from .tables import PeakTable, IndexTable, SingleTimePointTable
-from .filter import TimeCourseFilter, SingleTimePointFilter, IndexFilter
+from .tables import PeakTable, IndexTable, SingleTimePointTable, GeneTable
+from .filter import TimeCourseFilter, SingleTimePointFilter, IndexFilter, GeneFilter,Gene
 from django.http import JsonResponse
 from django.shortcuts import redirect
+
+
+class GeneSearch(ExportMixin, SingleTableMixin, FilterView):
+    model = Gene
+    table_class = GeneTable
+    filterset_class = GeneFilter
+    template_name = "bootstrap_template.html"
+
+    export_formats = ("csv", "xls")
+
+    def get_queryset(self):
+        return super().get_queryset()
+
+    def get_table_kwargs(self):
+        return {"template_name": "django_tables2/bootstrap.html"}
+
+
 
 class FilterListView(ExportMixin, SingleTableMixin, FilterView):
     model = TimeCourse
@@ -51,6 +68,7 @@ class SingleTimePointListView(ExportMixin, SingleTableMixin, FilterView):
     export_formats = ("csv", "xls")
 
     def get_queryset(self):
+        print("HHH", super().get_queryset())
         return super().get_queryset()
 
     def get_table_kwargs(self):

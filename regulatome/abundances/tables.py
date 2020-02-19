@@ -1,6 +1,6 @@
 import django_tables2 as tables
 from django_tables2.utils import A 
-from .models import TimeCourse, IndexAbundance, SingleTimePoint
+from .models import TimeCourse, IndexAbundance, SingleTimePoint,Gene
 
 
 class PeakTable(tables.Table):
@@ -29,6 +29,15 @@ class SingleTimePointTable(tables.Table):
         return 'Edit'    
 
 
+class GeneTable(tables.Table):
+    selected = tables.CheckBoxColumn(accessor='pk', orderable=False)
+    class Meta:
+        model = Gene
+        sequence = ('selected','gene_id','accession','description','taxonomy')
+        fields = ('gene_id','accession','description','taxonomy')
+        attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
+    def render_edit(self):
+        return 'Edit'
 
 
 class IndexTable(tables.Table):
