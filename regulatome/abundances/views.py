@@ -33,7 +33,7 @@ class GeneSearch(ExportMixin, SingleTableMixin, FilterView):
     model = Gene
     table_class = GeneTable
     filterset_class = GeneFilter
-    template_name = "bootstrap_template.html"
+    template_name = "bootstrap_template4.html"
 
     export_formats = ("csv", "xls")
 
@@ -68,7 +68,6 @@ class SingleTimePointListView(ExportMixin, SingleTableMixin, FilterView):
     export_formats = ("csv", "xls")
 
     def get_queryset(self):
-        print("HHH", super().get_queryset())
         return super().get_queryset()
 
     def get_table_kwargs(self):
@@ -100,13 +99,47 @@ class DV(APIView):
         return Response(df)
 
 
-
 def random_color():
     lst = [rd.choice(string.hexdigits) for n in range(6)]
     hex_number = "#" +  "".join(lst)
     return hex_number
 
-def someview(request):
+
+
+class TableResultView(ExportMixin, SingleTableMixin, FilterView):
+        table_class = PeakTable
+        filterset_class = TimeCourseFilter
+        template_name = "bootstrap_template.html"
+
+        export_formats = ("csv", "xls")
+
+        def get_queryset(self):
+            return super().get_queryset()
+
+        def get_table_kwargs(self):
+            return {"template_name": "django_tables2/bootstrap.html"}
+
+
+
+def display_table(request):
+    if request.method == "POST":
+        pks = request.POST.getlist("selected")
+        print("pks")
+        table = PeakTable(TimeCourse.objects.filter(pk__in=pks))
+
+    def get_table_kwargs(table):
+        return {"template_name": "django_tables2/bootstrap.html"}
+
+    return render(request, "bootstrap_template4.html", {
+        "table": table
+    })
+
+
+
+
+
+
+def timecourseview(request):
     if request.method == "POST":
         pks = request.POST.getlist("selected")
         selected_objects = TimeCourse.objects.filter(pk__in=pks).values()

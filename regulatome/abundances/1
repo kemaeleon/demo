@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^dice$', views.dicegame, name='dice'),
     url(r'^gene_search$', views.GeneSearch.as_view(), name='gene_search'),
     url(r'results_timecourse', views.timecourseview),
-    url(r'results_tables', views.display_table, name='tables_view'),
+    url(r'results_tables', views.TableResultView.as_view()),
     url(r'results_singletimepoint', views.singletimepointview),
     url(r'action', views.redirectindex),
     url(r'resultindex[a-zA-Z0-9-=_]',views.indexview),
