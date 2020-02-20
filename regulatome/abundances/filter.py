@@ -1,5 +1,5 @@
 import django_filters
-from .models import TimeCourse, IndexAbundance, SingleTimePoint,Gene
+from .models import TimeCourse, IndexAbundance, SingleTimePoint,Gene,MultiTime
 
 class GeneFilter(django_filters.FilterSet):
     class Meta:
@@ -21,6 +21,17 @@ class TimeCourseFilter(django_filters.FilterSet):
                 'log2_p48a_by_m48a': ['lt'],
                 'log2_n48a_by_m48a': ['gt'],
                  }
+
+
+class MultiTimeFilter(django_filters.FilterSet):
+    class Meta:
+        model = MultiTime
+        fields = {
+                'gene_id': ['exact', ],
+                'log2_p48a_by_m48a': ['lt'],
+                'log2_n48a_by_m48a': ['gt'],
+                 }
+        
 
 
 class SingleTimePointFilter(django_filters.FilterSet):

@@ -24,7 +24,7 @@ from django_tables2 import MultiTableMixin, RequestConfig, SingleTableMixin, Sin
 from django_tables2.export.views import ExportMixin
 from django_tables2.paginators import LazyPaginator
 from .tables import PeakTable, IndexTable, SingleTimePointTable, GeneTable, MultiTimeTable
-from .filter import TimeCourseFilter, SingleTimePointFilter, IndexFilter, GeneFilter,Gene
+from .filter import TimeCourseFilter, SingleTimePointFilter, IndexFilter, GeneFilter,Gene, MultiTimeFilter
 from django.http import JsonResponse
 from django.shortcuts import redirect
 
@@ -107,8 +107,8 @@ def random_color():
 
 
 class TableResultView(ExportMixin, SingleTableMixin, FilterView):
-        table_class = PeakTable
-        filterset_class = TimeCourseFilter
+        table_class = MultiTimeTable
+        filterset_class = MultiTimeFilter
         template_name = "bootstrap_template.html"
 
         export_formats = ("csv", "xls")
@@ -125,13 +125,13 @@ def display_table(request):
     if request.method == "POST":
         pks = request.POST.getlist("selected")
         print("pks", pks)
-        table = MultiTimeTable(MultiTime.objects.filter(gene_id__in=pks))
+        table_multi = MultiTimeTable(MultiTime.objects.filter(gene_id__in=pks))
 
     def get_table_kwargs(table):
         return {"template_name": "django_tables2/bootstrap.html"}
 
     return render(request, "bootstrap_template5.html", {
-        "table": table
+        "table": table_multi
     })
 
 

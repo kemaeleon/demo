@@ -10,7 +10,7 @@ class MultiTimeTable(tables.Table):
     class Meta:
         model = MultiTime
         sequence = ('selected','gene_id')
-        fields = ('gene_id','accession', 'description','log2_p24a_by_m24a','log2_n24a_by_m24a','log2_p48a_by_m48a','log2_n48a_by_m48a')
+        fields = ('gene_id','gene_id.gene_id','gene_id.accession', 'gene_id.description','log2_p24a_by_m24a','log2_n24a_by_m24a','log2_p48a_by_m48a','log2_n48a_by_m48a')
         attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
     def render_edit(self):
         return 'Edit'
