@@ -102,7 +102,7 @@ class BaseAbundance(models.Model):
     class Meta:
         abstract = True
     accession = models.CharField("Accession",max_length=10) 
-    gene_id = models.CharField("uniq_gene_id", max_length=20, default="")
+    gene_id = models.CharField("Gene ID", max_length=20, default="")
     uniq_gene_id = models.CharField("uniq_gene_id", max_length=20, default="")
     description = models.CharField("Description",max_length=80) 
     taxonomy = models.CharField("Taxonomy",max_length=20) 

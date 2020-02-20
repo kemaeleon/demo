@@ -26,8 +26,10 @@ class Command(BaseCommand):
             for row in reader:
                 try:
                     if input_type == 'tc':
+                        print("HIHI")
                         e = TimeCourse()
                         for i in open_fields:
+                            print("FIELD", i)
                             if re.match("FloatField", e._meta.get_field(i.name).get_internal_type()):
                                 v = float(row[i.verbose_name])
                                 if not math.isnan(v): 
@@ -36,6 +38,7 @@ class Command(BaseCommand):
                                     setattr(e.i.name,'Null')
                             else:
                                 setattr(e,i.name,row[i.verbose_name])  
+                        print("HHO")
                         pks = (e.r1, e.r2, e.a1, e.a2, e.m24, e.pos24, e.neg24,
                          e.m48, e.pos48, e.neg48)
                         max_pk = max(pks)
@@ -44,8 +47,9 @@ class Command(BaseCommand):
                             return round(av/max_pk,2)
                         def lnr(n,d):
                             return round(math.log2(n/d),2)
-
+                        print ("HERE") 
                         setattr(e,'uniq_gene_id', e.gene_id)
+                        print ("THERE")
                         e.r1_a = nr(e.r1)
                         e.r2_a = nr(e.r2)
                         e.a1_a = nr(e.a1)
