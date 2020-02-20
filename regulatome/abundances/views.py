@@ -5,7 +5,7 @@ from rest_framework.response import Response
 import pandas as pd
 import re
 import random as rd, string
-from abundances.models import TimeCourse,IndexAbundance,SingleTimePoint,Gene
+from abundances.models import TimeCourse,IndexAbundance,SingleTimePoint,Gene,MultiTime
 import json
 import matplotlib.pyplot as plt
 import numpy as np
@@ -23,7 +23,7 @@ from django_filters.views import FilterView
 from django_tables2 import MultiTableMixin, RequestConfig, SingleTableMixin, SingleTableView
 from django_tables2.export.views import ExportMixin
 from django_tables2.paginators import LazyPaginator
-from .tables import PeakTable, IndexTable, SingleTimePointTable, GeneTable
+from .tables import PeakTable, IndexTable, SingleTimePointTable, GeneTable, MultiTimeTable
 from .filter import TimeCourseFilter, SingleTimePointFilter, IndexFilter, GeneFilter,Gene
 from django.http import JsonResponse
 from django.shortcuts import redirect
@@ -124,13 +124,13 @@ class TableResultView(ExportMixin, SingleTableMixin, FilterView):
 def display_table(request):
     if request.method == "POST":
         pks = request.POST.getlist("selected")
-        print("pks")
-        table = PeakTable(TimeCourse.objects.filter(pk__in=pks))
+        print("pks", pks)
+        table = MultiTimeTable(MultiTime.objects.filter(gene_id__in=pks))
 
     def get_table_kwargs(table):
         return {"template_name": "django_tables2/bootstrap.html"}
 
-    return render(request, "bootstrap_template4.html", {
+    return render(request, "bootstrap_template5.html", {
         "table": table
     })
 
