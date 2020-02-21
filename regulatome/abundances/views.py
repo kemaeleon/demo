@@ -155,10 +155,14 @@ def  multitimeview(request):
         selected_geneids = selected_objects.values_list('uniq_gene_id',flat=True)    
         context = {}
         context['uniq_gene_id'] = list(selected_geneids) 
-        print(context['uniq_gene_id'])
-        context['data_tc'] = json.dumps(list(selected_objects_list))
-        print("HIII", context['data_tc'])
-        context['data_stp'] = None
+        if multi is True:
+            context['data_tc'] = json.dumps(list(selected_objects_list))
+            context['data_stp'] = 0
+        else:
+            context['data_stp'] = json.dumps(list(selected_objects_list))
+            print(context['data_stp'])
+            context['data_tc'] = 0
+
     return render(request, 'sp_tc.html', context)
 
 
