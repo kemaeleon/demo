@@ -5,7 +5,7 @@ from .models import TimeCourse, IndexAbundance, SingleTimePoint,Gene,MultiTime,S
 
 class MultiTimeTable(tables.Table):
     ttype = 'MT'
-    gene_id = tables.Column(linkify = True)
+    id = tables.Column(linkify = True)
     selected = tables.CheckBoxColumn(accessor='pk', orderable=False)
     class Meta:
         model = MultiTime

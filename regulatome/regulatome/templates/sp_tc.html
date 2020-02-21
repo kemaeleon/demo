@@ -4,6 +4,7 @@
 
 {% block jquery %}
 var dt = {{data_tc|safe}};
+if (dt) {
 for (d of dt) {
     console.log(d.r2_a);
     console.log(d.gene_id)
@@ -95,8 +96,11 @@ function setChart(){
 });
 }
 }
+}
+
 
 var st = {{data_stp|safe}};
+if (st) {
 for (d of st) {
 var a_mock =  d.a_mock
 console.log(d)
@@ -154,6 +158,7 @@ function setChart(){
         }
     }
 });
+}
 }
 }
 {% endblock jquery %}
