@@ -137,9 +137,17 @@ def display_table(request):
     })
 
 def  multitimeview(request):
+    x = re.search(".*multi.*", str(request))
+    multi = False
+    if (x):
+        multi = True
     if request.method == "POST":
         pks = request.POST.getlist("selected")
-        selected_objects = MultiTime.objects.filter(pk__in=pks)
+        selected_obects = None
+        if multi is True:
+            selected_objects = MultiTime.objects.filter(pk__in=pks)
+        else:
+            selected_objects = SingleTime.objects.filter(pk__in=pks)
         for i in selected_objects:
             setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" +  i.gene_id.accession)
             i.save()
@@ -157,6 +165,11 @@ def  multitimeview(request):
 def singletimeview(request):
     if request.method == "POST":
         pks = request.POST.getlist("selected")
+        selected_objects = MultiTime.objects.filter(pk__in=pks)
+        for i in selected_objects:
+            setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" +  i.gene_id.accession)
+            i.save()
+
         selected_objects = SingleTimePoint.objects.filter(gene_id__in=pks).values()
         selected_geneids = SingleTimePoint.objects.filter(gene_id__in=pks).values_list('gene_id',flat=True)
         context = {}
