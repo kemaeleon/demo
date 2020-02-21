@@ -5,7 +5,7 @@ from rest_framework.response import Response
 import pandas as pd
 import re
 import random as rd, string
-from abundances.models import TimeCourse,IndexAbundance,SingleTimePoint,Gene,MultiTime
+from abundances.models import TimeCourse,IndexAbundance,SingleTimePoint,Gene,MultiTime,SingleTime
 import json
 import matplotlib.pyplot as plt
 import numpy as np
@@ -23,7 +23,7 @@ from django_filters.views import FilterView
 from django_tables2 import MultiTableMixin, RequestConfig, SingleTableMixin, SingleTableView
 from django_tables2.export.views import ExportMixin
 from django_tables2.paginators import LazyPaginator
-from .tables import PeakTable, IndexTable, SingleTimePointTable, GeneTable, MultiTimeTable
+from .tables import PeakTable, IndexTable, SingleTimePointTable, GeneTable, MultiTimeTable, SingleTimeTable
 from .filter import TimeCourseFilter, SingleTimePointFilter, IndexFilter, GeneFilter,Gene, MultiTimeFilter
 from django.http import JsonResponse
 from django.shortcuts import redirect
@@ -126,14 +126,43 @@ def display_table(request):
         pks = request.POST.getlist("selected")
         print("pks", pks)
         table_multi = MultiTimeTable(MultiTime.objects.filter(gene_id__in=pks))
+        table_single = SingleTimeTable(SingleTime.objects.filter(gene_id__in=pks))
 
     def get_table_kwargs(table):
         return {"template_name": "django_tables2/bootstrap.html"}
 
     return render(request, "bootstrap_template5.html", {
-        "table": table_multi
+        "table": table_multi, "table_single": table_single
+
     })
 
+def  multitimeview(request):
+    if request.method == "POST":
+        pks = request.POST.getlist("selected")
+        selected_objects = MultiTime.objects.filter(pk__in=pks)
+        for i in selected_objects:
+            setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" +  i.gene_id.accession)
+            i.save()
+        selected_objects_list = selected_objects.values()
+        selected_geneids = selected_objects.values_list('uniq_gene_id',flat=True)    
+        context = {}
+        context['uniq_gene_id'] = list(selected_geneids) 
+        print(context['uniq_gene_id'])
+        context['data_tc'] = json.dumps(list(selected_objects_list))
+        print("HIII", context['data_tc'])
+        context['data_stp'] = None
+    return render(request, 'sp_tc.html', context)
+
+
+def singletimeview(request):
+    if request.method == "POST":
+        pks = request.POST.getlist("selected")
+        selected_objects = SingleTimePoint.objects.filter(gene_id__in=pks).values()
+        selected_geneids = SingleTimePoint.objects.filter(gene_id__in=pks).values_list('gene_id',flat=True)
+        context = {}
+        context['uniq_gene_id'] = list(selected_geneids)
+        context['data_stp'] = json.dumps(list(selected_objects))
+    return render(request, 'singletimepoint.html', context)
 
 
 
@@ -146,7 +175,9 @@ def timecourseview(request):
         selected_geneids = TimeCourse.objects.filter(pk__in=pks).values_list('uniq_gene_id',flat=True)
         context = {}
         context['uniq_gene_id'] = list(selected_geneids)
+        print(context['uniq_gene_id'])
         context['data_tc'] = json.dumps(list(selected_objects))
+        print("HOHO", context['data_tc'])
         context['data_stp'] = None
     return render(request, 'sp_tc.html', context)
 

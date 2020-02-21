@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+<script>
+
+{% block jquery %}
+var dt = {{data_tc|safe}};
+for (d of dt) {
+    console.log(d.r2_a);
+
+var r1 = d.r2_a; 
+var r2 =  d.r1_a;
+var a1 =  d.a2_a;
+var a2 =  d.a1_a;
+var m24 =  d.m24_a;
+var pos24 =   d.pos24_a;
+var neg24 =  d.neg24_a;
+var m48 = d.m48_a;
+var pos48 =  d.pos48_a;
+var neg48 = d.neg48_a;
+var gene_id = d.uniq_gene_id;
+setChart();
+
+
+function setChart(){
+    var ctx = document.getElementById("myChart");
+    var my_id = gene_id;
+    var canvas = document.getElementById(my_id);
+    var tmp = new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels: ['Resting','Activated','24h','48h'],
+      datasets: [{
+      label: "C",
+      backgroundColor: 'rgba(0, 0, 30, 0.4)',
+      data: [r1, a1, null, null]	      
+   }, {
+      label: "M",
+      backgroundColor: 'rgba(0, 0, 30, 0.2)',
+      data: [r2,a2,m24,m48]	   
+   }, {
+      label: "+",
+      backgroundColor:'rgba(255, 0, 0, 0.2)',
+      borderColor:'rgba(255,0,0, 1)',
+      data: [null,null,pos24,pos48]	   
+   }, {
+      label: "-",
+      backgroundColor: 'rgb(0, 0, 255, 0.2)',
+      borderColor: 'rgba(0, 0, 255, 1)',
+      data: [null,null,neg24,neg48]
+	     }, {
+      label: "log2(+/C)",
+      borderColor: 'rgba(255, 0, 0, 0.6)',
+      data: [Math.log2(r1/r2).toFixed(2), Math.log2(a1/a2).toFixed(2), Math.log2(pos24/m24).toFixed(2), Math.log2(pos48/m48).toFixed(2)],
+      yAxisID: 'B',
+      type: 'line',
+      lineTension: 0.1
+    }, {
+      label: "log2(n/C)",
+      borderColor: 'rgb(0, 0, 255, 0.6)',
+      data: [Math.log2(r1/r2).toFixed(2), Math.log2(a1/a2).toFixed(2), Math.log2(neg24/m24).toFixed(2), Math.log2(neg48/m48).toFixed(2)],
+      yAxisID: 'B',
+      type: 'line',
+      lineTension: 0.1
+   }]
+    },
+    options: {
+	      legend: {position: 'bottom'},
+        scales: {
+            yAxes: [ 
+     {
+        id: 'A',
+        type: 'linear',
+        position: 'left',
+        scalePositionLeft: true,
+	     ticks: {
+                    beginAtZero: true,
+                    suggestedMin: 0,
+                    suggestedMax: 1.25
+                }
+      },
+      {
+        id: 'B',
+        type: 'linear',
+        position: 'right',
+        scalePositionLeft: false,
+                ticks: {
+                    beginAtZero: false,
+	 	    suggestedMin: -2,
+		    suggestedMax: 0.5
+                }
+            }]
+        }
+    }
+});
+}
+}
+
+{% endblock jquery %}
+{% block content %}
+<div class="row">
+                <div class="col-sm-6">
+                <img src="{% static "assays/static/logo.png" %}" alt="lessons from viruses">
+                </div>
+                <div class="col-sm-6"></div>
+
+        </div>
+
+<div class='row'>
+{% for o in uniq_gene_id %}
+        <div class='col-sm-4'>
+	<h2> {{o}} </h2>
+	<canvas id={{o}} width=400 height=400></canvas>
+        </div>
+{% endfor %}
+</div>
+{% endblock content %}
+</script>

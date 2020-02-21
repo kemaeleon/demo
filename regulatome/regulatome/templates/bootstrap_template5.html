@@ -2,7 +2,6 @@
 {% load django_tables2 %}
 {% load bootstrap3 %}
 {% load render_table from django_tables2 %}
-
 <!doctype html>
 <html>
 <head>
@@ -58,13 +57,25 @@ transform: scale(1.3);
     <div class="row"> This server is currently under active development, its purpose is to allow feedback </div> 
       </div></div>  
         <div>
-	    <h2> Plot Filtered Data </h2>
-	    <form action="/results_timecourse/" method="post"> {% csrf_token %} 	
-            <input type="submit" value="Plot Selected Data">		    
+	    <h2> Select Time Course Data </h2>
+	    <form action="/plot_multitime/" method="post"> {% csrf_token %} 	
+            <input type="submit" value="Plot Timecourse Data">		    
                 {% render_table table %}
 	    </form>
         </div>
+
+	<div>
+            <h2> Select Single Time Data </h2>
+            <form action="/plot_singletime/" method="post"> {% csrf_token %}
+            <input type="submit" value="Plot Single Time Data">
+                {% render_table table_single %}
+            </form>
+        </div>
+
         {% endblock %}
-    </div>
+
+
+
+</div>
 </body>
 </html>
