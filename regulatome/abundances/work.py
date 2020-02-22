@@ -23,8 +23,8 @@ from django_filters.views import FilterView
 from django_tables2 import MultiTableMixin, RequestConfig, SingleTableMixin, SingleTableView
 from django_tables2.export.views import ExportMixin
 from django_tables2.paginators import LazyPaginator
-from .tables import  GeneTable, MultiTimeTable, SingleTimeTable
-from .filter import GeneFilter
+from .tables import PeakTable, IndexTable, SingleTimePointTable, GeneTable, MultiTimeTable, SingleTimeTable
+from .filter import GeneFilter,Gene
 from django.http import JsonResponse
 from django.shortcuts import redirect
 
@@ -52,8 +52,10 @@ class DV(APIView):
     def get(self, request, format=None):
         raw = re.search('(?<=rest/uniq-gene-id-)[a-zA-Z0-9-=_]{2,40}', request.get_full_path())
         gene_id = raw.group(0)
+        print("HOHOHOHOHOOOOOOOOOOOOO", gene_id)
         df = pd.DataFrame(MultiTime.objects.filter(uniq_gene_id=gene_id).values())
         print(TimeCourse.objects.all().values('uniq_gene_id'))
+        print("HHHHHHHHH", df)
         if len(df) == 0:
            df = pd.DataFrame(SingleTime.objects.filter(uniq_gene_id=gene_id).values())
         return Response(df)
