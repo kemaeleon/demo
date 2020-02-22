@@ -6,9 +6,7 @@
 var dt = {{data_tc|safe}};
 if (dt) {
 for (d of dt) {
-    console.log(d.r2_a);
-    console.log(d.gene_id)
-
+    console.log(d.r2_a, d.uniq_gene_id);
 var r1 = d.r2_a; 
 var r2 =  d.r1_a;
 var a1 =  d.a2_a;
@@ -20,6 +18,7 @@ var m48 = d.m48_a;
 var pos48 =  d.pos48_a;
 var neg48 = d.neg48_a;
 var gene_id = d.uniq_gene_id;
+console.log(gene_id, neg48)
 setChart();
 
 
@@ -101,6 +100,7 @@ function setChart(){
 
 var st = {{data_stp|safe}};
 if (st) {
+console.log('YES')
 for (d of st) {
 var a_mock =  d.a_mock
 console.log(d)
