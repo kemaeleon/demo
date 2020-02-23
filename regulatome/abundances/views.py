@@ -24,7 +24,7 @@ from django_tables2 import MultiTableMixin, RequestConfig, SingleTableMixin, Sin
 from django_tables2.export.views import ExportMixin
 from django_tables2.paginators import LazyPaginator
 from .tables import  GeneTable, MultiTimeTable, SingleTimeTable
-from .filter import GeneFilter
+from .filter import GeneFilter,SingleTimeFilter,MultiTimeFilter
 from django.http import JsonResponse
 from django.shortcuts import redirect
 
@@ -44,10 +44,10 @@ class GeneSearch(ExportMixin, SingleTableMixin, FilterView):
         return {"template_name": "django_tables2/bootstrap.html"}
 
 class MultiTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
-    model = Gene
-    table_class = GeneTable
-    filterset_class = GeneFilter
-    template_name = "bootstrap_template4.html"
+    model = MultiTime 
+    table_class = MultiTimeTable
+    filterset_class = MultiTimeFilter
+    template_name = "bootstrap_template6.html"
 
     export_formats = ("csv", "xls")
 
