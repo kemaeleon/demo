@@ -43,34 +43,6 @@ class GeneSearch(ExportMixin, SingleTableMixin, FilterView):
     def get_table_kwargs(self):
         return {"template_name": "django_tables2/bootstrap.html"}
 
-class MultiTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
-    model = Gene
-    table_class = GeneTable
-    filterset_class = GeneFilter
-    template_name = "bootstrap_template4.html"
-
-    export_formats = ("csv", "xls")
-
-    def get_queryset(self):
-        return super().get_queryset()
-
-    def get_table_kwargs(self):
-        return {"template_name": "django_tables2/bootstrap.html"}
-
-class SingleTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
-    model = Gene
-    table_class = GeneTable
-    filterset_class = GeneFilter
-    template_name = "bootstrap_template4.html"
-
-    export_formats = ("csv", "xls")
-
-    def get_queryset(self):
-        return super().get_queryset()
-
-    def get_table_kwargs(self):
-        return {"template_name": "django_tables2/bootstrap.html"}
-
 
 
 class DV(APIView):
@@ -94,13 +66,10 @@ def random_color():
 
 def display_table(request):
     if request.method == "POST":
-        pks = request.POST.getlist("selected")
         print("pks", pks)
         table_multi = MultiTimeTable(MultiTime.objects.filter(gene_id__in=pks))
         table_single = SingleTimeTable(SingleTime.objects.filter(gene_id__in=pks))
 
-    def get_table_kwargs(table):
-        return {"template_name": "django_tables2/bootstrap.html"}
 
     return render(request, "bootstrap_template5.html", {
         "table_multi": table_multi, "table_single": table_single

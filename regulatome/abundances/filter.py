@@ -6,9 +6,8 @@ class GeneFilter(django_filters.FilterSet):
         model = Gene
         fields = {
                 'gene_id': ['exact', ],
-                'description': ['exact','contains' ],
-                'accession': ['exact','contains' ],
-                'taxonomy': ['exact','contains'],
+                'description': ['contains' ],
+                'accession': ['exact'],
                  }
 
 
