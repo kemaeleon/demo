@@ -92,7 +92,7 @@ class MultiTime(SingleMultiAbundance):
                                                    'm48', 'pos48', 'neg48'], name='unique_entry'),
                      ]
     def get_absolute_url(self):
-        return "/rest/uniq-gene-id-%s" % self.uniq_gene_id
+        return "/rest/multi-time-id-%s" % self.id
 
 
 

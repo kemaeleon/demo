@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'results_tables', views.display_table, name='tables_view'),
     url(r'multitime_browse',views.MultiTimeBrowse.as_view(), name='multitime_browse'),
     url(r'singletime_browse', views.SingleTimeBrowse.as_view(), name='singletime_browse'),
-    url(r'^rest/uniq-gene-id-[a-zA-Z0-9-=_]{2,40}$', DV.as_view()), # RESTful data view
+    url(r'^rest/multi-time-id-[a-zA-Z0-9-=_]{2,40}$', DV.as_view()), # RESTful data view
    # url('', debug.default_urlconf)
     url('', views.announce)
 ]

@@ -61,7 +61,7 @@ class SingleTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
     model = Gene
     table_class = GeneTable
     filterset_class = GeneFilter
-    template_name = "bootstrap_template4.html"
+    template_name = "bootstrap_template6.html"
 
     export_formats = ("csv", "xls")
 
@@ -77,12 +77,14 @@ class DV(APIView):
     authentication_classes = []
     permission_classes = []
     def get(self, request, format=None):
-        raw = re.search('(?<=rest/uniq-gene-id-)[a-zA-Z0-9-=_]{2,40}', request.get_full_path())
-        gene_id = raw.group(0)
-        df = pd.DataFrame(MultiTime.objects.filter(uniq_gene_id=gene_id).values())
-        if len(df) == 0:
-           df = pd.DataFrame(SingleTime.objects.filter(uniq_gene_id=gene_id).values())
-        return Response(df)
+        raw = re.search('(?<=rest/multi-time-id-)[a-zA-Z0-9-=_]{2,40}', request.get_full_path())
+        multitime_id = raw.group(0)
+        data = MultiTime.objects.filter(id=multitime_id).values()[0]
+        print(data['gene_id_id'])
+        gene_id = data['gene_id_id']
+        data_gene =  Gene.objects.filter(id=gene_id).values()[0]
+        data_all = {**data, **data_gene}
+        return Response(data_all)
 
 
 def random_color():
