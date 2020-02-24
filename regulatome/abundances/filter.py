@@ -17,8 +17,8 @@ class MultiTimeFilter(django_filters.FilterSet):
     class Meta:
         model = MultiTime
         fields = {
-                'log2_p48a_by_m48a': ['gt'],
-                'log2_n48a_by_m48a': ['lt'],
+                'log2_p48a_by_m48a': ['lt'],
+                'log2_n48a_by_m48a': ['gt'],
                  }
         exclude = ['gene_id']
 

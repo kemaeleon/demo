@@ -3,7 +3,7 @@ from django.views import debug
 from django.contrib import admin
 from abundances import views, models
 from abundances.models import TimeCourse
-from abundances.views import DV,GeneSearch
+from abundances.views import DV,GeneSearch,MTView,STView
 
 urlpatterns = [
     url(r'^dice$', views.dicegame, name='dice'),
@@ -13,6 +13,9 @@ urlpatterns = [
     url(r'multitime_browse',views.MultiTimeBrowse.as_view(), name='multitime_browse'),
     url(r'singletime_browse', views.SingleTimeBrowse.as_view(), name='singletime_browse'),
     url(r'^rest/multi-time-id-[a-zA-Z0-9-=_]{2,40}$', DV.as_view()), # RESTful data view
+    url(r'^rest/MT', MTView.as_view({'get': 'list'})), # RESTful data view
+    url(r'^rest/ST', STView.as_view({'get': 'list'})), # RESTful data view
+
    # url('', debug.default_urlconf)
     url('', views.announce)
 ]

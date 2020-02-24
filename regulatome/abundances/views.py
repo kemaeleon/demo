@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import viewsets
 import pandas as pd
 import re
 import random as rd, string
@@ -13,7 +14,9 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 from django.http import HttpResponse
 from django.core import serializers
 from random import choice
-
+from abundances.serializers import GeneSerializer as gs
+from abundances.serializers import MultiTimeSerializer as mts
+from abundances.serializers import SingleTimeSerializer as sts
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.utils.lorem_ipsum import words
@@ -137,6 +140,16 @@ def  multitimeview(request):
             context['data_tc'] = 0
 
     return render(request, 'sp_tc.html', context)
+
+
+class MTView(viewsets.ModelViewSet):
+    queryset = MultiTime.objects.all().select_related('gene_id')
+    serializer_class = mts
+
+class STView(viewsets.ModelViewSet):
+    queryset = SingleTime.objects.all().select_related('gene_id')
+    serializer_class = sts
+
 
 
 
