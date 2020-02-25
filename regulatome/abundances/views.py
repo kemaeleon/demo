@@ -113,6 +113,26 @@ def display_table(request):
     })
 
 
+def hackview(request):
+    search_id = request.POST.getlist("gene_id")
+    selected_objects_t = MultiTime.objects.filter(gene_id__gene_id__in=search_id)
+    selected_objects_s = SingleTime.objects.filter(gene_id__gene_id__in=search_id)
+    for i in selected_objects_t:
+            setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" +  i.gene_id.accession + "_t")
+            i.save()
+    for i in selected_objects_s:
+            setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" +  i.gene_id.accession + "_s")
+            i.save()        
+    selected_objects_list_t = selected_objects_t.values()
+    selected_objects_list_s = selected_objects_s.values()
+    selected_geneids_t  = selected_objects_t.values_list('uniq_gene_id',flat=True)
+    selected_geneids_s = selected_objects_s.values_list('uniq_gene_id',flat=True)
+    selected_geneids = list(selected_geneids_t) + list(selected_geneids_s)
+    context = {}
+    context['uniq_gene_id'] = selected_geneids
+    context['data_tc'] = json.dumps(list(selected_objects_list_t))   
+    context['data_stp'] = json.dumps(list(selected_objects_list_s))
+    return render(request, 'sp_tc.html', context)
 
 
 def  multitimeview(request):
