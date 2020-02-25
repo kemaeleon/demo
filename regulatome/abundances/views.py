@@ -116,6 +116,7 @@ def display_table(request):
 
 
 def  multitimeview(request):
+    print(request.POST.getlist("gene_id"))
     x = re.search(".*multi.*", str(request))
     multi = False
     if (x):
