@@ -60,7 +60,13 @@ ROOT_URLCONF = 'regulatome.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'regulatome','templates')],
+        'DIRS': [os.path.join(BASE_DIR,'regulatome','templates'),
+                 os.path.join(BASE_DIR,'regulatome','templates','scss'),
+                 os.path.join(BASE_DIR,'regulatome','templates', 'css'),
+                 os.path.join(BASE_DIR,'regulatome','templates', 'vendor'),
+                 os.path.join(BASE_DIR,'regulatome','vendor'),
+                 os.path.join(BASE_DIR,'regulatome','img'),
+               ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -164,4 +170,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/var/www/regulatome/docroot/static'
+#STATIC_ROOT = '/var/www/regulatome/docroot/static'
+STATIC_ROOT = '/home/maria/static'
+

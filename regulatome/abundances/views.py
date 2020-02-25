@@ -112,6 +112,9 @@ def display_table(request):
 
     })
 
+
+
+
 def  multitimeview(request):
     x = re.search(".*multi.*", str(request))
     multi = False
@@ -161,6 +164,9 @@ def announce(request):
 def flatten(listoflists):
     return [item for liste in listoflists for item in liste]
 
+def homepage(request):
+    info = {}
+    return render(request, 'index.html',info) 
 
 def dicegame(request):
     info = {}
