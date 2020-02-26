@@ -24,9 +24,7 @@
   <!-- Custom styles for this template -->
   <link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
 <style>
-a:hover {
-  text-decoration: None !important;
-}
+
 </style>
 <script src="https://kit.fontawesome.com/f80e9e5a30.js" crossorigin="anonymous"></script>
   </head>
@@ -42,21 +40,22 @@ a:hover {
     </div>
   </nav>
 
- <header class="masthead text-white text-center">
+  <!-- Masthead -->
+  <header class="masthead text-white text-center">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-xl-9 mx-auto">
-  <h1 class="mb-5">HIV Regulatome</h1>
+          <h1 class="mb-5">Fish for protein expression data in the HIV Regulatome</h1>
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-        <form action="/example/" method="get" name="gene_id"> 
+	<form action="/example/" method="post" name="gene_id"> {% csrf_token %}
             <div class="form-row">
               <div class="col-12 col-md-9 mb-2 mb-md-0">
-                      <input value="{{gene_id}}" type="post" name="gene_id" class="form-control form-control-lg" placeholder="Enter your a Gene ID, e.g. ODC1 ...">
+		      <input value="{{gene_id}}" type="post" name="gene_id" class="form-control form-control-lg" placeholder="Enter your a Gene ID, e.g. ODC1 ...">
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Quick Search</button>
+                <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
               </div>
             </div>
           </form>
@@ -64,8 +63,6 @@ a:hover {
       </div>
     </div>
   </header>
-
-
 
   <!-- Icons Grid -->
   <section class="features-icons bg-light text-center">
@@ -77,7 +74,7 @@ a:hover {
             <div class="features-icons-icon d-flex">
 	      <i  class="fas fa-dna m-auto text-primary"></i>
 	    </div></a>
-	    <h3>Gene Search</h3>
+	    <h3>Advanced Gene Search</h3>
             <p class="lead mb-0">Search By Id, Accession and Description</p>
           </div>
         </div>
@@ -85,20 +82,20 @@ a:hover {
           <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
 		   <a href= "{% url "singletime_browse" %}"> 
             <div class="features-icons-icon d-flex">
-              <i class="fas fa-vial m-auto text-primary"></i>
+              <i class="fa fa-balance-scale-right m-auto text-primary"></i>
 	    </div></a>
-            <h3>Single Time Property Search</h3>
-            <p class="lead mb-0">Search by Protein Expression Values</p>
+            <h3>Snapshots</h3>
+            <p class="lead mb-0">Find and Compare Single Time Point Expression Data</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="features-icons-item mx-auto mb-0 mb-lg-3">
 		   <a href= "{% url "multitime_browse" %}"> 
             <div class="features-icons-icon d-flex">
-              <i class="fas fa-vials m-auto text-primary"></i>
+              <i class="fas fa-film m-auto text-primary"></i>
 	    </div></a>
-            <h3>Time Course Property Search</h3>
-            <p class="lead mb-0">Search by Protein Expression Values</p>
+            <h3>Time Courses</h3>
+            <p class="lead mb-0">Find and Compare Protein Expression over 48 hours</p>
           </div>
         </div>
       </div>
@@ -144,21 +141,21 @@ a:hover {
     <div class="container-fluid p-0">
       <div class="row no-gutters">
 
-        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/static/img/virus.jpg');"></div>
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/virus.jpg');"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
           <h2>Aims and Achievements</h2>
-          <p class="lead mb-0"> Vivere, Gallio frater, omnes beate volunt, sed ad pervidendum quid sit quod beatam vitam efficiat caligant;</p>
+          <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-lg-6 text-white showcase-img" style="background-image: url('/static/img/bg-showcase-2.jpg');"></div>
+        <div class="col-lg-6 text-white showcase-img" style="background-image: url('img/bg-showcase-2.jpg');"></div>
         <div class="col-lg-6 my-auto showcase-text">
           <h2>Collaborators</h2>
-          <p class="lead mb-0">Tu vero omnia cum amico delibera, sed de ipso prius: Post amicitiam credendum est, ante amicitiam iudicandum.</p>
+          <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!</p>
         </div>
       </div>
       <div class="row no-gutters">
-        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/static/img/bg-showcase-3.jpg');"></div>
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('img/bg-showcase-3.jpg');"></div>
         <div class="col-lg-6 order-lg-1 my-auto showcase-text">
           <h2>Publications</h2>
           <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>

@@ -37,8 +37,8 @@ class GeneSearch(ExportMixin, SingleTableMixin, FilterView):
     table_class = GeneTable
     filterset_class = GeneFilter
     template_name = "bootstrap_template4.html"
-
-    export_formats = ("csv", "xls")
+    export_formats = ()
+    #export_formats = ("csv", "xls")
 
     def get_queryset(self):
         return super().get_queryset()
@@ -103,7 +103,8 @@ def display_table(request):
         print("pks", pks)
         table_multi = MultiTimeTable(MultiTime.objects.filter(gene_id__in=pks))
         table_single = SingleTimeTable(SingleTime.objects.filter(gene_id__in=pks))
-
+        RequestConfig(request).configure(table_single)
+        RequestConfig(request).configure(table_multi)
     def get_table_kwargs(table):
         return {"template_name": "django_tables2/bootstrap.html"}
 
@@ -113,8 +114,26 @@ def display_table(request):
     })
 
 
+def hackview2(request): 
+    search_id = request.GET.getlist("gene_id")
+    table_multi = MultiTimeTable(MultiTime.objects.filter(gene_id__gene_id__in=search_id))
+    table_single = SingleTimeTable(SingleTime.objects.filter(gene_id__gene_id__in=search_id))
+    RequestConfig(request).configure(table_single)
+    RequestConfig(request).configure(table_multi)
+    def get_table_kwargs(table):
+        return {"template_name": "django_tables2/bootstrap.html"}
+
+    return render(request, "bootstrap_template5.html", {
+        "table_multi": table_multi, "table_single": table_single
+
+    })
+ 
+
+
+
+
 def hackview(request):
-    search_id = request.POST.getlist("gene_id")
+    search_id = request.GET.getlist("gene_id")
     selected_objects_t = MultiTime.objects.filter(gene_id__gene_id__in=search_id)
     selected_objects_s = SingleTime.objects.filter(gene_id__gene_id__in=search_id)
     for i in selected_objects_t:
