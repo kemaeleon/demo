@@ -5,11 +5,17 @@
 
 <!doctype html>
 <html>
-{%include "head.html" %}
+
+{% include "head.html" %}
+
 <body>
-{%include "nav.html"%}
 <div class="container">
 {% block body %}
+<div class="row">
+<div class="col-sm-6">
+<img src="{% static "assays/static/logo.png" %}" alt="lessons from viruses">
+</div>
+</div>
 <div class="row">
 <h1>Gene Search</h1>
                 <div class="pull-right">
