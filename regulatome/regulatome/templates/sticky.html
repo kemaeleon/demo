@@ -30,24 +30,84 @@ a:hover {
 .navbar .fas {
 font-size: 2em !important;
 }
+ /* Style the navbar */
+#navbar {
+  overflow: hidden;
+  background-color: white;
+  z-index: 100 !important;
+}
+
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: None;
+} 
+	
 
 </style>
 <script src="https://kit.fontawesome.com/f80e9e5a30.js" crossorigin="anonymous"></script>
   </head>
-</head>
 
 <body>
 
+
   <!-- Navigation -->
-   <nav id="navbar" class="navbar navbar-light bg-light static-top">
+  <nav id="navbar" class="navbar navbar-light bg-light static-top">
     <div class="container">
       <a class="navbar-brand" href="#"><img src="{% static "assays/static/logo.png" %}" alt="Matheson Lab - Lessons from Viruses"></a>
       <a href="gene_search"><i  class="fas fa-dna m-auto text-primary"></i></a>
       <a href="singletime_browse"><i  class="fas fa-vial m-auto text-primary"></i></a>
       <a href="multitime_browse"><i  class="fas fa-vials m-auto text-primary"></i></a>
       <a class="btn btn-primary" href="admin">admin</a>
-         </div>
+	 </div>
   </nav>
+
+
+ <script>
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
+
+// Get the navbar
+var navbar = document.getElementById("navbar");
+
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+
+
+
+
+
 
 
  <header class="masthead text-white text-center">
