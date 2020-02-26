@@ -94,7 +94,7 @@ transform: scale(1.3);
 	    <h2>Step 2: Select Gene Product and Show Data</h2>
 	    <row> For example, tick GeneIds AARS1 and AAS2 and select the "show data" button.</row>
 
-	    <form action="/results_tables/" method="post"> {% csrf_token %} 	
+	    <form action="/results_tables/" method="get">  	
             <input type="submit" value="show data">		    
                 {% render_table table %}
 	    </form>

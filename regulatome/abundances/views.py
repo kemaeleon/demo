@@ -98,8 +98,8 @@ def random_color():
 
 
 def display_table(request):
-    if request.method == "POST":
-        pks = request.POST.getlist("selected")
+    if request.method == "GET":
+        pks = request.GET.getlist("selected")
         print("pks", pks)
         table_multi = MultiTimeTable(MultiTime.objects.filter(gene_id__in=pks))
         table_single = SingleTimeTable(SingleTime.objects.filter(gene_id__in=pks))
@@ -135,14 +135,14 @@ def hackview(request):
     return render(request, 'sp_tc.html', context)
 
 
-def  multitimeview(request):
-    print(request.POST.getlist("gene_id"))
+def multitimeview(request):
+    print(request.GET.getlist("gene_id"))
     x = re.search(".*multi.*", str(request))
     multi = False
     if (x):
         multi = True
-    if request.method == "POST":
-        pks = request.POST.getlist("selected")
+    if request.method == "GET":
+        pks = request.GET.getlist("selected")
         selected_obects = None
         if multi is True:
             selected_objects = MultiTime.objects.filter(pk__in=pks)
