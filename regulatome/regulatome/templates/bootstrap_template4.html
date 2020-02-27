@@ -55,17 +55,27 @@ background-color:
 border-color:
     #007bff;
 }
-	
+.masthead h1 {
+color: white !important;
+}
+header.masthead {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
 </style>    
 </head>
 <body>
 <div class="container">
 {% block body %}
 {%include "nav.html"%}
-
-<div class="row">
+<div class="row" id="divider">
+<header class="masthead text-white text-center">
+</header>
+</div>
+	
 <div class="col-sm-12" id="gene_selection">
-<h1>Gene Search</h1>
+<h1>Gene Search </h1>
                 <div class="pull-right">
                     {% if view.export_formats %}
                         {% for format in view.export_formats %}
@@ -85,15 +95,9 @@ border-color:
                 {% endif %}
             </div>
           <div class="col-sm-12" id="data_selection"> 
-	    <form action="/results_tables/" method="get">  	
+	    <form action="/results_tables/" method="get">  
                 {% render_table table %}
-	   <div class="checkbox">	
-	   <label><input type="checkbox" value="s" checked>Single Point</label>	
-	   </div>
-	   <div class="checkbox">
-	   <label><input type="checkbox" value="m" checked>Time Course</label>
-	   </div>
-	    <input type="submit" value="show data">	
+	        <input type="submit" value="showdata">	
 	    </form>
 	</div></div></div>
         {% endblock %}
