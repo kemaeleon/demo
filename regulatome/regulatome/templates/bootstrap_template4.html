@@ -8,9 +8,10 @@
 <head>
     <title>database list view</title>
     {% bootstrap_css %}
-
+    <link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
     <link href="{% static 'django_tables2/bootstrap.css' %}" rel="stylesheet" />
-
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/navbar.css' %}" rel="stylesheet">
 <style>
   h1{
   color: slategray;
@@ -34,14 +35,24 @@ th > input[type="checkbox"]{
 .form-inline .form-control {
 		        width: 400px !important;
 }
-#gene_selection, #data_selection{
-}
-#data_selection, #gene_selection {
-}
 input[type="checkbox"]{
 transform: scale(1.3);
 }
-
+.text-primary {
+    color: 
+    #007bff !important;
+}
+.bg-light {
+    background-color:
+    #f8f9fa !important;
+}
+.navbar .btn-primary {
+    color:
+#fff;
+background-color:
+#007bff;
+border-color:
+    #007bff;
 }
 	
 </style>    
@@ -49,12 +60,7 @@ transform: scale(1.3);
 <body>
 <div class="container">
 {% block body %}
-<div class="row">
-<div class="col-sm-6">
-<img src="{% static "assays/static/logo.png" %}" alt="lessons from viruses">
-</div>
-</div>
-
+{%include "nav.html"%}
 
 <div class="row">
 <div class="col-sm-12" id="gene_selection">
