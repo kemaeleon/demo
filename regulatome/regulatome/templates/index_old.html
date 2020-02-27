@@ -16,7 +16,7 @@
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="{% static 'django_tables2/bootstrap.css' %}">
+  <link href="{% static 'django_tables2/bootstrap.css' %}"
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
   <link href="{% static 'vendor/simple-line-icons/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -24,10 +24,6 @@
   <!-- Custom styles for this template -->
   <link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
 <style>
-{%include "style.html"%}
-#navbar1 .fas {
-font-size: 2rem !important;
-}
 a:hover {
   text-decoration: None !important;
 }
@@ -38,7 +34,13 @@ a:hover {
 
 <body>
 
-	{%include "nav.html"%}	
+  <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="{% static "assays/static/logo.png" %}" alt="Matheson Lab - Lessons from Viruses"></a>
+      <a class="btn btn-primary" href="#">Sign In</a>
+    </div>
+  </nav>
 
  <header class="masthead text-white text-center">
     <div class="overlay"></div>

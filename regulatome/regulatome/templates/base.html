@@ -1,1 +1,37 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Matheson Lab</title>
+
+    {% include 'base/css.html' %}
+    {% include 'base/bootstrap_defaults.html' %}
+  <style>
+  h1{
+  color: slategray !important;
+  padding-top: 30px;
+  }
+  h2 {
+  color: #224;
+  font-size: 18px;
+  padding: 20px 0px;
+   }
+  
+</style>  
+  </head>
+  <body>
+    <div class='container'>
+    {% block content %}
+    {% endblock content %}
+    </div>
+    {% include 'base/js.html' %}
+    <script>
+    $(document).ready(function(){
+      {% block jquery %}{% endblock %}
+    })
+    </script>
+  </body>
+</html>
