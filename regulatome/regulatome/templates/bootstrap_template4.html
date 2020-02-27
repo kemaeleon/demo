@@ -5,11 +5,22 @@
 
 <!doctype html>
 <html>
-{%include "head.html" %}
+{% bootstrap_css %}	
+{%include "head_table.html" %}
+</style>
 <body>
 {%include "nav.html"%}
-<div class="container">
+<header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="row">
+        <div class="col-xl-9 mx-auto">
+  <h1 class="mb-5">Advanced Gene Search</h1>
+        </div>
+
+</header>
+    <div class="container" >
 {% block body %}
+
 <div class="row">
 <h1>Gene Search</h1>
                 <div class="pull-right">

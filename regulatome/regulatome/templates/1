@@ -1,7 +1,7 @@
 {% load static %}   
-<nav id="mynavbar" class="mynavbar mynavbar-light bg-light static-top">
+<nav id="navbar" class="navbar navbar-light bg-light static-top">
     <div class="container">
-      <a class="mynavbar-brand" href="home"><img src="{% static "assays/static/logo.png" %}" alt="Matheson Lab - Lessons from Viruses"></a>
+      <a class="navbar-brand" href="home"><img src="{% static "assays/static/logo.png" %}" alt="Matheson Lab - Lessons from Viruses"></a>
       <a href="gene_search"><i  class="fas fa-dna m-auto text-primary"></i></a>
       <a href="singletime_browse"><i  class="fas fa-vial m-auto text-primary"></i></a>
       <a href="multitime_browse"><i  class="fas fa-vials m-auto text-primary"></i></a>
