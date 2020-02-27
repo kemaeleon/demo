@@ -61,10 +61,10 @@ class MultiTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
         return {"template_name": "django_tables2/bootstrap.html"}
 
 class SingleTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
-    model = Gene
-    table_class = GeneTable
-    filterset_class = GeneFilter
-    template_name = "bootstrap_template6.html"
+    model = SingleTime
+    table_class = SingleTimeTable
+    filterset_class = SingleTimeFilter
+    template_name = "bootstrap_template7.html"
 
     export_formats = ("csv", "xls")
 
@@ -156,10 +156,11 @@ def hackview(request):
 
 def multitimeview(request):
     print(request.GET.getlist("gene_id"))
-    x = re.search(".*multi.*", str(request))
-    multi = False
+    x = re.search(".*single.*", str(request))
+    multi = True
     if (x):
-        multi = True
+        multi = False
+        print("Found")
     if request.method == "GET":
         pks = request.GET.getlist("selected")
         selected_obects = None
