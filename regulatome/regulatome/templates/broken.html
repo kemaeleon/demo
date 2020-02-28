@@ -33,19 +33,19 @@ a:hover {
 }
 </style>
 <script src="https://kit.fontawesome.com/f80e9e5a30.js" crossorigin="anonymous"></script>
+  </head>
+</head>
+
+<body>
 <script>
 function success() {
-         if(document.getElementById("supertext").value =="") {
-            document.getElementById('superbutton').disabled = true;
-        } else {
+	 if(document.getElementById("supertext").value =="") { 
+            document.getElementById('superbutton').disabled = true; 
+        } else { 
             document.getElementById('superbutton').disabled = false;
         }
     }
 </script>
-
-  </head>
-
-<body>
 
 	{%include "nav.html"%}	
 
@@ -60,10 +60,20 @@ function success() {
         <form action="/example/" method="get" name="gene_id"> 
             <div class="form-row">
               <div class="col-12 col-md-9 mb-2 mb-md-0">
-                      <input value="{{gene_id}}" id="supertext" onkeyup="success()"  type="post" name="gene_id" class="form-control form-control-lg" placeholder="Enter your a Gene ID, e.g. ODC1 ...">
+		      <script>
+function success() {
+         if(document.getElementById("supertext").value =="") {
+            document.getElementById('superbutton').disabled = true;
+        } else {
+            document.getElementById('superbutton').disabled = false;
+        }
+    }
+</script>
+
+                      <input value="{{gene_id}}" type="post" id="supertext" onkeyup="success()" class="form-control form-control-lg" placeholder="Enter your a Gene ID, e.g. ODC1 ...">
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" id="superbutton" class="btn btn-block btn-lg btn-primary" disabled>Quick Search</button>
+                <button id="superbutton" type="submit"  class="btn btn-block btn-lg btn-primary" disabled>Quick Search</button>
               </div>
             </div>
           </form>

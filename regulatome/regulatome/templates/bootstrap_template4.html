@@ -7,8 +7,16 @@
 <html>
 	{%include "head_single_multi.html"%}
 <body>
+	
 <div class="container">
 {% block body %}
+<script>
+function success() {
+            document.getElementById('superbutton').disabled = false;
+         {
+    }
+</script>
+
 {%include "nav.html"%}
 <div class="row" id="divider">
 <header class="masthead text-white text-center">
@@ -32,13 +40,22 @@
 			<div id="filtersubmit">
                         {% bootstrap_button 'filter' %}
 			</div>
-                    </form>
+                    </form><script>
+function success() {
+         if(document.getElementById("supertext").value =="") {
+            document.getElementById('superbutton').disabled = true;
+        } else {
+            document.getElementById('superbutton').disabled = false;
+        }
+    }
+</script>
+
                 {% endif %}
             </div>
           <div class="col-sm-12" id="data_selection"> 
-	    <form action="/results_tables/" method="get">  
+	    <form action="/results_tables/" method="get" id="supertext" onkeyup="success()" type="post">  
                 {% render_table table %}
-	        <input type="submit" value="showdata">	
+	        <input type="submit" value="showdata" id="superbutton" disabled>	
 	    </form>
 	</div></div></div>
         {% endblock %}

@@ -1,6 +1,34 @@
 import django_tables2 as tables
 from django_tables2.utils import A 
 from .models import Gene,MultiTime,SingleTime
+import attributedict
+from django.utils.safestring import mark_safe
+
+from django_tables2.utils import Accessor, AttributeDict
+
+
+
+
+
+class myColumn(tables.CheckBoxColumn):
+
+    @property
+    def header(self):
+        default = {"type": "checkbox", "onkeyup":"success"}
+        general = self.attrs.get("input")
+        specific = self.attrs.get("th__input")
+        attrs = AttributeDict(default, **(specific or general or {}))
+        return mark_safe("<input %s/>" % attrs.as_html())
+
+    def render(self, value, bound_column, record):
+        default = {"type": "checkbox", "name": bound_column.name, "value": value, "onclick":"success()", }
+        if self.is_checked(value, record):
+            default.update({"checked": "checked"})
+
+        general = self.attrs.get("input")
+        specific = self.attrs.get("td__input")
+        attrs = AttributeDict(default, **(specific or general or {}))
+        return mark_safe("<input %s/>" % attrs.as_html())
 
 
 class MultiTimeTable(tables.Table):
@@ -29,7 +57,7 @@ class SingleTimeTable(tables.Table):
 
 
 class GeneTable(tables.Table):
-    selected = tables.CheckBoxColumn(accessor='pk', orderable=False)
+    selected = myColumn(accessor='pk', orderable=False)
     class Meta:
         model = Gene
         sequence = ('selected','gene_id','accession','description','taxonomy')
