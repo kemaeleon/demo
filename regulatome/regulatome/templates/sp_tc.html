@@ -87,7 +87,11 @@ function setChart(){
                     beginAtZero: true,
                     suggestedMin: 0,
                     suggestedMax: 1.25
-                }
+                },
+	     scaleLabel: {
+        display: true,
+        labelString: 'Abundance (fraction max.)'
+      }
       },
       {
         id: 'B',
@@ -98,7 +102,11 @@ function setChart(){
                     beginAtZero: false,
 	 	    suggestedMin: -2,
 		    suggestedMax: 0.5
-                }
+                },
+	      scaleLabel: {
+        display: true,
+        labelString: 'Log2(Expt/Ctrl)'
+      }
             }]
         }
     }
