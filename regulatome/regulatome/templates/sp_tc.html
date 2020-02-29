@@ -163,14 +163,8 @@ function setChart(){
 }
 {% endblock jquery %}
 {% block content %}
-<div class="row">
-                <div class="col-sm-6">
-                <img src="{% static "assays/static/logo.png" %}" alt="lessons from viruses">
-                </div>
-                <div class="col-sm-6"></div>
-
-        </div>
-
+<html>
+{% include "nav.html" %}
 <div class='row'>
 {% for o in uniq_gene_id %}
         <div class='col-sm-4'>
@@ -179,5 +173,6 @@ function setChart(){
         </div>
 {% endfor %}
 </div>
+	</html>
 {% endblock content %}
 </script>

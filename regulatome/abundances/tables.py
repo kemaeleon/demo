@@ -45,12 +45,11 @@ class MultiTimeTable(tables.Table):
 
 class SingleTimeTable(tables.Table):
     ttype = 'st'
-    gene_id = tables.Column(linkify = True)
     selected = tables.CheckBoxColumn(accessor='pk', orderable=False)
     class Meta:
         model = SingleTime
-        sequence = ('selected','gene_id')
-        fields = ('gene_id','a_mock','b_mock','c_mock','a_wt', 'b_wt', 'c_wt','a_delta_vif', 'b_delta_vif', 'c_delta_vif')
+        sequence = ('selected','gene_id.gene_id')
+        fields = ('gene_id.gene_id', 'a_mock','b_mock','c_mock','a_wt', 'b_wt', 'c_wt','a_delta_vif', 'b_delta_vif', 'c_delta_vif')
         attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
     def render_edit(self):
         return 'Edit'
@@ -60,7 +59,7 @@ class GeneTable(tables.Table):
     selected = myColumn(accessor='pk', orderable=False)
     class Meta:
         model = Gene
-        sequence = ('selected','gene_id','accession','description','taxonomy')
+        sequence = ('selected', 'gene_id','accession','description','taxonomy')
         fields = ('gene_id','accession','description','taxonomy')
         attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
     def render_edit(self):

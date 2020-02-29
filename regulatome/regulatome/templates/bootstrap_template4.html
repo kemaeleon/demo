@@ -24,7 +24,7 @@ function success() {
 </div>
 	
 <div class="col-sm-12" id="gene_selection">
-<h1>Gene Search </h1>
+<h1>Gene Filter</h1>
                 <div class="pull-right">
                     {% if view.export_formats %}
                         {% for format in view.export_formats %}
@@ -51,11 +51,10 @@ function success() {
 </script>
 
                 {% endif %}
-            </div>
+	    <h1>Data Selection and Plots</h1> 
           <div class="col-sm-12" id="data_selection"> 
 	    <form action="/results_tables/" method="get" id="supertext" onkeyup="success()" type="post">  
-                {% render_table table %}
-	        <input type="submit" value="showdata" id="superbutton" disabled>	
+	        <input type="submit" value="show selected data" id="superbutton" disabled>	{% render_table table %}
 	    </form>
 	</div></div></div>
         {% endblock %}
