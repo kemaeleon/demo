@@ -65,8 +65,18 @@ function setChart(){
    }]
     },
     options: {
-	      legend: {position: 'bottom'},
+	      legend: {position: 'left'},
         scales: {
+  xAxes: [{
+        ticks: {
+            autoSkip: false,
+            maxRotation: 90,
+            minRotation: 90
+        }
+    }], 
+
+
+
             yAxes: [ 
      {
         id: 'A',
@@ -142,7 +152,7 @@ function setChart(){
       ]
     },
     options: {
-	      legend: {position: 'right'},
+	      legend: {position: 'left'},
         scales: {
 	    xAxes: [{
                 ticks: {
@@ -174,9 +184,9 @@ function setChart(){
 {% include "nav.html" %}
 <div class='row'>
 {% for o in uniq_gene_id %}
-        <div class='col-sm-4'>
+        <div class='col-sm-6'>
 	<h2> {{o}} </h2>
-	<canvas id={{o}} width=400 height=400></canvas>
+	<canvas id={{o}} width=600 height=400></canvas>
         </div>
 {% endfor %}
 </div>
