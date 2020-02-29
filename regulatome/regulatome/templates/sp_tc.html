@@ -102,17 +102,17 @@ var st = {{data_stp|safe}};
 if (st) {
 console.log('YES')
 for (d of st) {
-var a_mock =  d.a_mock
+var a_mock =  d.a_a_mock
 console.log(d)
 console.log(a_mock)
-var b_mock =   d.b_mock
-var c_mock =   d.c_mock
-var a_wt =  d.a_wt
-var b_wt =   d.b_wt
-var c_wt =    d.c_wt
-var a_delta_vif  =   d.a_delta_vif
-var b_delta_vif  =  d.b_delta_vif
-var c_delta_vif  =  d.c_delta_vif
+var b_mock =   d.a_b_mock
+var c_mock =   d.a_c_mock
+var a_wt =  d.a_a_wt
+var b_wt =   d.a_b_wt
+var c_wt =    d.a_c_wt
+var a_delta_vif  =   d.a_a_delta_vif
+var b_delta_vif  =  d.a_b_delta_vif
+var c_delta_vif  =  d.a_c_delta_vif
 var gene_id = d.uniq_gene_id
 setChart();
 
@@ -126,15 +126,15 @@ function setChart(){
     data: {
       labels: ['Mock','WT','\u0394_vif'],
       datasets: [{
-      label: "A",
+      label: "donor A",
       backgroundColor: 'rgba(0, 0, 30, 0.4)',
       data: [a_mock, a_wt, a_delta_vif]	      
    }, {
-      label: "B",
+      label: "donor B",
       backgroundColor: 'rgba(0, 0, 30, 0.2)',
       data: [b_mock, b_wt, b_delta_vif]	   
    }, {
-      label: "C",
+      label: "donor C",
       backgroundColor:'rgba(255, 0, 0, 0.2)',
       borderColor:'rgba(255,0,0, 1)',
       data: [c_mock, c_wt, c_delta_vif]	   
@@ -142,8 +142,15 @@ function setChart(){
       ]
     },
     options: {
-	      legend: {position: 'bottom'},
+	      legend: {position: 'right'},
         scales: {
+	    xAxes: [{
+                ticks: {
+                    autoSkip: false,
+                    maxRotation: 90,
+                    minRotation: 90
+                }
+            }],	
             yAxes: [ 
      {
         id: 'A',
