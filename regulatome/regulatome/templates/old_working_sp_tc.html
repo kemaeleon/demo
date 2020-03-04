@@ -193,16 +193,18 @@ function setChart(){
 {% block content %}
 <html>
 {% include "nav.html" %}
-{% for o in tablelist %}
-    <div class="row">
+{% for o in uniq_gene_id %}
+	<h2> {{o}} </h2>
+        <div class="row">
         <div class='col-sm-6'>
-		<h2> {{o.tid}} </h2>
-	<canvas id={{o.tid}} width=800 height=400></canvas>
+
+	<canvas id={{o}} width=800 height=400></canvas>
         </div>
-        <div class='col-sm-10'>
-		{% render_table o  %}
+        <div class='col-sm-4'>
+		{% render_table table %}
+
         </div>
-     </div>
+        </div>
 {% endfor %}
-</html>
+	</html>
 {% endblock content %}

@@ -96,7 +96,23 @@ class Command(BaseCommand):
                                     setattr(e,i.name,'Null')
                             else:
                                 setattr(e,i.name,row[i.verbose_name])  
-                        e.save()  
+                        sp_peak = (e.a_mock, e.b_mock, e.c_mock, e.a_wt, e.b_wt, e.c_wt, e.a_delta_vif, e.b_delta_vif, e.c_delta_vif)
+                        sp_max_pk = max(sp_peak)
+                        def sp_nr(av):
+                            print("HOHOHO", round(av/sp_max_pk,2))
+                            return round(av/sp_max_pk,2)
+
+                        e.a_a_mock = sp_nr(e.a_mock) 
+                        e.a_b_mock = sp_nr(e.b_mock)
+                        e.a_c_mock = sp_nr(e.c_mock)
+                        e.a_a_wt = sp_nr(e.a_wt)
+                        e.a_b_wt = sp_nr(e.b_wt)
+                        e.a_c_wt = sp_nr(e.c_wt)
+                        e.a_a_delta_vif = sp_nr(e.a_delta_vif) 
+                        e.a_b_delta_vif = sp_nr(e.b_delta_vif)
+                        e.a_c_delta_vif = sp_nr(e.c_delta_vif)
+                        e.save()    
+
                 except Exception as error_message:
                     print(error_message)
                      

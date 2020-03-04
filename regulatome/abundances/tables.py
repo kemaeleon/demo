@@ -33,23 +33,23 @@ class myColumn(tables.CheckBoxColumn):
 
 class MultiTimeTable(tables.Table):
     ttype = 'MT'
-    id = tables.Column(linkify = True)
     selected = tables.CheckBoxColumn(accessor='pk', orderable=False)
     class Meta:
         model = MultiTime
-        sequence = ('selected','gene_id')
-        fields = ('gene_id','gene_id.gene_id','gene_id.accession', 'gene_id.description','log2_p24a_by_m24a','log2_n24a_by_m24a','log2_p48a_by_m48a','log2_n48a_by_m48a')
+        sequence = ('selected','gene_id.gene_id')
+        fields = ('gene_id.gene_id','gene_id.accession', 'gene_id.description','log2_p24a_by_m24a','log2_n24a_by_m24a','log2_p48a_by_m48a','log2_n48a_by_m48a')
         attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
     def render_edit(self):
         return 'Edit'
 
 class SingleTimeTable(tables.Table):
     ttype = 'st'
+    tid = ''
     selected = tables.CheckBoxColumn(accessor='pk', orderable=False)
     class Meta:
         model = SingleTime
         sequence = ('selected','gene_id.gene_id')
-        fields = ('gene_id.gene_id', 'a_mock','b_mock','c_mock','a_wt', 'b_wt', 'c_wt','a_delta_vif', 'b_delta_vif', 'c_delta_vif')
+        fields = ('gene_id.gene_id','log2_wt_by_mock','q_wt_by_mock', 'p_wt_by_mock', 'a_a_wt', 'a_b_wt', 'a_c_wt','a_a_delta_vif', 'a_b_delta_vif', 'a_c_delta_vif')
         attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
     def render_edit(self):
         return 'Edit'

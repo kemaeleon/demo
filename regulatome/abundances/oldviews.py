@@ -30,10 +30,6 @@ from .tables import  GeneTable, MultiTimeTable, SingleTimeTable
 from .filter import GeneFilter,SingleTimeFilter,MultiTimeFilter
 from django.http import JsonResponse
 from django.shortcuts import redirect
-from django import template
-
-register = template.Library()
-
 
 
 class GeneSearch(ExportMixin, SingleTableMixin, FilterView):
@@ -155,13 +151,10 @@ def hackview(request):
     context['uniq_gene_id'] = selected_geneids
     context['data_tc'] = json.dumps(list(selected_objects_list_t))   
     context['data_stp'] = json.dumps(list(selected_objects_list_s))
-    context['table_single']=table_single
     return render(request, 'sp_tc.html', context)
 
 
 def multitimeview(request):
-    list_singletables = []
-    list_multitables = []
     print(request.GET.getlist("gene_id"))
     x = re.search(".*single.*", str(request))
     multi = True
@@ -173,43 +166,23 @@ def multitimeview(request):
         selected_obects = None
         if multi is True:
             selected_objects = MultiTime.objects.filter(pk__in=pks)
-            for i in selected_objects:
-                setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" +  i.gene_id.accession)
-                i.save()
-            for primkey in pks:
-                multi_dt_entry = MultiTime.objects.filter(pk=primkey)
-                tid = multi_dt_entry[0].uniq_gene_id
-                multi_dt_table = MultiTimeTable(multi_dt_entry)
-                multi_dt_table.tid = tid
-                list_multitables.append(multi_dt_table)
         else:
             selected_objects = SingleTime.objects.filter(pk__in=pks)
-            for i in selected_objects:
-                setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" +  i.gene_id.accession)
-                i.save()
-            for primkey in pks:
-                single_dt_entry = SingleTime.objects.filter(pk=primkey)
-                tid = single_dt_entry[0].uniq_gene_id
-                single_dt_table = SingleTimeTable(single_dt_entry)
-                single_dt_table.tid = tid
-                list_singletables.append(single_dt_table)
         for i in selected_objects:
             setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" +  i.gene_id.accession)
             i.save()
         selected_objects_list = selected_objects.values()
         selected_geneids = selected_objects.values_list('uniq_gene_id',flat=True)    
-        table_single = SingleTimeTable(SingleTime.objects.filter(gene_id__gene_id__in=['Gagpol',]))
         context = {}
         context['uniq_gene_id'] = list(selected_geneids) 
         if multi is True:
             context['data_tc'] = json.dumps(list(selected_objects_list))
             context['data_stp'] = 0
-            context['tablelist'] = list_multitables
         else:
             context['data_stp'] = json.dumps(list(selected_objects_list))
+            print(context['data_stp'])
             context['data_tc'] = 0
-            context['tablelist'] = list_singletables
-        context['table']=list_singletables
+
     return render(request, 'sp_tc.html', context)
 
 
@@ -221,10 +194,7 @@ class STView(viewsets.ModelViewSet):
     queryset = SingleTime.objects.all().select_related('gene_id')
     serializer_class = sts
 
-@register.tag(name='update')
-def update_variable(value):
-    """Allows to update existing variable in template"""
-    return value
+
 
 
 def announce(request):

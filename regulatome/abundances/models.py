@@ -43,6 +43,15 @@ class SingleTime(SingleMultiAbundance):
     a_delta_vif = models.FloatField("A_\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
     b_delta_vif = models.FloatField("B_\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
     c_delta_vif = models.FloatField("C_\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+    a_a_mock = models.FloatField("A_Mock",default=0.0)
+    a_b_mock =  models.FloatField("B_Mock",default=0.0)
+    a_c_mock =  models.FloatField("C_Mock",default=0.0)
+    a_a_wt =    models.FloatField("A_WT",default=0.0)
+    a_b_wt = models.FloatField("B_WT",default=0.0)
+    a_c_wt = models.FloatField("C_WT",default=0.0)
+    a_a_delta_vif = models.FloatField("A_\N{GREEK CAPITAL LETTER DELTA}Vif",default=0.0)
+    a_b_delta_vif = models.FloatField("B_\N{GREEK CAPITAL LETTER DELTA}Vif",default=0.0)
+    a_c_delta_vif = models.FloatField("C_\N{GREEK CAPITAL LETTER DELTA}Vif",default=0.0)
     class Meta:
         constraints = [
                     models.UniqueConstraint(fields=['gene_id',

@@ -176,26 +176,32 @@ def multitimeview(request):
             for i in selected_objects:
                 setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" +  i.gene_id.accession)
                 i.save()
+'''     
             for primkey in pks:
                 multi_dt_entry = MultiTime.objects.filter(pk=primkey)
                 tid = multi_dt_entry[0].uniq_gene_id
                 multi_dt_table = MultiTimeTable(multi_dt_entry)
                 multi_dt_table.tid = tid
-                list_multitables.append(multi_dt_table)
+                list_multitables.append(mult_dt_table)
+'''
         else:
             selected_objects = SingleTime.objects.filter(pk__in=pks)
             for i in selected_objects:
                 setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" +  i.gene_id.accession)
                 i.save()
+'''
             for primkey in pks:
                 single_dt_entry = SingleTime.objects.filter(pk=primkey)
                 tid = single_dt_entry[0].uniq_gene_id
                 single_dt_table = SingleTimeTable(single_dt_entry)
                 single_dt_table.tid = tid
                 list_singletables.append(single_dt_table)
+'''
+'''
         for i in selected_objects:
             setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" +  i.gene_id.accession)
             i.save()
+'''
         selected_objects_list = selected_objects.values()
         selected_geneids = selected_objects.values_list('uniq_gene_id',flat=True)    
         table_single = SingleTimeTable(SingleTime.objects.filter(gene_id__gene_id__in=['Gagpol',]))
@@ -204,12 +210,12 @@ def multitimeview(request):
         if multi is True:
             context['data_tc'] = json.dumps(list(selected_objects_list))
             context['data_stp'] = 0
-            context['tablelist'] = list_multitables
+     #       context['tablelist'] = list_singletables
         else:
             context['data_stp'] = json.dumps(list(selected_objects_list))
             context['data_tc'] = 0
-            context['tablelist'] = list_singletables
-        context['table']=list_singletables
+      #      context['tablelist'] = list_multitables
+        context['Gagpol_NL435']=table_single
     return render(request, 'sp_tc.html', context)
 
 

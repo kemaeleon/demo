@@ -2,8 +2,9 @@
 {% load django_tables2 %}
 {% load bootstrap3 %}
 {% load render_table from django_tables2 %}
-{% load static %}
 
+{% load static %}
+<script>
 
 {% block jquery %}
 var dt = {{data_tc|safe}};
@@ -11,7 +12,7 @@ if (dt) {
 for (d of dt) {
     console.log(d.r2_a, d.uniq_gene_id);
 var r1 = d.r2_a; 
-var r2 =  d.	r1_a;
+var r2 =  d.r1_a;
 var a1 =  d.a2_a;
 var a2 =  d.a1_a;
 var m24 =  d.m24_a;
@@ -193,16 +194,18 @@ function setChart(){
 {% block content %}
 <html>
 {% include "nav.html" %}
-{% for o in tablelist %}
-    <div class="row">
+{% for o in uniq_gene_id %}
+	<h2> {{o}} </h2>
+        <div class="row">
         <div class='col-sm-6'>
-		<h2> {{o.tid}} </h2>
-	<canvas id={{o.tid}} width=800 height=400></canvas>
+	<canvas id={{o}} width=800 height=400></canvas>
         </div>
-        <div class='col-sm-10'>
-		{% render_table o  %}
+        var test = 'table_single'
+        console.log(test)
+        <div class='col-sm-4'>
+         {% render_table table_single %}
         </div>
-     </div>
+        </div>
 {% endfor %}
-</html>
+	</html>
 {% endblock content %}

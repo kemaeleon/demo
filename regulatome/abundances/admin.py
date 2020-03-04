@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Gene,MultiTime
+from .models import Gene,MultiTime,SingleTime
 
 
 class GeneAdmin(admin.ModelAdmin):
@@ -8,6 +8,12 @@ class GeneAdmin(admin.ModelAdmin):
     list_per_page = 30
     save_on_top = True
 
+class SingleTimeAdmin(admin.ModelAdmin):
+    search_fields = ('gene_id', 'description')
+    list_display = ('gene_id', 'a_a_wt')
+
+
+
 class MultiTimeAdmin(admin.ModelAdmin):
     search_fields = ('gene_id', 'description')
     list_display = ('gene_id', 'log2_p48a_by_m48a', 'log2_n48a_by_m48a')
@@ -15,3 +21,4 @@ class MultiTimeAdmin(admin.ModelAdmin):
 
 admin.site.register(Gene,GeneAdmin)
 admin.site.register(MultiTime,MultiTimeAdmin)
+admin.site.register(SingleTime,SingleTimeAdmin)
