@@ -195,11 +195,11 @@ function setChart(){
 {% include "nav.html" %}
 {% for o in tablelist %}
     <div class="row">
-        <div class='col-sm-6'>
-		<h2> {{o.tid}} </h2>
+	 <h2> {{o.tid}} </h2>   
+        <div class='col-sm-8'>
 	<canvas id={{o.tid}} width=800 height=400></canvas>
         </div>
-        <div class='col-sm-10'>
+        <div class='col-sm-4'>
 		{% render_table o  %}
         </div>
      </div>

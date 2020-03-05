@@ -26,7 +26,7 @@ from django_filters.views import FilterView
 from django_tables2 import MultiTableMixin, RequestConfig, SingleTableMixin, SingleTableView
 from django_tables2.export.views import ExportMixin
 from django_tables2.paginators import LazyPaginator
-from .tables import  GeneTable, MultiTimeTable, SingleTimeTable
+from .tables import  GeneTable, MultiTimeTable, SingleTimeTable,StatsTable
 from .filter import GeneFilter,SingleTimeFilter,MultiTimeFilter
 from django.http import JsonResponse
 from django.shortcuts import redirect
@@ -190,7 +190,8 @@ def multitimeview(request):
             for primkey in pks:
                 single_dt_entry = SingleTime.objects.filter(pk=primkey)
                 tid = single_dt_entry[0].uniq_gene_id
-                single_dt_table = SingleTimeTable(single_dt_entry)
+                single_dt_table = retrieveStatsTable2(single_dt_entry[0])
+                #single_dt_table = SingleTimeTable(single_dt_entry)
                 single_dt_table.tid = tid
                 list_singletables.append(single_dt_table)
         for i in selected_objects:
@@ -211,6 +212,26 @@ def multitimeview(request):
             context['tablelist'] = list_singletables
         context['table']=list_singletables
     return render(request, 'sp_tc.html', context)
+
+def retrieveStatsTable():
+    data = [
+            {"d": "WT/Mock", "v":"100", "p_val": "10", "q": "20" },
+            {"d": "\N{GREEK CAPITAL LETTER DELTA}Vif/Mock", "v":"300", "p_val": "20", "q": "30" },
+            {"d": "\N{GREEK CAPITAL LETTER DELTA}Vif/WT", "v":"499", "p_val": "10", "q": "20" },
+
+    ]
+    stats_table = StatsTable(data)
+    return stats_table
+
+def retrieveStatsTable2(st):
+    data = [
+        {"d": "WT/Mock", "v":st.log2_wt_by_mock,  "p_val": "30", "q": "20" },
+        {"d": "\N{GREEK CAPITAL LETTER DELTA}Vif/Mock", "v":"200", "p_val": "20", "q": "30" },
+        {"d": "\N{GREEK CAPITAL LETTER DELTA}Vif/WT", "v":"300", "p_val": "10", "q": "20" },
+
+    ]
+    stats_table = StatsTable(data)
+    return stats_table
 
 
 class MTView(viewsets.ModelViewSet):

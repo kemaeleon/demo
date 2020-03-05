@@ -64,3 +64,12 @@ class GeneTable(tables.Table):
         attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
     def render_edit(self):
         return 'Edit'
+
+
+class StatsTable(tables.Table):
+    d = tables.Column()
+    v=tables.Column()
+    p_val = tables.Column()
+    q = tables.Column()
+
+
