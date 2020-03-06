@@ -160,6 +160,7 @@ def hackview(request):
 
 
 def multitimeview(request):
+    template = ''
     list_singletables = []
     list_multitables = []
     print(request.GET.getlist("gene_id"))
@@ -206,12 +207,14 @@ def multitimeview(request):
             context['data_tc'] = json.dumps(list(selected_objects_list))
             context['data_stp'] = 0
             context['tablelist'] = list_multitables
+            template = 'sp_tc2.html'
         else:
             context['data_stp'] = json.dumps(list(selected_objects_list))
             context['data_tc'] = 0
             context['tablelist'] = list_singletables
+            template = 'sp_tc.html'
         context['table']=list_singletables
-    return render(request, 'sp_tc.html', context)
+    return render(request, template , context)
 
 def retrieveStatsTable():
     data = [
@@ -225,9 +228,9 @@ def retrieveStatsTable():
 
 def retrieveStatsTable2(st):
     data = [
-        {"d": "WT/Mock", "v":st.log2_wt_by_mock,  "p_val": "30", "q": "20" },
-        {"d": "\N{GREEK CAPITAL LETTER DELTA}Vif/Mock", "v":"200", "p_val": "20", "q": "30" },
-        {"d": "\N{GREEK CAPITAL LETTER DELTA}Vif/WT", "v":"300", "p_val": "10", "q": "20" },
+            {"Ab": "WT/Mock", "log2":st.log2_wt_by_mock,  "pValue":st.p_wt_by_mock, "qValue":st.q_wt_by_mock },
+            {"Ab": "\N{GREEK CAPITAL LETTER DELTA}Vif/Mock", "log2":st.log2_delta_vif_by_mock, "pValue": st.p_delta_vif_by_mock, "qValue":st.q_delta_vif_by_mock },
+        {"Ab": "\N{GREEK CAPITAL LETTER DELTA}Vif/WT", "log2":st.log2_wt_by_delta_vif, "pValue": st.p_wt_by_delta_vif , "qValue": st.q_wt_by_delta_vif },
 
     ]
     stats_table = StatsTable(data)

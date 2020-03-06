@@ -191,18 +191,24 @@ function setChart(){
 {% endblock jquery %}
 {% block content %}
 <html>
-	
+<style>
+td > input[type="checkbox"]{
+	display: None !important;}
+</style>
 {% include "nav.html" %}
+<div class="row" id="divider">
 <header class="masthead text-white text-center">
 </header>
 	
 {% for o in tablelist %}
     <div class="row">
-        <div class='col-sm-8'>
+        <div class='col-sm-10'>
 	<h1> {{o.tid}} </h1>	
 	<canvas id={{o.tid}} width=800 height=400></canvas>
         </div>
-        <div class='col-sm-4'>
+        <div class='col-sm-10' style="input[type="checkbox"]{
+        display: None !important;
+	}">
 		{% render_table o  %}
         </div>
      </div>

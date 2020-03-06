@@ -38,8 +38,8 @@
 			</div>
                     </form>
                 {% endif %}
-	    <form action="/plot_multitime/" method="get"> {% csrf_token %} 	
-            <input type="submit" value="plot data">		    
+		    <form action="/plot_multitime/" method="get" id="supertext" onkeyup="success()" type="post">
+                <input type="submit" value="plot selected data" id="superbutton" disabled>     
                 {% render_table table %}
 	    </form>
 	</div></div></div>

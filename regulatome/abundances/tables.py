@@ -6,8 +6,14 @@ from django.utils.safestring import mark_safe
 
 from django_tables2.utils import Accessor, AttributeDict
 
+class NumberColumn(tables.Column):
+    def render(self, value):
+        return '{:0.2f}'.format(value)
 
 
+class SmallValColumn(tables.Column):
+    def render(self, value):
+        return '{:0.2E}'.format(value)
 
 
 class myColumn(tables.CheckBoxColumn):
@@ -33,7 +39,8 @@ class myColumn(tables.CheckBoxColumn):
 
 class MultiTimeTable(tables.Table):
     ttype = 'MT'
-    selected = tables.CheckBoxColumn(accessor='pk', orderable=False)
+    #selected = tables.CheckBoxColumn(accessor='pk', orderable=False)
+    selected  = myColumn(accessor='pk', orderable=False)
     class Meta:
         model = MultiTime
         sequence = ('selected','gene_id.gene_id')
@@ -45,7 +52,10 @@ class MultiTimeTable(tables.Table):
 class SingleTimeTable(tables.Table):
     ttype = 'st'
     tid = ''
-    selected = tables.CheckBoxColumn(accessor='pk', orderable=False)
+    selected  = myColumn(accessor='pk', orderable=False)
+    log2_wt_by_mock = NumberColumn()
+    q_wt_by_mock = SmallValColumn(attrs={'td': {'class': lambda value: 'bg-primary' if float(value) <  0.05 else 'bg-light' }})
+    p_wt_by_mock = SmallValColumn(attrs={'td': {'class': lambda value: 'bg-primary' if float(value) <  0.05 else 'bg-light' }})
     class Meta:
         model = SingleTime
         sequence = ('selected','gene_id.gene_id')
@@ -67,9 +77,9 @@ class GeneTable(tables.Table):
 
 
 class StatsTable(tables.Table):
-    d = tables.Column()
-    v=tables.Column()
-    p_val = tables.Column()
-    q = tables.Column()
+    Ab = tables.Column()
+    log2= NumberColumn()
+    pValue = SmallValColumn(attrs={'td': {'class': lambda value: 'bg-primary' if float(value) <  0.05 else 'bg-light' }})
+    qValue = SmallValColumn(attrs={'td': {'class': lambda value: 'bg-primary' if float(value) <  0.05 else 'bg-light' }})
 
 
