@@ -1,0 +1,471 @@
+************* Module abundances.models
+C:  7, 0: Exactly one space required after comma
+    accession = models.CharField("Accession",max_length=10,default="")
+                                            ^ (bad-whitespace)
+C:  7, 0: Exactly one space required after comma
+    accession = models.CharField("Accession",max_length=10,default="")
+                                                          ^ (bad-whitespace)
+C:  8, 0: Exactly one space required after comma
+    description = models.CharField("Description",max_length=80, default="")
+                                                ^ (bad-whitespace)
+C:  9, 0: Exactly one space required after comma
+    taxonomy = models.CharField("Taxonomy",max_length=20, default="")
+                                          ^ (bad-whitespace)
+C: 11, 0: Line too long (126/100) (line-too-long)
+C: 11, 0: Exactly one space required after comma
+        constraints = [models.UniqueConstraint(fields=['gene_id','accession','description','taxonomy'], name='unique_entry'),]
+                                                                ^ (bad-whitespace)
+C: 11, 0: Exactly one space required after comma
+        constraints = [models.UniqueConstraint(fields=['gene_id','accession','description','taxonomy'], name='unique_entry'),]
+                                                                            ^ (bad-whitespace)
+C: 11, 0: Exactly one space required after comma
+        constraints = [models.UniqueConstraint(fields=['gene_id','accession','description','taxonomy'], name='unique_entry'),]
+                                                                                          ^ (bad-whitespace)
+C: 18, 0: Line too long (117/100) (line-too-long)
+C: 19, 0: Exactly one space required after comma
+    missing_values = models.FloatField("Missing values",default=0)
+                                                       ^ (bad-whitespace)
+C: 20, 0: Exactly one space required after comma
+    s_by_n = models.FloatField("Log10(S/N)",default=999)
+                                           ^ (bad-whitespace)
+C: 29, 0: Exactly one space required after comma
+    p_wt_by_mock = models.FloatField("p_WT/Mock",default=1.0)
+                                                ^ (bad-whitespace)
+C: 30, 0: Exactly one space required after comma
+    q_wt_by_mock = models.FloatField("q_WT/Mock",default=1.0)
+                                                ^ (bad-whitespace)
+C: 31, 0: Line too long (106/100) (line-too-long)
+C: 31, 0: Exactly one space required after comma
+    log2_delta_vif_by_mock = models.FloatField("Log2(\N{GREEK CAPITAL LETTER DELTA}Vif/Mock)",default=1.0)
+                                                                                             ^ (bad-whitespace)
+C: 32, 0: Exactly one space required after comma
+    p_delta_vif_by_mock = models.FloatField("p_\N{GREEK CAPITAL LETTER DELTA}Vif/Mock",default=1.0)
+                                                                                      ^ (bad-whitespace)
+C: 33, 0: Exactly one space required after comma
+    q_delta_vif_by_mock = models.FloatField("q_\N{GREEK CAPITAL LETTER DELTA}Vif/Mock",default=1.0)
+                                                                                      ^ (bad-whitespace)
+C: 34, 0: Line too long (102/100) (line-too-long)
+C: 34, 0: Exactly one space required after comma
+    log2_wt_by_delta_vif = models.FloatField("Log2(WT/\N{GREEK CAPITAL LETTER DELTA}Vif)",default=1.0)
+                                                                                         ^ (bad-whitespace)
+C: 35, 0: Exactly one space required after assignment
+    p_wt_by_delta_vif =  models.FloatField("p_WT/\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                      ^ (bad-whitespace)
+C: 35, 0: Exactly one space required after comma
+    p_wt_by_delta_vif =  models.FloatField("p_WT/\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                                                                                   ^ (bad-whitespace)
+C: 36, 0: Exactly one space required after assignment
+    q_wt_by_delta_vif =  models.FloatField("q_WT/\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                      ^ (bad-whitespace)
+C: 36, 0: Exactly one space required after comma
+    q_wt_by_delta_vif =  models.FloatField("q_WT/\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                                                                                   ^ (bad-whitespace)
+C: 37, 0: Exactly one space required after comma
+    a_mock = models.FloatField("A_Mock",default=1.0)
+                                       ^ (bad-whitespace)
+C: 38, 0: Exactly one space required after assignment
+    b_mock =  models.FloatField("B_Mock",default=1.0)
+           ^ (bad-whitespace)
+C: 38, 0: Exactly one space required after comma
+    b_mock =  models.FloatField("B_Mock",default=1.0)
+                                        ^ (bad-whitespace)
+C: 39, 0: Exactly one space required after assignment
+    c_mock =  models.FloatField("C_Mock",default=1.0)
+           ^ (bad-whitespace)
+C: 39, 0: Exactly one space required after comma
+    c_mock =  models.FloatField("C_Mock",default=1.0)
+                                        ^ (bad-whitespace)
+C: 40, 0: Exactly one space required after assignment
+    a_wt =    models.FloatField("A_WT",default=1.0)
+         ^ (bad-whitespace)
+C: 40, 0: Exactly one space required after comma
+    a_wt =    models.FloatField("A_WT",default=1.0)
+                                      ^ (bad-whitespace)
+C: 41, 0: Exactly one space required after comma
+    b_wt = models.FloatField("B_WT",default=1.0)
+                                   ^ (bad-whitespace)
+C: 42, 0: Exactly one space required after comma
+    c_wt = models.FloatField("C_WT",default=1.0)
+                                   ^ (bad-whitespace)
+C: 43, 0: Exactly one space required after comma
+    a_delta_vif = models.FloatField("A_\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                                                                         ^ (bad-whitespace)
+C: 44, 0: Exactly one space required after comma
+    b_delta_vif = models.FloatField("B_\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                                                                         ^ (bad-whitespace)
+C: 45, 0: Exactly one space required after comma
+    c_delta_vif = models.FloatField("C_\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                                                                         ^ (bad-whitespace)
+C: 46, 0: Exactly one space required after comma
+    a_a_mock = models.FloatField("A_Mock",default=0.0)
+                                         ^ (bad-whitespace)
+C: 47, 0: Exactly one space required after assignment
+    a_b_mock =  models.FloatField("B_Mock",default=0.0)
+             ^ (bad-whitespace)
+C: 47, 0: Exactly one space required after comma
+    a_b_mock =  models.FloatField("B_Mock",default=0.0)
+                                          ^ (bad-whitespace)
+C: 48, 0: Exactly one space required after assignment
+    a_c_mock =  models.FloatField("C_Mock",default=0.0)
+             ^ (bad-whitespace)
+C: 48, 0: Exactly one space required after comma
+    a_c_mock =  models.FloatField("C_Mock",default=0.0)
+                                          ^ (bad-whitespace)
+C: 49, 0: Exactly one space required after assignment
+    a_a_wt =    models.FloatField("A_WT",default=0.0)
+           ^ (bad-whitespace)
+C: 49, 0: Exactly one space required after comma
+    a_a_wt =    models.FloatField("A_WT",default=0.0)
+                                        ^ (bad-whitespace)
+C: 50, 0: Exactly one space required after comma
+    a_b_wt = models.FloatField("B_WT",default=0.0)
+                                     ^ (bad-whitespace)
+C: 51, 0: Exactly one space required after comma
+    a_c_wt = models.FloatField("C_WT",default=0.0)
+                                     ^ (bad-whitespace)
+C: 52, 0: Exactly one space required after comma
+    a_a_delta_vif = models.FloatField("A_\N{GREEK CAPITAL LETTER DELTA}Vif",default=0.0)
+                                                                           ^ (bad-whitespace)
+C: 53, 0: Exactly one space required after comma
+    a_b_delta_vif = models.FloatField("B_\N{GREEK CAPITAL LETTER DELTA}Vif",default=0.0)
+                                                                           ^ (bad-whitespace)
+C: 54, 0: Exactly one space required after comma
+    a_c_delta_vif = models.FloatField("C_\N{GREEK CAPITAL LETTER DELTA}Vif",default=0.0)
+                                                                           ^ (bad-whitespace)
+C: 57, 0: Wrong hanging indentation (remove 8 spaces).
+                    models.UniqueConstraint(fields=['gene_id',
+            |       ^ (bad-continuation)
+C: 58, 0: Wrong continued indentation (add 1 space).
+                                                   'log2_wt_by_mock', 'p_wt_by_mock', 'q_wt_by_mock', 'log2_delta_vif_by_mock',
+                                                   ^| (bad-continuation)
+C: 58, 0: Line too long (127/100) (line-too-long)
+C: 59, 0: Wrong continued indentation (add 1 space).
+                                                   'p_wt_by_delta_vif', 'q_wt_by_delta_vif',
+                                                   ^| (bad-continuation)
+C: 60, 0: Wrong continued indentation (add 1 space).
+                                                   'a_mock', 'b_mock', 'c_mock',
+                                                   ^| (bad-continuation)
+C: 61, 0: Wrong continued indentation (add 1 space).
+                                                   'a_wt', 'b_wt', 'c_wt',
+                                                   ^| (bad-continuation)
+C: 62, 0: Wrong continued indentation (add 1 space).
+                                                   'a_delta_vif', 'b_delta_vif', 'c_delta_vif'], name='unique_entry'),
+                                                   ^| (bad-continuation)
+C: 62, 0: Line too long (118/100) (line-too-long)
+C: 63, 0: Wrong hanging indentation.
+                     ]
+        |   |        ^ (bad-continuation)
+C: 72, 0: Exactly one space required after comma
+    a1_a = models.FloatField("Abundance Activated_1",default=1.0)
+                                                    ^ (bad-whitespace)
+C: 73, 0: Exactly one space required after comma
+    a2_a = models.FloatField("Abundance Activated_2",default=1.0)
+                                                    ^ (bad-whitespace)
+C: 74, 0: Exactly one space required after comma
+    m24_a = models.FloatField("Abundance 24h_Mock",default=1.0)
+                                                  ^ (bad-whitespace)
+C: 75, 0: Exactly one space required after comma
+    pos24_a = models.FloatField("Abundance 24h_Pos",default=1.0)
+                                                   ^ (bad-whitespace)
+C: 76, 0: Exactly one space required after comma
+    neg24_a = models.FloatField("Abundance 24h_Neg",default=1.0)
+                                                   ^ (bad-whitespace)
+C: 77, 0: Exactly one space required after comma
+    m48_a = models.FloatField("Abundance 48h_Mock",default=1.0)
+                                                  ^ (bad-whitespace)
+C: 78, 0: Exactly one space required after comma
+    pos48_a = models.FloatField("Abundance 48h_Pos",default=1.0)
+                                                   ^ (bad-whitespace)
+C: 79, 0: Exactly one space required after comma
+    neg48_a = models.FloatField("Abundance 48h_Neg",default=1.0)
+                                                   ^ (bad-whitespace)
+C: 82, 0: Exactly one space required after assignment
+    log2_p24a_by_m24a =  models.FloatField("Abundance Positive 24 Lg2Ratio", default=1.0)
+                      ^ (bad-whitespace)
+C: 83, 0: Exactly one space required after assignment
+    log2_n24a_by_m24a =  models.FloatField("Abundance Negative 24 Lg2Ratio", default=1.0)
+                      ^ (bad-whitespace)
+C: 84, 0: Exactly one space required after assignment
+    log2_p48a_by_m48a =  models.FloatField("Abundance Positive 48 Lg2Ratio", default=1.0)
+                      ^ (bad-whitespace)
+C: 85, 0: Exactly one space required after assignment
+    log2_n48a_by_m48a =  models.FloatField("Abundance Negative 48 Lg2Ratio", default=1.0)
+                      ^ (bad-whitespace)
+C: 98, 0: Wrong hanging indentation (remove 8 spaces).
+                    models.UniqueConstraint(fields=['gene_id',
+            |       ^ (bad-continuation)
+C: 99, 0: Wrong continued indentation (add 1 space).
+                                                   'r1', 'r2', 'a1', 'a2',
+                                                   ^| (bad-continuation)
+C:100, 0: Wrong continued indentation (add 1 space).
+                                                   'm24', 'pos24', 'neg24',
+                                                   ^| (bad-continuation)
+C:101, 0: Wrong continued indentation (add 1 space).
+                                                   'm48', 'pos48', 'neg48'], name='unique_entry'),
+                                                   ^| (bad-continuation)
+C:102, 0: Wrong hanging indentation.
+                     ]
+        |   |        ^ (bad-continuation)
+C:113, 0: Trailing whitespace (trailing-whitespace)
+C:113, 0: Exactly one space required after comma
+    accession = models.CharField("Accession",max_length=10) 
+                                            ^ (bad-whitespace)
+C:116, 0: Trailing whitespace (trailing-whitespace)
+C:116, 0: Exactly one space required after comma
+    description = models.CharField("Description",max_length=80) 
+                                                ^ (bad-whitespace)
+C:117, 0: Trailing whitespace (trailing-whitespace)
+C:117, 0: Exactly one space required after comma
+    taxonomy = models.CharField("Taxonomy",max_length=20) 
+                                          ^ (bad-whitespace)
+C:118, 0: Trailing whitespace (trailing-whitespace)
+C:118, 0: Line too long (105/100) (line-too-long)
+C:119, 0: Trailing whitespace (trailing-whitespace)
+C:120, 0: Trailing whitespace (trailing-whitespace)
+C:127, 0: Exactly one space required after comma
+    a1_a = models.FloatField("Abundance Activated_1",default=1.0)
+                                                    ^ (bad-whitespace)
+C:128, 0: Exactly one space required after comma
+    a2_a = models.FloatField("Abundance Activated_2",default=1.0)
+                                                    ^ (bad-whitespace)
+C:129, 0: Exactly one space required after comma
+    m24_a = models.FloatField("Abundance 24h_Mock",default=1.0)
+                                                  ^ (bad-whitespace)
+C:130, 0: Exactly one space required after comma
+    pos24_a = models.FloatField("Abundance 24h_Pos",default=1.0)
+                                                   ^ (bad-whitespace)
+C:131, 0: Exactly one space required after comma
+    neg24_a = models.FloatField("Abundance 24h_Neg",default=1.0)
+                                                   ^ (bad-whitespace)
+C:132, 0: Exactly one space required after comma
+    m48_a = models.FloatField("Abundance 48h_Mock",default=1.0)
+                                                  ^ (bad-whitespace)
+C:133, 0: Exactly one space required after comma
+    pos48_a = models.FloatField("Abundance 48h_Pos",default=1.0)
+                                                   ^ (bad-whitespace)
+C:134, 0: Exactly one space required after comma
+    neg48_a = models.FloatField("Abundance 48h_Neg",default=1.0)
+                                                   ^ (bad-whitespace)
+C:137, 0: Exactly one space required after assignment
+    log2_p24a_by_m24a =  models.FloatField("Abundance Positive 24 Lg2Ratio", default=1.0)
+                      ^ (bad-whitespace)
+C:138, 0: Exactly one space required after assignment
+    log2_n24a_by_m24a =  models.FloatField("Abundance Negative 24 Lg2Ratio", default=1.0)
+                      ^ (bad-whitespace)
+C:139, 0: Exactly one space required after assignment
+    log2_p48a_by_m48a =  models.FloatField("Abundance Positive 48 Lg2Ratio", default=1.0)
+                      ^ (bad-whitespace)
+C:140, 0: Exactly one space required after assignment
+    log2_n48a_by_m48a =  models.FloatField("Abundance Negative 48 Lg2Ratio", default=1.0)
+                      ^ (bad-whitespace)
+C:142, 0: Trailing whitespace (trailing-whitespace)
+C:143, 0: Trailing whitespace (trailing-whitespace)
+C:144, 0: Trailing whitespace (trailing-whitespace)
+C:145, 0: Trailing whitespace (trailing-whitespace)
+C:146, 0: Trailing whitespace (trailing-whitespace)
+C:147, 0: Trailing whitespace (trailing-whitespace)
+C:148, 0: Trailing whitespace (trailing-whitespace)
+C:149, 0: Trailing whitespace (trailing-whitespace)
+C:150, 0: Trailing whitespace (trailing-whitespace)
+C:153, 0: Wrong hanging indentation (remove 8 spaces).
+                    models.UniqueConstraint(fields=['gene_id', 
+            |       ^ (bad-continuation)
+C:153, 0: Trailing whitespace (trailing-whitespace)
+C:154, 0: Wrong continued indentation (add 1 space).
+                                                   'r1', 'r2', 'a1', 'a2', 
+                                                   ^| (bad-continuation)
+C:154, 0: Trailing whitespace (trailing-whitespace)
+C:155, 0: Wrong continued indentation (add 1 space).
+                                                   'm24', 'pos24', 'neg24',
+                                                   ^| (bad-continuation)
+C:156, 0: Wrong continued indentation (add 1 space).
+                                                   'm48', 'pos48', 'neg48'], name='unique_entry'),
+                                                   ^| (bad-continuation)
+C:157, 0: Wrong hanging indentation.
+                     ]
+        |   |        ^ (bad-continuation)
+C:163, 0: Exactly one space required after comma
+    p_wt_by_mock = models.FloatField("p_WT/Mock",default=1.0)
+                                                ^ (bad-whitespace)
+C:164, 0: Exactly one space required after comma
+    q_wt_by_mock = models.FloatField("q_WT/Mock",default=1.0)
+                                                ^ (bad-whitespace)
+C:165, 0: Line too long (106/100) (line-too-long)
+C:165, 0: Exactly one space required after comma
+    log2_delta_vif_by_mock = models.FloatField("Log2(\N{GREEK CAPITAL LETTER DELTA}Vif/Mock)",default=1.0)
+                                                                                             ^ (bad-whitespace)
+C:166, 0: Exactly one space required after comma
+    p_delta_vif_by_mock = models.FloatField("p_\N{GREEK CAPITAL LETTER DELTA}Vif/Mock",default=1.0)
+                                                                                      ^ (bad-whitespace)
+C:167, 0: Trailing whitespace (trailing-whitespace)
+C:167, 0: Exactly one space required after comma
+    q_delta_vif_by_mock = models.FloatField("q_\N{GREEK CAPITAL LETTER DELTA}Vif/Mock",default=1.0)  
+                                                                                      ^ (bad-whitespace)
+C:168, 0: Line too long (102/100) (line-too-long)
+C:168, 0: Exactly one space required after comma
+    log2_wt_by_delta_vif = models.FloatField("Log2(WT/\N{GREEK CAPITAL LETTER DELTA}Vif)",default=1.0)
+                                                                                         ^ (bad-whitespace)
+C:169, 0: Exactly one space required after assignment
+    p_wt_by_delta_vif =  models.FloatField("p_WT/\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                      ^ (bad-whitespace)
+C:169, 0: Exactly one space required after comma
+    p_wt_by_delta_vif =  models.FloatField("p_WT/\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                                                                                   ^ (bad-whitespace)
+C:170, 0: Exactly one space required after assignment
+    q_wt_by_delta_vif =  models.FloatField("q_WT/\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                      ^ (bad-whitespace)
+C:170, 0: Exactly one space required after comma
+    q_wt_by_delta_vif =  models.FloatField("q_WT/\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                                                                                   ^ (bad-whitespace)
+C:171, 0: Exactly one space required after comma
+    a_mock = models.FloatField("A_Mock",default=1.0)
+                                       ^ (bad-whitespace)
+C:172, 0: Exactly one space required after assignment
+    b_mock =  models.FloatField("B_Mock",default=1.0)
+           ^ (bad-whitespace)
+C:172, 0: Exactly one space required after comma
+    b_mock =  models.FloatField("B_Mock",default=1.0)
+                                        ^ (bad-whitespace)
+C:173, 0: Exactly one space required after assignment
+    c_mock =  models.FloatField("C_Mock",default=1.0)
+           ^ (bad-whitespace)
+C:173, 0: Exactly one space required after comma
+    c_mock =  models.FloatField("C_Mock",default=1.0)
+                                        ^ (bad-whitespace)
+C:174, 0: Exactly one space required after assignment
+    a_wt =    models.FloatField("A_WT",default=1.0)
+         ^ (bad-whitespace)
+C:174, 0: Exactly one space required after comma
+    a_wt =    models.FloatField("A_WT",default=1.0)
+                                      ^ (bad-whitespace)
+C:175, 0: Exactly one space required after comma
+    b_wt = models.FloatField("B_WT",default=1.0)
+                                   ^ (bad-whitespace)
+C:176, 0: Exactly one space required after comma
+    c_wt = models.FloatField("C_WT",default=1.0)
+                                   ^ (bad-whitespace)
+C:177, 0: Exactly one space required after comma
+    a_delta_vif = models.FloatField("A_\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                                                                         ^ (bad-whitespace)
+C:178, 0: Exactly one space required after comma
+    b_delta_vif = models.FloatField("B_\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                                                                         ^ (bad-whitespace)
+C:179, 0: Exactly one space required after comma
+    c_delta_vif = models.FloatField("C_\N{GREEK CAPITAL LETTER DELTA}Vif",default=1.0)
+                                                                         ^ (bad-whitespace)
+C:183, 0: Wrong hanging indentation (remove 8 spaces).
+                    models.UniqueConstraint(fields=['gene_id', 
+            |       ^ (bad-continuation)
+C:183, 0: Trailing whitespace (trailing-whitespace)
+C:184, 0: Wrong continued indentation (add 1 space).
+                                                   'log2_wt_by_mock', 'p_wt_by_mock', 'q_wt_by_mock', 'log2_delta_vif_by_mock', 
+                                                   ^| (bad-continuation)
+C:184, 0: Trailing whitespace (trailing-whitespace)
+C:184, 0: Line too long (127/100) (line-too-long)
+C:185, 0: Wrong continued indentation (add 1 space).
+                                                   'p_wt_by_delta_vif', 'q_wt_by_delta_vif',
+                                                   ^| (bad-continuation)
+C:186, 0: Wrong continued indentation (add 1 space).
+                                                   'a_mock', 'b_mock', 'c_mock',
+                                                   ^| (bad-continuation)
+C:187, 0: Wrong continued indentation (add 1 space).
+                                                   'a_wt', 'b_wt', 'c_wt',
+                                                   ^| (bad-continuation)
+C:188, 0: Wrong continued indentation (add 1 space).
+                                                   'a_delta_vif', 'b_delta_vif', 'c_delta_vif'], name='unique_entry'),
+                                                   ^| (bad-continuation)
+C:188, 0: Line too long (118/100) (line-too-long)
+C:189, 0: Wrong hanging indentation.
+                     ]
+        |   |        ^ (bad-continuation)
+C:202, 0: Wrong hanging indentation (remove 9 spaces).
+                 base_field=models.IntegerField("TimeCourseID", default=999999),
+        |        ^ (bad-continuation)
+C:203, 0: Wrong hanging indentation (remove 10 spaces).
+                  max_length=(1000), default=None)
+        |         ^ (bad-continuation)
+C:206, 0: Wrong hanging indentation (remove 9 spaces).
+                 base_field=models.IntegerField("SingleTimePointID", default=999999),
+        |        ^ (bad-continuation)
+C:207, 0: Wrong hanging indentation (remove 10 spaces).
+                  max_length=(1000), default=None)
+        |         ^ (bad-continuation)
+W: 31, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W: 32, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W: 33, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W: 34, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W: 35, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W: 36, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W: 43, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W: 44, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W: 45, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W: 52, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W: 53, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W: 54, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W:165, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W:166, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W:167, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W:168, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W:169, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W:170, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W:177, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W:178, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+W:179, 0: Anomalous Unicode escape in byte string: '\N'. String constant might be missing an r or u prefix. (anomalous-unicode-escape-in-string)
+C:  1, 0: Missing module docstring (missing-docstring)
+E:  1, 0: Unable to import 'django.db' (import-error)
+E:  2, 0: Unable to import 'django.db.models' (import-error)
+E:  3, 0: Unable to import 'django_mysql.models' (import-error)
+C:  5, 0: Missing class docstring (missing-docstring)
+C: 10, 4: Missing class docstring (missing-docstring)
+C: 10, 4: Old-style class defined. (old-style-class)
+W: 10, 4: Class has no __init__ method (no-init)
+R: 10, 4: Too few public methods (0/2) (too-few-public-methods)
+R:  5, 0: Too few public methods (0/2) (too-few-public-methods)
+C: 14, 0: Missing class docstring (missing-docstring)
+C: 15, 4: Missing class docstring (missing-docstring)
+C: 15, 4: Old-style class defined. (old-style-class)
+W: 15, 4: Class has no __init__ method (no-init)
+R: 15, 4: Too few public methods (0/2) (too-few-public-methods)
+R: 14, 0: Too few public methods (0/2) (too-few-public-methods)
+C: 26, 0: Missing class docstring (missing-docstring)
+C: 55, 4: Missing class docstring (missing-docstring)
+C: 55, 4: Old-style class defined. (old-style-class)
+W: 55, 4: Class has no __init__ method (no-init)
+R: 55, 4: Too few public methods (0/2) (too-few-public-methods)
+C: 64, 4: Missing method docstring (missing-docstring)
+R: 26, 0: Too few public methods (1/2) (too-few-public-methods)
+C: 68, 0: Missing class docstring (missing-docstring)
+C: 96, 4: Missing class docstring (missing-docstring)
+C: 96, 4: Old-style class defined. (old-style-class)
+W: 96, 4: Class has no __init__ method (no-init)
+R: 96, 4: Too few public methods (0/2) (too-few-public-methods)
+C:103, 4: Missing method docstring (missing-docstring)
+R: 68, 0: Too few public methods (1/2) (too-few-public-methods)
+C:110, 0: Missing class docstring (missing-docstring)
+C:111, 4: Missing class docstring (missing-docstring)
+C:111, 4: Old-style class defined. (old-style-class)
+W:111, 4: Class has no __init__ method (no-init)
+R:111, 4: Too few public methods (0/2) (too-few-public-methods)
+R:110, 0: Too few public methods (0/2) (too-few-public-methods)
+C:124, 0: Missing class docstring (missing-docstring)
+C:151, 4: Missing class docstring (missing-docstring)
+C:151, 4: Old-style class defined. (old-style-class)
+W:151, 4: Class has no __init__ method (no-init)
+R:151, 4: Too few public methods (0/2) (too-few-public-methods)
+C:158, 4: Missing method docstring (missing-docstring)
+R:124, 0: Too few public methods (1/2) (too-few-public-methods)
+C:161, 0: Missing class docstring (missing-docstring)
+C:181, 4: Missing class docstring (missing-docstring)
+C:181, 4: Old-style class defined. (old-style-class)
+W:181, 4: Class has no __init__ method (no-init)
+R:181, 4: Too few public methods (0/2) (too-few-public-methods)
+C:191, 4: Missing method docstring (missing-docstring)
+R:161, 0: Too few public methods (1/2) (too-few-public-methods)
+C:197, 0: Missing class docstring (missing-docstring)
+R:197, 0: Too few public methods (0/2) (too-few-public-methods)
+W:  2, 0: Unused CharField imported from django.db.models (unused-import)
+W:  2, 0: Unused Model imported from django.db.models (unused-import)
+
+--------------------------------------------------------------------
+Your code has been rated at -5.35/10 (previous run: -5.35/10, +0.00)
+

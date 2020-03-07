@@ -6,13 +6,13 @@
 {% load render_table from django_tables2 %}
 
 <head>
-     {% bootstrap_css %}	
+    {% bootstrap_css %}
     <title>database list view</title>
     <link href="{% static 'css/landing-page.min.css' %}" rel="stylesheet">
-    <link href="{% static 'django_tables2/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'django_tables2/bootstrap.css' %}" rel="stylesheet"/>
     <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/bootstrap/css/navbar.css' %}" rel="stylesheet">
-<style>
+    <style>
 {% include "style.html"%}
   h1{
   color: slategray;
@@ -89,18 +89,22 @@ margin-top: 4em !important;
 }
 
   
-</style>  
-  </head>
-  <body>
-    <div class='container'>
+
+
+    </style>
+</head>
+<body>
+<div class='container'>
     {% block content %}
     {% endblock content %}
-    </div>
-    {% include 'base/js.html' %}
-    <script>
+</div>
+{% include 'base/js.html' %}
+<script>
     $(document).ready(function(){
       {% block jquery %}{% endblock %}
     })
-    </script>
-  </body>
+
+
+</script>
+</body>
 </html>
