@@ -3,19 +3,19 @@ import random as rd
 import re
 import string
 
-from abundances.models import Gene, MultiTime, SingleTime
-from abundances.serializers import MultiTimeSerializer as mts
-from abundances.serializers import SingleTimeSerializer as sts
+
+from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from django import template
 from django.http import HttpResponse
 from django.shortcuts import render
 from django_filters.views import FilterView
 from django_tables2 import RequestConfig, SingleTableMixin
 from django_tables2.export.views import ExportMixin
-from rest_framework import viewsets
-from rest_framework.response import Response
-from rest_framework.views import APIView
-
+from .models import Gene, MultiTime, SingleTime
+from .serializers import MultiTimeSerializer as mts
+from .serializers import SingleTimeSerializer as sts
 from .filter import GeneFilter, SingleTimeFilter, MultiTimeFilter
 from .tables import GeneTable, MultiTimeTable, SingleTimeTable, StatsTable
 
@@ -29,29 +29,13 @@ class GeneSearch(ExportMixin, SingleTableMixin, FilterView):
     template_name = "bootstrap_template4.html"
     export_formats = ()
 
-    # export_formats = ("csv", "xls")
-
-    def get_queryset(self):
-        return super().get_queryset()
-
-    def get_table_kwargs(self):
-        return {"template_name": "django_tables2/bootstrap.html"}
-
 
 class MultiTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
     model = MultiTime
     table_class = MultiTimeTable
     filterset_class = MultiTimeFilter
     template_name = "bootstrap_template6.html"
-
     export_formats = ("csv", "xls")
-
-    def get_queryset(self):
-        return super().get_queryset()
-
-    def get_table_kwargs(self):
-        return {"template_name": "django_tables2/bootstrap.html"}
-
 
 class SingleTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
     model = SingleTime
@@ -60,12 +44,6 @@ class SingleTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
     template_name = "bootstrap_template7.html"
 
     export_formats = ("csv", "xls")
-
-    def get_queryset(self):
-        return super().get_queryset()
-
-    def get_table_kwargs(self):
-        return {"template_name": "django_tables2/bootstrap.html"}
 
 
 class DV(APIView):
@@ -76,7 +54,6 @@ class DV(APIView):
         raw = re.search('(?<=rest/multi-time-id-)[a-zA-Z0-9-=_]{2,40}', request.get_full_path())
         multitime_id = raw.group(0)
         data = MultiTime.objects.filter(id=multitime_id).values()[0]
-        print(data['gene_id_id'])
         gene_id = data['gene_id_id']
         data_gene = Gene.objects.filter(id=gene_id).values()[0]
         data_all = {**data, **data_gene}
@@ -92,7 +69,6 @@ def random_color():
 def display_table(request):
     if request.method == "GET":
         pks = request.GET.getlist("selected")
-        print("pks", pks)
         table_multi = MultiTimeTable(MultiTime.objects.filter(gene_id__in=pks))
         table_single = SingleTimeTable(SingleTime.objects.filter(gene_id__in=pks))
         RequestConfig(request).configure(table_single)
@@ -107,7 +83,7 @@ def display_table(request):
     })
 
 
-def hackview2(request):
+def simplesearch(request):
     search_id = request.GET.getlist("gene_id")
     table_multi = MultiTimeTable(MultiTime.objects.filter(gene_id__gene_id__in=search_id))
     table_single = SingleTimeTable(SingleTime.objects.filter(gene_id__gene_id__in=search_id))
@@ -123,39 +99,15 @@ def hackview2(request):
     })
 
 
-def hackview(request):
-    search_id = request.GET.getlist("gene_id")
-    selected_objects_t = MultiTime.objects.filter(gene_id__gene_id__in=search_id)
-    selected_objects_s = SingleTime.objects.filter(gene_id__gene_id__in=search_id)
-    for i in selected_objects_t:
-        setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" + i.gene_id.accession + "_t")
-        i.save()
-    for i in selected_objects_s:
-        setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" + i.gene_id.accession + "_s")
-        i.save()
-    selected_objects_list_t = selected_objects_t.values()
-    selected_objects_list_s = selected_objects_s.values()
-    selected_geneids_t = selected_objects_t.values_list('uniq_gene_id', flat=True)
-    selected_geneids_s = selected_objects_s.values_list('uniq_gene_id', flat=True)
-    selected_geneids = list(selected_geneids_t) + list(selected_geneids_s)
-    context = {}
-    context['uniq_gene_id'] = selected_geneids
-    context['data_tc'] = json.dumps(list(selected_objects_list_t))
-    context['data_stp'] = json.dumps(list(selected_objects_list_s))
-    context['table_single'] = table_single
-    return render(request, 'sp_tc.html', context)
-
 
 def multitimeview(request):
     template = ''
     list_singletables = []
     list_multitables = []
-    print(request.GET.getlist("gene_id"))
     x = re.search(".*single.*", str(request))
     multi = True
-    if (x):
+    if x:
         multi = False
-        print("Found")
     if request.method == "GET":
         pks = request.GET.getlist("selected")
         selected_obects = None
@@ -179,7 +131,6 @@ def multitimeview(request):
                 single_dt_entry = SingleTime.objects.filter(pk=primkey)
                 tid = single_dt_entry[0].uniq_gene_id
                 single_dt_table = retrieveStatsTable2(single_dt_entry[0])
-                # single_dt_table = SingleTimeTable(single_dt_entry)
                 single_dt_table.tid = tid
                 list_singletables.append(single_dt_table)
         for i in selected_objects:
@@ -217,10 +168,13 @@ def retrieveStatsTable():
 
 def retrieveStatsTable2(st):
     data = [
-        {"Ab": "WT/Mock", "log2": st.log2_wt_by_mock, "pValue": st.p_wt_by_mock, "qValue": st.q_wt_by_mock},
-        {"Ab": "\N{GREEK CAPITAL LETTER DELTA}Vif/Mock", "log2": st.log2_delta_vif_by_mock,
+        {"Ab": "WT/Mock", "log2": st.log2_wt_by_mock,
+                "pValue": st.p_wt_by_mock, "qValue": st.q_wt_by_mock},
+        {"Ab": "\N{GREEK CAPITAL LETTER DELTA}Vif/Mock",
+                "log2": st.log2_delta_vif_by_mock,
          "pValue": st.p_delta_vif_by_mock, "qValue": st.q_delta_vif_by_mock},
-        {"Ab": "\N{GREEK CAPITAL LETTER DELTA}Vif/WT", "log2": st.log2_wt_by_delta_vif, "pValue": st.p_wt_by_delta_vif,
+        {"Ab": "\N{GREEK CAPITAL LETTER DELTA}Vif/WT",
+                "log2": st.log2_wt_by_delta_vif, "pValue": st.p_wt_by_delta_vif,
          "qValue": st.q_wt_by_delta_vif},
 
     ]
