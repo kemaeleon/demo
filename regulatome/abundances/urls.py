@@ -1,8 +1,6 @@
 from django.conf.urls import url
 from django.views import debug
-from django.contrib import admin
 from abundances import views, models
-from abundances.models import TimeCourse
 from abundances.views import DV,GeneSearch,MTView,STView
 
 urlpatterns = [

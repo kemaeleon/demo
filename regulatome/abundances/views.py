@@ -29,15 +29,12 @@ from .tables import GeneTable, MultiTimeTable, SingleTimeTable, StatsTable
 
 register = template.Library()
 
-
-
-class GeneSearch(ExportMixin, SingleTableMixin, FilterView):
+class GeneSearch(SingleTableMixin, FilterView):
     """Search form and filters for the Gene table."""
     model = Gene
     table_class = GeneTable
     filterset_class = GeneFilter
     template_name = "bootstrap_template4.html"
-    export_formats = ()
 
 
 class MultiTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
@@ -70,7 +67,8 @@ class DV(APIView):
 
     def get(self, request):
         """obtain RESTful record for multi time by multi time table primary key"""
-        raw = re.search('(?<=rest/multi-time-id-)[a-zA-Z0-9-=_]{2,40}', request.get_full_path())
+        raw = re.search('(?<=rest/multi-time-id-)[a-zA-Z0-9-=_]{2,40}',\
+                request.get_full_path())
         multitime_id = raw.group(0)
         data = MultiTime.objects.filter(id=multitime_id).values()[0]
         gene_id = data['gene_id_id']
@@ -115,46 +113,44 @@ def simplesearch(request):
     })
 
 
+def set_uniq_gene_id(single_multi_time):
+    """sets uniq gene id"""
+    for i in single_multi_time:
+        setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" + i.gene_id.accession)
+        i.save()
+    return single_multi_time
+
+
+def select_tables(pks, single_multi_objects, multi_true):
+    """select statistics to display on page"""
+    list_tables = []
+    for i in pks:
+        dt_entry = single_multi_objects.filter(pk=i)
+        tid = dt_entry[0].uniq_gene_id
+        data_dt_table = None
+        if multi_true:
+            data_dt_table = MultiTimeTable(dt_entry)
+        else:
+            data_dt_table = retrieve_stats_table(dt_entry[0])
+        data_dt_table.tid = tid
+        list_tables.append(data_dt_table)
+    return list_tables
+
 
 def multitimeview(request):
     """function to define tables and plots"""
-    list_singletables = []
-    list_multitables = []
-    local_template = ''
-    x = re.search(".*single.*", str(request))
-    multi = True
-    if x:
-        multi = False
+    type_single = re.search(".*single.*", str(request))
     if request.method == "GET":
         pks = request.GET.getlist("selected")
-        if multi is True:
-            selected_objects = MultiTime.objects.filter(pk__in=pks)
-            for i in selected_objects:
-                setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" + i.gene_id.accession)
-                i.save()
-            for primkey in pks:
-                multi_dt_entry = MultiTime.objects.filter(pk=primkey)
-                tid = multi_dt_entry[0].uniq_gene_id
-                multi_dt_table = MultiTimeTable(multi_dt_entry)
-                multi_dt_table.tid = tid
-                list_multitables.append(multi_dt_table)
+        if not type_single:
+            selected_objects = set_uniq_gene_id(MultiTime.objects.filter(pk__in=pks))
+            list_multitables = select_tables(pks, MultiTime.objects, True)
         else:
-            selected_objects = SingleTime.objects.filter(pk__in=pks)
-            for i in selected_objects:
-                setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" + i.gene_id.accession)
-                i.save()
-            for primkey in pks:
-                single_dt_entry = SingleTime.objects.filter(pk=primkey)
-                tid = single_dt_entry[0].uniq_gene_id
-                single_dt_table = retrieve_stats_table(single_dt_entry[0])
-                single_dt_table.tid = tid
-                list_singletables.append(single_dt_table)
-        for i in selected_objects:
-            setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" + i.gene_id.accession)
-            i.save()
+            selected_objects = set_uniq_gene_id(SingleTime.objects.filter(pk__in=pks))
+            list_singletables = select_tables(pks, SingleTime.objects, False)
         selected_objects_list = selected_objects.values()
         context = {}
-        if multi is True:
+        if not type_single:
             context['data_tc'] = json.dumps(list(selected_objects_list))
             context['data_stp'] = 0
             context['tablelist'] = list_multitables
@@ -164,22 +160,22 @@ def multitimeview(request):
             context['data_tc'] = 0
             context['tablelist'] = list_singletables
             local_template = 'sp_tc.html'
-        context['table'] = list_singletables
     return render(request, local_template, context)
 
 
 
-def retrieve_stats_table(st):
+def retrieve_stats_table(single_time):
     """retrieves statistical data for single time point entries"""
     data = [
-        {"Ab": "WT/Mock", "log2": st.log2_wt_by_mock,\
-                "pValue": st.p_wt_by_mock, "qValue": st.q_wt_by_mock},\
+        {"Ab": "WT/Mock", "log2": single_time.log2_wt_by_mock,\
+                "pValue": single_time.p_wt_by_mock, "qValue": single_time.q_wt_by_mock},\
         {"Ab": "\N{GREEK CAPITAL LETTER DELTA}Vif/Mock",\
-                "log2": st.log2_delta_vif_by_mock,\
-         "pValue": st.p_delta_vif_by_mock, "qValue": st.q_delta_vif_by_mock},\
+                "log2": single_time.log2_delta_vif_by_mock,\
+                "pValue": single_time.p_delta_vif_by_mock,\
+                "qValue": single_time.q_delta_vif_by_mock},\
         {"Ab": "\N{GREEK CAPITAL LETTER DELTA}Vif/WT",\
-                "log2": st.log2_wt_by_delta_vif, "pValue": st.p_wt_by_delta_vif,\
-         "qValue": st.q_wt_by_delta_vif},
+        "log2": single_time.log2_wt_by_delta_vif, "pValue": single_time.p_wt_by_delta_vif,\
+         "qValue": single_time.q_wt_by_delta_vif},
 
     ]
     stats_table = StatsTable(data)

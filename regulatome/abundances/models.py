@@ -8,7 +8,7 @@ class Gene(models.Model):
     accession = models.CharField("Accession", max_length=10, default="")
     description = models.CharField("Description", max_length=80, default="")
     taxonomy = models.CharField("Taxonomy", max_length=20, default="")
-
+    
     class Meta:
         constraints = [
             models.UniqueConstraint(fields=['gene_id', 'accession', 'description', 'taxonomy'], name='unique_entry'), ]
