@@ -1,10 +1,8 @@
-import django_tables2 as tables
-from django_tables2.utils import A
-from .models import Gene, MultiTime, SingleTime
 import attributedict
 from django.utils.safestring import mark_safe
-
-from django_tables2.utils import Accessor, AttributeDict
+import django_tables2 as tables
+from django_tables2.utils import A, Accessor, AttributeDict
+from .models import Gene, MultiTime, SingleTime
 
 
 class NumberColumn(tables.Column):
@@ -28,7 +26,8 @@ class myColumn(tables.CheckBoxColumn):
         return mark_safe("<input %s/>" % attrs.as_html())
 
     def render(self, value, bound_column, record):
-        default = {"type": "checkbox", "name": bound_column.name, "value": value, "onclick": "success()", }
+        default = {"type": "checkbox",\
+                "name": bound_column.name, "value": value, "onclick": "success()", }
         if self.is_checked(value, record):
             default.update({"checked": "checked"})
 
@@ -47,8 +46,9 @@ class MultiTimeTable(tables.Table):
         model = MultiTime
         sequence = ('selected', 'gene_id.gene_id')
         fields = (
-        'gene_id.gene_id', 'gene_id.accession', 'gene_id.description', 'log2_p24a_by_m24a', 'log2_n24a_by_m24a',
-        'log2_p48a_by_m48a', 'log2_n48a_by_m48a')
+            'gene_id.gene_id', 'gene_id.accession',\
+            'gene_id.description', 'log2_p24a_by_m24a', 'log2_n24a_by_m24a',\
+            'log2_p48a_by_m48a', 'log2_n48a_by_m48a')
         attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
 
     def render_edit(self):
@@ -68,7 +68,8 @@ class SingleTimeTable(tables.Table):
     class Meta:
         model = SingleTime
         sequence = ('selected', 'gene_id.gene_id')
-        fields = ('gene_id.gene_id', 'log2_wt_by_mock', 'q_wt_by_mock', 'p_wt_by_mock', 'a_a_wt', 'a_b_wt', 'a_c_wt',
+        fields = ('gene_id.gene_id', 'log2_wt_by_mock', 'q_wt_by_mock',\
+                  'p_wt_by_mock', 'a_a_wt', 'a_b_wt', 'a_c_wt',
                   'a_a_delta_vif', 'a_b_delta_vif', 'a_c_delta_vif')
         attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
 
@@ -92,5 +93,7 @@ class GeneTable(tables.Table):
 class StatsTable(tables.Table):
     Ab = tables.Column()
     log2 = NumberColumn()
-    pValue = SmallValColumn(attrs={'td': {'class': lambda value: 'bg-primary' if float(value) < 0.05 else 'bg-light'}})
-    qValue = SmallValColumn(attrs={'td': {'class': lambda value: 'bg-primary' if float(value) < 0.05 else 'bg-light'}})
+    pValue = SmallValColumn(attrs={'td':\
+            {'class': lambda value: 'bg-primary' if float(value) < 0.05 else 'bg-light'}})
+    qValue = SmallValColumn(attrs={'td':\
+            {'class': lambda value: 'bg-primary' if float(value) < 0.05 else 'bg-light'}})
