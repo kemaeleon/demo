@@ -11,7 +11,7 @@ class Gene(models.Model):
         constraints = [
             models.UniqueConstraint(\
             fields=['gene_id', 'accession', 'description', 'taxonomy'],\
-            name='unique_entry'),]
+            name='uniq_gene'),]
 
 class SingleMultiAbundance(models.Model):
     """base model for regulatome measurements"""
@@ -65,7 +65,7 @@ class SingleTime(SingleMultiAbundance):
                         'p_wt_by_delta_vif', 'q_wt_by_delta_vif',
                         'a_mock', 'b_mock', 'c_mock',
                         'a_wt', 'b_wt', 'c_wt',
-                        'a_delta_vif', 'b_delta_vif', 'c_delta_vif'], name='unique_entry'),
+                        'a_delta_vif', 'b_delta_vif', 'c_delta_vif'], name='uniq_single_time'),
                         ]
 
     def get_absolute_url(self):
@@ -110,7 +110,7 @@ class MultiTime(SingleMultiAbundance):
                                             'r1', 'r2', 'a1', 'a2',
                                             'm24', 'pos24', 'neg24',
                                             'm48', 'pos48', 'neg48'],\
-                                            name='unique_entry'),]
+                                            name='uniq_multi_time'),]
 
     def get_absolute_url(self):
         """return url for linking e.g. a table column to the data entry"""
