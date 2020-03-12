@@ -1,22 +1,28 @@
-import attributedict
+"""table module"""
 from django.utils.safestring import mark_safe
 import django_tables2 as tables
-from django_tables2.utils import A, Accessor, AttributeDict
+from django_tables2.utils import AttributeDict
 from .models import Gene, MultiTime, SingleTime
 
 
 class NumberColumn(tables.Column):
+    """formatting values to two decimals"""
     def render(self, value):
         return '{:0.2f}'.format(value)
 
 
 class SmallValColumn(tables.Column):
+    """formatting values to two decimals in scientific notation"""
     def render(self, value):
         return '{:0.2E}'.format(value)
 
 
-class myColumn(tables.CheckBoxColumn):
+class ChattyColumn(tables.CheckBoxColumn):
+    """
+    modified CheckBoxColumn to have "onlick":"sucess()" attributes
 
+    Used by javascript activate display button only if data are selected.
+    """
     @property
     def header(self):
         default = {"type": "checkbox", "onkeyup": "success"}
@@ -27,7 +33,7 @@ class myColumn(tables.CheckBoxColumn):
 
     def render(self, value, bound_column, record):
         default = {"type": "checkbox",\
-                "name": bound_column.name, "value": value, "onclick": "success()", }
+                "name": bound_column.name, "value": value, "onclick": "success()",}
         if self.is_checked(value, record):
             default.update({"checked": "checked"})
 
@@ -38,11 +44,13 @@ class myColumn(tables.CheckBoxColumn):
 
 
 class MultiTimeTable(tables.Table):
+    """table to display MultiTime model data"""
     ttype = 'MT'
     # selected = tables.CheckBoxColumn(accessor='pk', orderable=False)
-    selected = myColumn(accessor='pk', orderable=False)
+    selected = ChattyColumn(accessor='pk', orderable=False)
 
     class Meta:
+        """container class"""
         model = MultiTime
         sequence = ('selected', 'gene_id.gene_id')
         fields = (
@@ -51,14 +59,13 @@ class MultiTimeTable(tables.Table):
             'log2_p48a_by_m48a', 'log2_n48a_by_m48a')
         attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
 
-    def render_edit(self):
-        return 'Edit'
 
 
 class SingleTimeTable(tables.Table):
+    """table to display SingleTime model data"""
     ttype = 'st'
     tid = ''
-    selected = myColumn(accessor='pk', orderable=False)
+    selected = ChattyColumn(accessor='pk', orderable=False)
     log2_wt_by_mock = NumberColumn()
     q_wt_by_mock = SmallValColumn(
         attrs={'td': {'class': lambda value: 'bg-primary' if float(value) < 0.05 else 'bg-light'}})
@@ -66,6 +73,7 @@ class SingleTimeTable(tables.Table):
         attrs={'td': {'class': lambda value: 'bg-primary' if float(value) < 0.05 else 'bg-light'}})
 
     class Meta:
+        """container class"""
         model = SingleTime
         sequence = ('selected', 'gene_id.gene_id')
         fields = ('gene_id.gene_id', 'log2_wt_by_mock', 'q_wt_by_mock',\
@@ -73,24 +81,23 @@ class SingleTimeTable(tables.Table):
                   'a_a_delta_vif', 'a_b_delta_vif', 'a_c_delta_vif')
         attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
 
-    def render_edit(self):
-        return 'Edit'
 
 
 class GeneTable(tables.Table):
-    selected = myColumn(accessor='pk', orderable=False)
+    """table to display protein info data"""
+    selected = ChattyColumn(accessor='pk', orderable=False)
 
     class Meta:
+        """container class"""
         model = Gene
         sequence = ('selected', 'gene_id', 'accession', 'description', 'taxonomy')
         fields = ('gene_id', 'accession', 'description', 'taxonomy')
         attrs = {"class": "table table-striped table-hover table-responsive w-auto"}
 
-    def render_edit(self):
-        return 'Edit'
 
 
 class StatsTable(tables.Table):
+    """table to go alongside Single Time plots"""
     Ab = tables.Column()
     log2 = NumberColumn()
     pValue = SmallValColumn(attrs={'td':\
