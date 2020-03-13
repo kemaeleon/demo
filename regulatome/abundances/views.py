@@ -66,7 +66,6 @@ class DV(APIView):
     from the multitime set.
     This is avoids lengthy loading of RESTful data and can be
     useful for demos.
-    Not currently used.
     """
     authentication_classes = []
     permission_classes = []
@@ -122,7 +121,7 @@ def cross_search(request):
 def set_uniq_gene_id(single_multi_time):
     """sets uniq gene id"""
     for i in single_multi_time:
-        setattr(i, 'uniq_gene_id', i.gene_id.gene_id + "_" + i.gene_id.accession)
+        setattr(i, 'uniq_gene_id', str(i.gene_id.gene_id).replace(" ","") + "_" + i.gene_id.accession)
         i.save()
     return single_multi_time
 

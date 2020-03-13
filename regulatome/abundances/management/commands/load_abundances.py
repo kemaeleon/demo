@@ -21,6 +21,7 @@ def log_ab(peak, control):
 def populate_gene(row):
     """filling gene object with protein information data"""
     try:
+        print(row["Gene ID"])
         gene = Gene()
         try:
             setattr(gene, "gene_id", row["Gene ID"])

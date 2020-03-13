@@ -127,18 +127,21 @@ td > input[type="checkbox"]{
 <div class="row" id="divider">
     <header class="masthead text-white text-center">
     </header>
-
+</div>
+<div class="container">
     {% for o in tablelist %}
     <div class="row">
         <div class='col-sm-10'>
             <h1> {{o.tid}} </h1>
             <canvas id={{o.tid}} width=800 height=400></canvas>
         </div>
-	<div class='col-sm-10'> 
+    </div>	
+    <div class="row">
+	<div class='col-sm-6'>
         {% render_table o %}
+	</div>
     </div>
-    </div>
-</div>
 {% endfor %}
+</div>
 </html>
 {% endblock content %}

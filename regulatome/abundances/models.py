@@ -5,7 +5,7 @@ class Gene(models.Model):
     """taxonomic information about the protein"""
     gene_id = models.CharField("Gene ID", max_length=15, default="")
     accession = models.CharField("Accession", max_length=10, default="")
-    description = models.CharField("Description", max_length=80, default="")
+    description = models.CharField("Description", max_length=200, default="")
     taxonomy = models.CharField("Taxonomy", max_length=20, default="")
     class Meta:
         constraints = [
