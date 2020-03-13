@@ -1,23 +1,15 @@
 abundances package
 ==================
 
+Subpackages
+-----------
+
 .. toctree::
-   :maxdepth: 2
 
+   abundances.migrations
 
-abundances.management.commands.module 
--------------------------------------
-
-.. automodule:: abundances.management.commands.new
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-.. automodule:: abundances.management.commands.gene_id
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
+Submodules
+----------
 
 abundances.admin module
 -----------------------
@@ -47,6 +39,14 @@ abundances.models module
 ------------------------
 
 .. automodule:: abundances.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+abundances.serializers module
+-----------------------------
+
+.. automodule:: abundances.serializers
    :members:
    :undoc-members:
    :show-inheritance:

@@ -43,6 +43,14 @@ abundances.models module
    :undoc-members:
    :show-inheritance:
 
+abundances.serializers module
+-----------------------------
+
+.. automodule:: abundances.serializers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 abundances.tables module
 ------------------------
 
@@ -80,60 +88,6 @@ Module contents
 ---------------
 
 .. automodule:: abundances
-   :members:
-   :undoc-members:
-   :show-inheritance:
-manage module
-=============
-
-.. automodule:: manage
-   :members:
-   :undoc-members:
-   :show-inheritance:
-regulatome
-==========
-
-.. toctree::
-   :maxdepth: 4
-
-   abundances
-   manage
-   regulatome
-regulatome package
-==================
-
-Submodules
-----------
-
-regulatome.settings module
---------------------------
-
-.. automodule:: regulatome.settings
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-regulatome.urls module
-----------------------
-
-.. automodule:: regulatome.urls
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-regulatome.wsgi module
-----------------------
-
-.. automodule:: regulatome.wsgi
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
-Module contents
----------------
-
-.. automodule:: regulatome
    :members:
    :undoc-members:
    :show-inheritance:
