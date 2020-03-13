@@ -1,0 +1,41 @@
+<!doctype html>
+{% load static %}
+{% load django_tables2 %}
+{% load bootstrap3 %}
+{% load render_table from django_tables2 %}
+<html>
+{% include "head_single_multi.html" %}
+<body>
+<div class="container">
+    {% block body %}
+
+    {% include "nav.html" %}
+
+    <div class="row" id="divider">
+        <header class="masthead text-white text-center">
+        </header>
+    </div>
+    <div class="row">
+        <div>
+            <h1> Time Course Data </h1>
+            <form action="/plot_multitime/" method="get">
+                <input type="submit" value="Plot Selected Entries">
+                {% render_table table_multi %}
+            </form>
+        </div>
+
+        <div>
+            <h1> Single Time Data </h1>
+            <form action="/plot_singletime/" method="get">
+                <input type="submit" value="Plot Selected Entries">
+                {% render_table table_single %}
+            </form>
+        </div>
+
+        {% endblock %}
+
+
+    </div>
+</div>
+</body>
+</html>

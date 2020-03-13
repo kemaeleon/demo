@@ -34,7 +34,7 @@ class GeneSearch(SingleTableMixin, FilterView):
     model = Gene
     table_class = GeneTable
     filterset_class = GeneFilter
-    template_name = "bootstrap_template4.html"
+    template_name = "gene_search.html"
 
 
 class MultiTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
@@ -42,7 +42,8 @@ class MultiTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
     model = MultiTime
     table_class = MultiTimeTable
     filterset_class = MultiTimeFilter
-    template_name = "bootstrap_template6.html"
+    template_name = "multitimebrowse.html"
+    extra_content = {'link_to': 'multitimeview'}
     export_formats = ("csv", "xls")
 
 
@@ -51,7 +52,8 @@ class SingleTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
     model = SingleTime
     table_class = SingleTimeTable
     filterset_class = SingleTimeFilter
-    template_name = "bootstrap_template7.html"
+    template_name = "singletimebrowse.html"
+    extra_content = {'link_to': 'multitimeview'}
     export_formats = ("csv", "xls")
 
 
@@ -99,7 +101,7 @@ def display_table(request):
     })
 
 
-def simplesearch(request):
+def cross_search(request):
     """form for the search displayed on the front page"""
     search_id = request.GET.getlist("gene_id")
     table_multi = MultiTimeTable(MultiTime.objects.filter(gene_id__gene_id__in=search_id))
@@ -107,7 +109,7 @@ def simplesearch(request):
     RequestConfig(request).configure(table_single)
     RequestConfig(request).configure(table_multi)
 
-    return render(request, "bootstrap_template5.html", {
+    return render(request, "cross_search.html", {
         "table_multi": table_multi, "table_single": table_single
 
     })
