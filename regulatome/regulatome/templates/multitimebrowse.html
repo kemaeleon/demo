@@ -37,7 +37,7 @@
                 </div>
             </form>
             {% endif %}
-            <form action="/plot_multitime/" method="get" id="supertext" onkeyup="success()">
+	    <form action={{link_to}} method="get" id="supertext" onkeyup="success()">
                 <input type="submit" value="plot selected data" id="superbutton" disabled>
                 {% render_table table %}
             </form>

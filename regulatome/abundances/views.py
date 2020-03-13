@@ -43,7 +43,9 @@ class MultiTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
     table_class = MultiTimeTable
     filterset_class = MultiTimeFilter
     template_name = "multitimebrowse.html"
-    extra_content = {'link_to': 'multitimeview'}
+    extra_context={
+        'link_to': "/plot_multi/"
+    }
     export_formats = ("csv", "xls")
 
 
@@ -52,8 +54,10 @@ class SingleTimeBrowse(ExportMixin, SingleTableMixin, FilterView):
     model = SingleTime
     table_class = SingleTimeTable
     filterset_class = SingleTimeFilter
-    template_name = "singletimebrowse.html"
-    extra_content = {'link_to': 'multitimeview'}
+    template_name = "multitimebrowse.html"
+    extra_context={
+        'link_to': "/plot_single/"
+    }
     export_formats = ("csv", "xls")
 
 
@@ -140,8 +144,9 @@ def select_tables(pks, single_multi_objects, multi_true):
 
 
 def multitimeview(request):
+    print("PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP")
     """function to define tables and plots"""
-    type_single = re.search(".*single.*", str(request))
+    type_single = re.search(".*single", str(request))
     if request.method == "GET":
         pks = request.GET.getlist("selected")
         if not type_single:
@@ -164,6 +169,33 @@ def multitimeview(request):
             local_template = 'sp_tc.html'
     return render(request, local_template, context)
 
+
+
+def singletimeview(request):
+    """function to define tables and plots"""
+    print("HOHIHOIHOHOHO")
+    type_single = True
+    if request.method == "GET":
+        pks = request.GET.getlist("selected")
+        if not type_single:
+            selected_objects = set_uniq_gene_id(MultiTime.objects.filter(pk__in=pks))
+            list_multitables = select_tables(pks, MultiTime.objects, True)
+        else:
+            selected_objects = set_uniq_gene_id(SingleTime.objects.filter(pk__in=pks))
+            list_singletables = select_tables(pks, SingleTime.objects, False)
+        selected_objects_list = selected_objects.values()
+        context = {}
+        if not type_single:
+            context['data_tc'] = json.dumps(list(selected_objects_list))
+            context['data_stp'] = 0
+            context['tablelist'] = list_multitables
+            local_template = 'sp_tc2.html'
+        else:
+            context['data_stp'] = json.dumps(list(selected_objects_list))
+            context['data_tc'] = 0
+            context['tablelist'] = list_singletables
+            local_template = 'sp_tc.html'
+    return render(request, local_template, context)
 
 
 def retrieve_stats_table(single_time):
