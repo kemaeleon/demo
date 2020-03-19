@@ -51,5 +51,4 @@ class Command(BaseCommand):
                 m48=random_fraction(),\
                 pos48=random_fraction(),\
                 neg48=random_fraction())
-            print(neg48)
-            #entry.save()
+            entry.save()
