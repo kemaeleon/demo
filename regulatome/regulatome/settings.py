@@ -25,7 +25,7 @@ SECRET_KEY = '9s^=oq+n-m#b*swwjfu@ip6v+=5rwiz46w9j)sk!90b$jms7e!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1","131.111.58.16", 'regulatome.mathesonlab.org', "127.01.1.1"]
+ALLOWED_HOSTS = ["data.kemaeleon.com", "127.0.0.1","131.111.58.16", 'regulatome.mathesonlab.org', "127.01.1.1"]
 
 
 # Application definition
@@ -114,8 +114,10 @@ DATABASES = {
                         'NAME': 'regulatome',
                         'USER': 'maria',
                         'PASSWORD': 'peppermint',
-                        'HOST': 'localhost',
+                        'HOST': '127.0.0.1',
                         'PORT': '',
+                        'OPTIONS': { 'init_command': 'SET storage_engine=INNODB;' },
+
                          }
                         }
 
