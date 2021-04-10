@@ -21,7 +21,6 @@ class MultiTimeSerializer(serializers.ModelSerializer):
 
 class SingleTimeSerializer(serializers.ModelSerializer):
     """Selection of fields from SingleTime table"""
-    gene_id = GeneSerializer(many=False, read_only=True)
 
     class Meta:
         model = SingleTime

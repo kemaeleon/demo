@@ -114,4 +114,4 @@ class MultiTime(SingleMultiAbundance):
 
     def get_absolute_url(self):
         """return url for linking e.g. a table column to the data entry"""
-        return "/rest/multi-time-id-%s" % self.id
+        return "/rest/multi-time-id-%s" % str(self.id).zfill(2)

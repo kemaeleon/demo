@@ -25,7 +25,7 @@ SECRET_KEY = '9s^=oq+n-m#b*swwjfu@ip6v+=5rwiz46w9j)sk!90b$jms7e!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["data.kemaeleon.com", "127.0.0.1","131.111.58.16", 'regulatome.mathesonlab.org', "127.01.1.1"]
+ALLOWED_HOSTS = ["testserver.kemaeleon.com", "127.0.0.1","131.111.58.16", 'regulatome.mathesonlab.org', "127.01.1.1", '143.110.162.92']
 
 
 # Application definition
@@ -112,7 +112,7 @@ DATABASES = {
             'default': {
                         'ENGINE': 'django.db.backends.mysql',
                         'NAME': 'regulatome',
-                        'USER': 'maria',
+                        'USER': 'root',
                         'PASSWORD': 'peppermint',
                         'HOST': '127.0.0.1',
                         'PORT': '',
@@ -173,6 +173,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = '/var/www/regulatome/docroot/static'
-STATIC_ROOT = '/home/maria/static'
+STATIC_ROOT = '/root/demo/regulatome/abundances/static'
+#STATIC_ROOT = '/home/maria/static'
 

@@ -189,15 +189,34 @@ def retrieve_stats_table(single_time):
 
 
 class MTView(viewsets.ModelViewSet):
-    """RESTful view of single time entries"""
-    queryset = MultiTime.objects.all().select_related('gene_id')
+    """RESTful view of time course entries"""
+    queryset = MultiTime.objects.all()
     serializer_class = mts
+    def list(self, request):
+        queryset = MultiTime.objects.all()
+        serializer = mts(queryset, many=True)
+        return Response(serializer.data)
 
+    def retrieve(self, request, pk=None):
+        queryset = MultiTime.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        serializer = mts(queryset, many=True)
+        return Response(serializer.data)
 
 class STView(viewsets.ModelViewSet):
-    """RESTful view of time course entries"""
-    queryset = SingleTime.objects.all().select_related('gene_id')
+    """RESTful view of single time entries"""
+    queryset = SingleTime.objects.all()
     serializer_class = sts
+    def list(self,request):
+        queryset = SingleTime.objects.all()
+        serializer = sts(queryset, many = True)
+        return Response(serializer.data)
+ 
+    def retrieve(self, request, pk=None):
+        queryset = SingleTime.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        serializer = sts(queryset, many=True)
+        return Response(serializer.data)
 
 
 @register.tag(name='update')
