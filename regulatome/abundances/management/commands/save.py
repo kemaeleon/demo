@@ -20,33 +20,23 @@ def log_ab(peak, control):
 
 def populate_gene(row):
     """filling gene object with protein information data"""
-    if Gene.objects.filter(gene_id = row["Gene ID"],
-                           accession = row["Accession"],
-                           description = row["Description"],
-                           taxonomy = row["Taxonomy"]
-                           ).exists():
-        return Gene.objects.get(gene_id = row["Gene ID"],
-                           accession = row["Accession"],
-                           description = row["Description"],
-                           taxonomy = row["Taxonomy"]
-                           ) 
-    else:
+    try:
+        gene = Gene()
         try:
-            gene = Gene()
-            try:
-                setattr(gene, "gene_id", row["Gene ID"])
-                setattr(gene, "accession", row["Accession"])
-                setattr(gene, "description", row["Description"])
-                setattr(gene, "taxonomy", row["Taxonomy"])
-                gene.save()
-            except ObjectDoesNotExist as error_message:
-                gene = Gene.objects.get(gene_id=row["Gene ID"],
+            setattr(gene, "gene_id", row["Gene ID"])
+            setattr(gene, "accession", row["Accession"])
+            setattr(gene, "description", row["Description"])
+            setattr(gene, "taxonomy", row["Taxonomy"])
+            gene.save()
+        except ObjectDoesNotExist as error_message:
+            gene = Gene.objects.get(gene_id=row["Gene ID"],
                                     accession=row["Accession"],
                                     description=row["Description"],
                                     taxonomy=row["Taxonomy"])
-        except Exception as error_message:
-            print(error_message)
-        return gene
+    except Exception as error_message:
+        print("UGLYOWN")
+        print(error_message)
+    return gene
 
 def populate_multi_time(row, required_fields, gene):
     """filling multi time object with protein expression data"""
@@ -54,6 +44,7 @@ def populate_multi_time(row, required_fields, gene):
         entry = MultiTime()
         try:
             entry.gene_id = gene
+            print("CARAMBA" + gene)
             entry.save()
         except Exception as error_message:
             print(error_message)

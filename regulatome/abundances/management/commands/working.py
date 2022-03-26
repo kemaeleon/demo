@@ -45,6 +45,7 @@ def populate_gene(row):
                                     description=row["Description"],
                                     taxonomy=row["Taxonomy"])
         except Exception as error_message:
+            print("UGLYOWN")
             print(error_message)
         return gene
 
@@ -54,6 +55,7 @@ def populate_multi_time(row, required_fields, gene):
         entry = MultiTime()
         try:
             entry.gene_id = gene
+            print("CARAMBA" + gene)
             entry.save()
         except Exception as error_message:
             print(error_message)

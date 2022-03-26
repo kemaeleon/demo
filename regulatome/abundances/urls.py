@@ -6,7 +6,7 @@ from abundances.views import  MTView, STView
 
 
 urlpatterns = [
-    url(r'^dice$', views.dicegame, name='dice'),
+    url(r'^dicegame$', views.dicegame, name='dice'),
     url(r'^home$', views.homepage, name='home'),
     url(r'^gene_search$', views.GeneSearch.as_view(), name='gene_search'),
     url(r'^plot_multi', views.multitimeview, name = 'multitimeplot'),
