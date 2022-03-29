@@ -48,7 +48,7 @@ class MultiTimeTable(tables.Table):
     ttype = 'MT'
     # selected = tables.CheckBoxColumn(accessor='pk', orderable=False)
     selected = ChattyColumn(accessor='pk', orderable=False)
-    gene_id = tables.Column(linkify = True)
+    rest_api = tables.Column(linkify = True)
 
     class Meta:
         """container class"""

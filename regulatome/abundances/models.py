@@ -77,6 +77,7 @@ class MultiTime(SingleMultiAbundance):
     """class for multi time point measurements"""
     greek_d = "\N{GREEK CAPITAL LETTER DELTA}"
     gene_id = models.ForeignKey(Gene, on_delete=models.CASCADE)
+    rest_api = models.CharField("rest_api", max_length=200,default="REST_API")
     r1_a = models.FloatField("Abundance Resting_1", default=1.0)
     r2_a = models.FloatField("Abundance Resting_2", default=1.0)
     a1_a = models.FloatField("Abundance Activated_1", default=1.0)
@@ -111,7 +112,7 @@ class MultiTime(SingleMultiAbundance):
                                             'm24', 'pos24', 'neg24',
                                             'm48', 'pos48', 'neg48'],\
                                             name='uniq_multi_time'),]
-
+            
     def get_absolute_url(self):
         """return url for linking e.g. a table column to the data entry"""
         return "/rest/multi-time-id-%s" % str(self.id).zfill(2)

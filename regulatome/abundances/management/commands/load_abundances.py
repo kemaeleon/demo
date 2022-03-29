@@ -52,11 +52,8 @@ def populate_multi_time(row, required_fields, gene):
     """filling multi time object with protein expression data"""
     try:
         entry = MultiTime()
-        try:
-            entry.gene_id = gene
-            entry.save()
-        except Exception as error_message:
-            print(error_message)
+        entry.gene_id = gene
+        #    entry.save()
         for i in required_fields:
             if re.match("FloatField",
                         entry._meta.get_field(i.name).get_internal_type()):
@@ -71,7 +68,6 @@ def populate_multi_time(row, required_fields, gene):
                entry.m24, entry.pos24, entry.neg24,
                entry.m48, entry.pos48, entry.neg48)
         max_pk = max(pks)
-
 
         entry.r1_a = peak_to_ab(entry.r1, max_pk)
         entry.r2_a = peak_to_ab(entry.r2, max_pk)
@@ -153,6 +149,7 @@ class Command(BaseCommand):
                            (re.match(f.name, 'id') or
                             re.match("^(Abundance)", f.verbose_name) or
                             re.match(f.name, 'gene_id') or
+                            re.match(f.name, 'rest_api') or
                             re.match(f.name, 'uniq_gene_id'))]
         with open(os.path.join(os.getcwd(), kwargs['infile'])) as csvfile:
             reader = pd.read_csv(csvfile)

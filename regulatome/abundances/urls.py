@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^multitime_browse', views.MultiTimeBrowse.as_view(), name='multitime_browse'),
     url(r'^singletime_browse', views.SingleTimeBrowse.as_view(), name='singletime_browse'),
     url(r'^rest/multi-time-id-[a-zA-Z0-9-=_]{2,40}$', views.DV.as_view()),
+    url(r'^rest/gene-id-[a-zA-Z0-9-=_]{2,40}$', views.DV_gene_id.as_view()),
     url(r'^rest/MT', MTView.as_view({'get': 'list'}), name='multitime_restful'),
     url(r'^rest/ST', STView.as_view({'get': 'list'}), name='singletime_restful'),
     url('', debug.default_urlconf)

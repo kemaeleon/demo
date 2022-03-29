@@ -82,6 +82,27 @@ class DV(APIView):
         return Response(data_all)
 
 
+class DV_gene_id(APIView):
+    """Search form and filters to  display individual entries
+    from the multitime set."""
+    """Currently only displaying the first value of list, change to do them all"""
+
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request):
+        print(request)
+        """obtain RESTful record for multi time by multi time table primary key"""
+        raw = re.search('(?<=rest/gene-id-)[a-zA-Z0-9-=_]{2,40}',\
+                request.get_full_path())
+        query_id = raw.group(0)
+        data_multi = MultiTime.objects.filter(gene_id__gene_id=query_id).values()[0]
+        data_single = SingleTime.objects.filter(gene_id__gene_id=query_id).values()[0]
+        data_gene = Gene.objects.filter(gene_id=query_id).values()[0]
+        data_all = {**data_gene, **data_single, **data_multi}
+        return Response(data_all)
+
+
 def random_color():
     """returns a random hexdec code for a color"""
     lst = [rd.choice(string.hexdigits) for n in range(6)]
